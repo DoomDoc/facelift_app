@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "653537765608",
+    "project_id": "facelift-dd072",
+    "storage_bucket": "facelift-dd072.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:653537765608:android:a0da873bba8b64bd61415d",
+        "android_client_info": {
+          "package_name": "com.constructions.facelift"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "653537765608-64tat2dvgu7goo87a0bjaqkrlf9dq7pb.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyArorD8SpaSHij7OqYCpEf-IfUH6t6yeXk"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "653537765608-64tat2dvgu7goo87a0bjaqkrlf9dq7pb.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
