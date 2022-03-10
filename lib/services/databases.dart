@@ -55,80 +55,15 @@ class DatabaseService {
       .collection('Usr')
       .doc('superviser');
 
-  final DocumentReference userRequestForSuperDoc = FirebaseFirestore.instance
-      .collection('Requests')
-      .doc('RequestOther')
-      .collection('Super')
-      .doc(number);
+  final DocumentReference userRequestsLabor =
+      FirebaseFirestore.instance.collection('RequestsLabor').doc(number);
 
-  final DocumentReference userRequestForThekedaarDoc = FirebaseFirestore
-      .instance
-      .collection('Requests')
-      .doc('RequestLabor')
-      .collection('Thekedaar')
-      .doc(number);
-
-  final DocumentReference userRequestForPainterDoc = FirebaseFirestore.instance
-      .collection('Requests')
-      .doc('RequestLabor')
-      .collection('Painter')
-      .doc(number);
-
-  final DocumentReference userRequestForMistriDoc = FirebaseFirestore.instance
-      .collection('Requests')
-      .doc('RequestLabor')
-      .collection('Mistri')
-      .doc(number);
-
-  final DocumentReference userRequestForMajdoorDoc = FirebaseFirestore.instance
-      .collection('Requests')
-      .doc('RequestLabor')
-      .collection('Majdoor')
-      .doc(number);
-
-  final DocumentReference userRequestForCarpenterDoc = FirebaseFirestore
-      .instance
-      .collection('Requests')
-      .doc('RequestLabor')
-      .collection('Carpenter')
-      .doc(number);
-
-  final DocumentReference userRequestForWelderDoc = FirebaseFirestore.instance
-      .collection('Requests')
-      .doc('RequestLabor')
-      .collection('Welder')
-      .doc(number);
-
-  final DocumentReference userRequestForPlumberDoc = FirebaseFirestore.instance
-      .collection('Requests')
-      .doc('RequestLabor')
-      .collection('Plumber')
-      .doc(number);
-
-  final DocumentReference userRequestForGlassLaborDoc = FirebaseFirestore
-      .instance
-      .collection('Requests')
-      .doc('RequestLabor')
-      .collection('GlassLabor')
-      .doc(number);
-
-  final DocumentReference userRequestForElectricianDoc = FirebaseFirestore
-      .instance
-      .collection('Requests')
-      .doc('RequestLabor')
-      .collection('Electrician')
-      .doc(number);
-
-  final DocumentReference userRequestForMarbleMistriDoc = FirebaseFirestore
-      .instance
-      .collection('Requests')
-      .doc('RequestLabor')
-      .collection('MarbleMistri')
-      .doc(number);
+  final DocumentReference userRequestForSuperDoc =
+      FirebaseFirestore.instance.collection('RequestsSuperviser').doc(number);
 
   //-----------------------------------------------------------------------------------------
 
-  Future<bool> checkIf() async {
+  Future<bool> checkUser() async {
     try {
       var d = await userCol.doc(number).get();
       return d.exists;
@@ -137,8 +72,26 @@ class DatabaseService {
     }
   }
 
+  Future<bool> checkRequests() async {
+    try {
+      var d = await userRequestsLabor.get();
+      return d.exists;
+    } catch (e) {
+      throw e;
+    }
+  }
+
+  Future<bool> checkSuperviser() async {
+    try {
+      var d = await userRequestForSuperDoc.get();
+      return d.exists;
+    } catch (e) {
+      throw e;
+    }
+  }
+
   Future<void> updateUserData() async {
-    bool exist = await checkIf();
+    bool exist = await checkUser();
     if (exist) {
       return await userCol.doc(number).update({"phone": number});
     } else {
@@ -203,78 +156,29 @@ class DatabaseService {
     return await userHousebillAmount.set({"total": amount});
   }
 
-  // Future<void> updateUserLaborer(
-  //     String? name, String? skill, String? url) async {
-  //   return await userLaborer
-  //       .doc()
-  //       .set({"name": name, "skill": skill, "image": url});
-  // }
-
   Future<void> updateUserProfilePic(String? val) async {
     return await userProfileDoc.set({"url": val});
   }
 
-  // Future<void> updateSuperviserPic(String? name, String? age) async {
-  //   return await userSiteSuperviserDoc.set({"name": name, "age": age});
-  // }
-
-  Future<void> updateUserRequestSuper(String? time, bool b) async {
-    return await userRequestForSuperDoc.set({"request": b, "time": time});
+  Future<void> updateUserRequestSuper(String? time, bool b, bool change) async {
+    bool exist = await checkRequests();
+    if (exist) {
+      return await userRequestForSuperDoc
+          .update({"time": time, "change": change});
+    } else {
+      return await userRequestForSuperDoc
+          .set({"request": b, "time": time, "change": change});
+    }
   }
 
-  // Future<void> updateUserRequestLabor(
-  //     String? time, bool b, String? name) async {
-  //   return await userRequestForLaborDoc.set({"request": b, "time": time});
-  // }
-  Future<void> updateUserRequestThekedaar(
-      String? time, bool b, String? name) async {
-    return await userRequestForThekedaarDoc.set({"request": b, "time": time});
-  }
-
-  Future<void> updateUserRequestPainter(
-      String? time, bool b, String? name) async {
-    return await userRequestForPainterDoc.set({"request": b, "time": time});
-  }
-
-  Future<void> updateUserRequestMistri(
-      String? time, bool b, String? name) async {
-    return await userRequestForMistriDoc.set({"request": b, "time": time});
-  }
-
-  Future<void> updateUserRequestMajdoor(
-      String? time, bool b, String? name) async {
-    return await userRequestForMajdoorDoc.set({"request": b, "time": time});
-  }
-
-  Future<void> updateUserRequestCarpenter(
-      String? time, bool b, String? name) async {
-    return await userRequestForCarpenterDoc.set({"request": b, "time": time});
-  }
-
-  Future<void> updateUserRequestWelder(
-      String? time, bool b, String? name) async {
-    return await userRequestForWelderDoc.set({"request": b, "time": time});
-  }
-
-  Future<void> updateUserRequestPlumber(
-      String? time, bool b, String? name) async {
-    return await userRequestForPlumberDoc.set({"request": b, "time": time});
-  }
-
-  Future<void> updateUserRequestGlassLabor(
-      String? time, bool b, String? name) async {
-    return await userRequestForGlassLaborDoc.set({"request": b, "time": time});
-  }
-
-  Future<void> updateUserRequestElectrician(
-      String? time, bool b, String? name) async {
-    return await userRequestForElectricianDoc.set({"request": b, "time": time});
-  }
-
-  Future<void> updateUserRequestMarbleMistri(
-      String? time, bool b, String? name) async {
-    return await userRequestForMarbleMistriDoc
-        .set({"request": b, "time": time});
+  Future<void> updateUserRequestLabor(String? time, bool b, String name) async {
+    bool exist = await checkRequests();
+    if (exist) {
+      return await userRequestsLabor.update({"time": time, name: true});
+    } else {
+      return await userRequestsLabor
+          .set({"request": b, "time": time, name: true});
+    }
   }
 
   //--------------------------------------------------------------------------------------------

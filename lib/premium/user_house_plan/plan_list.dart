@@ -25,13 +25,15 @@ class HousePlansList extends StatelessWidget {
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
-                  Text(
-                    snapshot.hasData
-                        ? snapshot.data!.docs.isNotEmpty
-                            ? "$premiumName's House Plans"
-                            : "Sample House Plans"
-                        : "",
-                    style: TextStyle(fontSize: 16),
+                  Expanded(
+                    child: Text(
+                      snapshot.hasData
+                          ? snapshot.data!.docs.isNotEmpty
+                              ? "$premiumName's House Plans"
+                              : "Sample House Plans"
+                          : "",
+                      style: TextStyle(fontSize: 16),
+                    ),
                   ),
                   TextButton(
                     onPressed: () => Navigator.push(

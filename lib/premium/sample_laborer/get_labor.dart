@@ -43,30 +43,11 @@ class GetLaborerCard extends StatelessWidget {
     return InkWell(
       onTap: () {
         final time = DateTime.now().millisecondsSinceEpoch.toString();
-        if (labor.name == "Thekedaar") {
-          DatabaseService().updateUserRequestThekedaar(time, true, labor.name);
-        } else if (labor.name == "Painter") {
-          DatabaseService().updateUserRequestPainter(time, true, labor.name);
-        } else if (labor.name == "Mistri") {
-          DatabaseService().updateUserRequestMistri(time, true, labor.name);
-        } else if (labor.name == "Majdoor") {
-          DatabaseService().updateUserRequestMajdoor(time, true, labor.name);
-        } else if (labor.name == "Carpenter") {
-          DatabaseService().updateUserRequestCarpenter(time, true, labor.name);
-        } else if (labor.name == "welder") {
-          DatabaseService().updateUserRequestWelder(time, true, labor.name);
-        } else if (labor.name == "plumber") {
-          DatabaseService().updateUserRequestPlumber(time, true, labor.name);
-        } else if (labor.name == "glass labor") {
-          DatabaseService().updateUserRequestGlassLabor(time, true, labor.name);
-        } else if (labor.name == "electrician") {
-          DatabaseService()
-              .updateUserRequestElectrician(time, true, labor.name);
-        } else if (labor.name == "Marble Mistri") {
-          DatabaseService()
-              .updateUserRequestMarbleMistri(time, true, labor.name);
+        if (labor.name == "Tile/Marble Mistri") {
+          DatabaseService().updateUserRequestLabor(time, true, "marble_mistr");
+        } else {
+          DatabaseService().updateUserRequestLabor(time, true, labor.name);
         }
-        // DatabaseService().updateUserRequestMarbleMistri(time, true, labor.name);
         showAnimatedDialogBox(
             context, "A ${labor.name} will be apointed at $premiumName");
       },

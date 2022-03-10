@@ -24,11 +24,13 @@ class Superviser extends StatelessWidget {
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
                   // SizedBox(height: 10),
-                  Text(
-                    snapshot.hasData
-                        ? "$premiumName Site Supervisor"
-                        : "Sample Site Supervisor",
-                    style: TextStyle(fontSize: 16),
+                  Expanded(
+                    child: Text(
+                      snapshot.hasData
+                          ? "$premiumName Site Supervisor"
+                          : "Sample Site Supervisor",
+                      style: TextStyle(fontSize: 16),
+                    ),
                   ),
                   TextButton(
                     onPressed: () {
@@ -36,7 +38,8 @@ class Superviser extends StatelessWidget {
                           "A site Superviser will be appointed within 24 hours");
                       final time =
                           DateTime.now().millisecondsSinceEpoch.toString();
-                      DatabaseService().updateUserRequestSuper(time, true);
+                      DatabaseService().updateUserRequestSuper(
+                          time, true, snapshot.hasData ? true : false);
                     },
                     child: Text(
                       snapshot.hasData ? "change" : "Appoint",
@@ -68,6 +71,7 @@ class Superviser extends StatelessWidget {
                   ),
                   Expanded(
                     child: Column(
+                      crossAxisAlignment: CrossAxisAlignment.center,
                       children: [
                         Text(
                           snapshot.hasData ? snapshot.data!.name : "name",

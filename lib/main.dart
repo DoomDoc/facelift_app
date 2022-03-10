@@ -24,7 +24,6 @@ class MyApp extends StatefulWidget {
 
 class _MyAppState extends State<MyApp> {
   AuthClass authClass = AuthClass();
-  Widget currentPage = WelcomeScreen();
 
   @override
   void initState() {
