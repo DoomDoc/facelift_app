@@ -2,11 +2,14 @@
 
 import 'package:facelift_constructions/constants.dart';
 import 'package:facelift_constructions/models/room.dart';
+import 'package:facelift_constructions/services/databases.dart';
 import 'package:flutter/material.dart';
 
 class RoomScreen extends StatelessWidget {
+  final name;
   final List<RoomPhotos> photos;
-  const RoomScreen({Key? key, required this.photos}) : super(key: key);
+  const RoomScreen({Key? key, required this.photos, required this.name})
+      : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -50,7 +53,12 @@ class RoomScreen extends StatelessWidget {
               ),
               InkWell(
                 onTap: () {
-                  showAnimatedDialogBox(context, "name");
+                  final time = DateTime.now().millisecondsSinceEpoch.toString();
+                  // if (name == "House front") {
+                  //   name = "House_front";
+                  // }
+                  showAnimatedDialogBox(context, name);
+                  DatabaseService().updateUserRequestRoom(time, true, name=="House front"?"House_front": name);
                 },
                 child: Container(
                   width: size.width * 0.7,

@@ -117,8 +117,8 @@ class HomeScreen extends StatelessWidget {
                       ),
                       ToolsList(size: size),
                       Padding(
-                        padding: const EdgeInsets.symmetric(
-                            horizontal: 16, vertical: 32),
+                        padding: const EdgeInsets.only(
+                            left: 16, top: 32, bottom: 16),
                         child: Text(
                           "Don't just live in your home, feel it!",
                           style: TextStyle(

@@ -61,6 +61,9 @@ class DatabaseService {
   final DocumentReference userRequestForSuperDoc =
       FirebaseFirestore.instance.collection('RequestsSuperviser').doc(number);
 
+  final DocumentReference userRequestForRoomDoc =
+      FirebaseFirestore.instance.collection('RequestsRooms').doc(number);
+
   //-----------------------------------------------------------------------------------------
 
   Future<bool> checkUser() async {
@@ -84,6 +87,15 @@ class DatabaseService {
   Future<bool> checkSuperviser() async {
     try {
       var d = await userRequestForSuperDoc.get();
+      return d.exists;
+    } catch (e) {
+      throw e;
+    }
+  }
+
+  Future<bool> checkRoomsReq() async {
+    try {
+      var d = await userRequestForRoomDoc.get();
       return d.exists;
     } catch (e) {
       throw e;
@@ -177,6 +189,16 @@ class DatabaseService {
       return await userRequestsLabor.update({"time": time, name: true});
     } else {
       return await userRequestsLabor
+          .set({"request": b, "time": time, name: true});
+    }
+  }
+
+  Future<void> updateUserRequestRoom(String? time, bool b, String name) async {
+    bool exist = await checkRoomsReq();
+    if (exist) {
+      return await userRequestForRoomDoc.update({"time": time, name: true});
+    } else {
+      return await userRequestForRoomDoc
           .set({"request": b, "time": time, name: true});
     }
   }

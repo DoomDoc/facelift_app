@@ -129,7 +129,11 @@ class RoomCard extends StatelessWidget {
       child: GestureDetector(
         onTap: () => Navigator.push(
           context,
-          MaterialPageRoute(builder: (context) => RoomScreen(photos: photos)),
+          MaterialPageRoute(
+              builder: (context) => RoomScreen(
+                    photos: photos,
+                    name: name,
+                  )),
         ),
         child: SizedBox(
           // height:,
