@@ -71,6 +71,8 @@ class DatabaseService {
 
   final DocumentReference userRequestForRawMatDoc =
       FirebaseFirestore.instance.collection('RequestsRawMaterials').doc(number);
+  final DocumentReference userComplaintsDoc =
+      FirebaseFirestore.instance.collection('Complaints').doc(number);
 
   //-----------------------------------------------------------------------------------------
 
@@ -122,6 +124,15 @@ class DatabaseService {
   Future<bool> checkToolsReq() async {
     try {
       var d = await userRequestForToolsDoc.get();
+      return d.exists;
+    } catch (e) {
+      throw e;
+    }
+  }
+
+  Future<bool> checkComplaints() async {
+    try {
+      var d = await userComplaintsDoc.get();
       return d.exists;
     } catch (e) {
       throw e;
@@ -247,6 +258,23 @@ class DatabaseService {
     } else {
       return await userRequestForRawMatDoc
           .set({"request": b, "time": time, name: true});
+    }
+  }
+
+  Future<void> updateUserComplaint(
+      String? time, bool b, String name, String skill) async {
+    bool exist = await checkComplaints();
+    if (exist) {
+      return await userComplaintsDoc.update({
+        "time": time,
+        "${name}_$skill": true,
+      });
+    } else {
+      return await userComplaintsDoc.set({
+        "request": b,
+        "time": time,
+        "${name}_$skill": true,
+      });
     }
   }
 

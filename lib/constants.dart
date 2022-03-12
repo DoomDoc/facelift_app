@@ -118,60 +118,68 @@ Future<void> showAnimatedDialogBox(BuildContext context, String name) async {
     context: context,
     builder: (BuildContext context) {
       return Dialog(
+        insetPadding: EdgeInsets.symmetric(horizontal: 30),
         shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(16)),
         child: SingleChildScrollView(
-          child: Column(
-            mainAxisAlignment: MainAxisAlignment.center,
-            mainAxisSize: MainAxisSize.min,
-            children: [
-              // SizedBox(height: 10),
-              Padding(
-                padding: const EdgeInsets.only(right: 16, top: 5),
-                child: Row(
-                  mainAxisAlignment: MainAxisAlignment.end,
-                  children: [
-                    InkWell(
-                      onTap: () {
-                        crossClick = true;
-                        Navigator.pop(context);
-                      },
-                      child: Icon(
-                        Icons.close,
-                        size: 30,
-                        color: Colors.black54,
-                      ),
-                    ),
-                  ],
+          child: SizedBox(
+            height: 270,
+            child: Column(
+              mainAxisAlignment: MainAxisAlignment.center,
+              mainAxisSize: MainAxisSize.min,
+              children: [
+                // SizedBox(height: 10),
+                // Padding(
+                //   padding: const EdgeInsets.only(right: 12),
+                //   child: Row(
+                //     mainAxisAlignment: MainAxisAlignment.end,
+                //     children: [
+                //       InkWell(
+                //         onTap: () {
+                //           Navigator.pop(context);
+                //         },
+                //         child: Icon(
+                //           Icons.close,
+                //           size: 30,
+                //           color: Colors.black54,
+                //         ),
+                //       ),
+                //     ],
+                //   ),
+                // ),
+                Padding(
+                  padding: const EdgeInsets.symmetric(horizontal: 16),
+                  child: SizedBox(
+                    height: 200,
+                    child: ClipRRect(
+                        borderRadius: BorderRadius.circular(16),
+                        child: Image.asset(
+                          "assets/images/modal1.png",
+                        )),
+                  ),
                 ),
-              ),
-              Padding(
-                padding:
-                    const EdgeInsets.symmetric(vertical: 5, horizontal: 16),
-                child: ClipRRect(
-                    borderRadius: BorderRadius.circular(16),
-                    child: Image.asset("assets/images/modal1.png")),
-              ),
-              SizedBox(height: 15),
-              Padding(
-                padding: const EdgeInsets.all(16),
-                child: Text(
-                  name,
-                  textAlign: TextAlign.center,
-                  style: TextStyle(fontSize: 18),
+                SizedBox(height: 0),
+                Padding(
+                  padding: const EdgeInsets.all(16),
+                  child: Text(
+                    name,
+                    textAlign: TextAlign.center,
+                    style: TextStyle(fontSize: 14),
+                  ),
                 ),
-              ),
-            ],
+              ],
+            ),
           ),
         ),
       );
     },
-    barrierDismissible: true,
+
+    // barrierDismissible: true,
     animationType: DialogTransitionType.slideFromBottom,
     curve: Curves.fastOutSlowIn,
     duration: Duration(seconds: 1),
   );
   // if (crossClick == false) {
-  //   await Future.delayed(Duration(seconds: 5));
-  //   Navigator.pop(context);
+  await Future.delayed(Duration(seconds: 3));
+  Navigator.pop(context);
   // }
 }

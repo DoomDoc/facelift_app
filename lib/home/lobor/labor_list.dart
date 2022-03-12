@@ -80,7 +80,7 @@ class LaborCard extends StatelessWidget {
             ),
           ),
           Padding(
-            padding: const EdgeInsets.symmetric(horizontal: 24),
+            padding: const EdgeInsets.symmetric(horizontal: 24, vertical: 8),
             child: Text(labor.name),
           ),
         ],

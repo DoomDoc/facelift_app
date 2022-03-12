@@ -163,7 +163,7 @@ class RoomCard extends StatelessWidget {
                   child: Text(
                     name,
                     style: const TextStyle(
-                        fontWeight: FontWeight.w300, fontSize: 14),
+                        fontWeight: FontWeight.w400, fontSize: 14),
                   ),
                 )
               ],

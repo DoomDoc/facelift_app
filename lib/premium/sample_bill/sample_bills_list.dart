@@ -8,6 +8,7 @@ import 'add_bill_page.dart';
 
 import '../../constants.dart';
 import '../../models/sample_bills.dart';
+import 'view_bill.dart';
 
 class SampleBillsList extends StatelessWidget {
   const SampleBillsList({
@@ -19,7 +20,11 @@ class SampleBillsList extends StatelessWidget {
     Size size = MediaQuery.of(context).size;
     String _name;
     int _amount;
+    int _warrenty = 0;
     String _image;
+    int _date = 0;
+    int _month = 0;
+    int _year = 0;
     String nu = "";
     return StreamBuilder<QuerySnapshot>(
         stream: DatabaseService().userHousebill.snapshots(),
@@ -148,15 +153,29 @@ class SampleBillsList extends StatelessWidget {
                           scrollDirection: Axis.horizontal,
                           itemCount: snapshot.data!.docs.length,
                           itemBuilder: (context, index) {
-                            _name =
-                                snapshot.data!.docs[index]["name"] ?? "name";
-                            _amount = snapshot.data!.docs[index]["amount"] ?? 0;
-                            _image = snapshot.data!.docs[index]["image"] ??
+                            final currentDoc = snapshot.data!.docs[index];
+                            _name = currentDoc["name"] ?? "name";
+                            _amount = currentDoc["amount"] ?? 0;
+                            _warrenty = currentDoc["warranty"] ?? 0;
+                            _image = currentDoc["image"] ??
                                 "https://cdn.searchenginejournal.com/wp-content/uploads/2019/08/c573bf41-6a7c-4927-845c-4ca0260aad6b-760x400.jpeg";
+                            _date = currentDoc["user_date"] != 0
+                                ? currentDoc["user_date"]
+                                : currentDoc["current_date"] ?? 0;
+                            _month = currentDoc["user_month"] != 0
+                                ? currentDoc["user_month"]
+                                : currentDoc["current_month"] ?? 0;
+                            _year = currentDoc["user_year"] != 0
+                                ? currentDoc["user_year"]
+                                : currentDoc["current_year"] ?? 0;
                             return UserBillCard(
                               name: _name,
                               amount: _amount,
+                              warrenty: _warrenty,
                               image: _image,
+                              date: _date,
+                              month: _month,
+                              year: _year,
                             );
                           },
                         )
@@ -181,12 +200,20 @@ class UserBillCard extends StatelessWidget {
   // final SampleBill bill;
   final String name;
   final int amount;
+  final int warrenty;
   final String image;
+  final int date;
+  final int month;
+  final int year;
   const UserBillCard({
     Key? key,
     required this.name,
     required this.amount,
+    required this.warrenty,
     required this.image,
+    required this.date,
+    required this.month,
+    required this.year,
   }) : super(key: key);
 
   @override
@@ -194,38 +221,61 @@ class UserBillCard extends StatelessWidget {
     // Size size = MediaQuery.of(context).size;
     return Padding(
       padding: const EdgeInsets.symmetric(horizontal: 8, vertical: 16),
-      child: Column(
-        crossAxisAlignment: CrossAxisAlignment.start,
-        children: [
-          Material(
-            borderRadius: BorderRadius.circular(16),
-            elevation: 10,
-            shadowColor: Colors.white,
-            child: ClipRRect(
-              borderRadius: BorderRadius.circular(16),
-              child: Image.network(
-                image,
-                height: 120,
-                width: 120,
-                fit: BoxFit.cover,
+      child: InkWell(
+        onTap: () {
+          Navigator.push(
+            context,
+            MaterialPageRoute(
+              builder: (context) => ViewBillScreen(
+                name: name,
+                image: image,
+                amount: amount,
+                warrenty: warrenty,
+                date: date,
+                month: month,
+                year: year,
               ),
             ),
-          ),
-          Padding(
-            padding: const EdgeInsets.only(left: 8, top: 8, bottom: 4),
-            child: Text(
-              name,
-              style: TextStyle(fontSize: 12),
+          );
+        },
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            Material(
+              borderRadius: BorderRadius.circular(16),
+              elevation: 10,
+              shadowColor: Colors.white,
+              child: ClipRRect(
+                borderRadius: BorderRadius.circular(16),
+                child: Image.network(
+                  image,
+                  height: 120,
+                  width: 120,
+                  fit: BoxFit.cover,
+                ),
+              ),
             ),
-          ),
-          Padding(
-            padding: const EdgeInsets.symmetric(horizontal: 8),
-            child: Text(
-              "$amount",
-              style: TextStyle(fontSize: 10, fontWeight: FontWeight.w300),
+            Padding(
+              padding: const EdgeInsets.only(left: 8, top: 8, bottom: 4),
+              child: SizedBox(
+                width: 110,
+                child: Text(
+                  name,
+                  overflow: TextOverflow.ellipsis,
+                  maxLines: 1,
+                  style: TextStyle(fontSize: 12),
+                ),
+              ),
             ),
-          ),
-        ],
+            Padding(
+              padding: const EdgeInsets.symmetric(horizontal: 10),
+              child: Text(
+                "Rs $amount",
+                style: TextStyle(fontSize: 10, fontWeight: FontWeight.w400),
+              ),
+            ),
+          ],
+        ),
       ),
     );
   }
