@@ -1,9 +1,8 @@
-// ignore_for_file: prefer_const_constructors
-
-import 'package:facelift_constructions/home/get_premium_button.dart';
 import 'package:flutter/material.dart';
 
+import '../../constants.dart';
 import '../../models/labor.dart';
+import '../../services/databases.dart';
 
 class LaborScreen extends StatelessWidget {
   final Labor labor;
@@ -33,7 +32,7 @@ class LaborScreen extends StatelessWidget {
               ),
               Text(
                 labor.name,
-                style: TextStyle(
+                style: const TextStyle(
                   fontSize: 22,
                   fontWeight: FontWeight.bold,
                 ),
@@ -42,16 +41,39 @@ class LaborScreen extends StatelessWidget {
                 padding: const EdgeInsets.only(top: 24),
                 child: Text(
                   labor.description,
-                  style: TextStyle(
+                  style: const TextStyle(
                     fontSize: 16,
                     fontWeight: FontWeight.w300,
                   ),
                 ),
               ),
-              Padding(
-                padding: EdgeInsets.all(32),
-                child: GetPremiumButton(),
-              )
+              InkWell(
+                onTap: () {
+                  final time = DateTime.now().millisecondsSinceEpoch.toString();
+                  if (labor.name == "Tile/Marble Mistri") {
+                    DatabaseService()
+                        .updateUserRequestLabor(time, true, "marble_mistr");
+                  } else {
+                    DatabaseService()
+                        .updateUserRequestLabor(time, true, labor.name);
+                  }
+                  showAnimatedDialogBox(
+                      context, "A ${labor.name} will be apointed");
+                },
+                child: Container(
+                  height: 45,
+                  width: 220,
+                  decoration: BoxDecoration(
+                    borderRadius: BorderRadius.circular(32),
+                    color: pinkColor,
+                  ),
+                  child: Center(child: Text("Get ${labor.name}")),
+                ),
+              ),
+              // Padding(
+              //   padding: EdgeInsets.all(32),
+              //   child: GetPremiumButton(),
+              // )
             ],
           ),
         ),

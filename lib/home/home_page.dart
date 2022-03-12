@@ -1,4 +1,4 @@
-// ignore_for_file: prefer_const_constructors, prefer_const_literals_to_create_immutables,
+// prefer_const_literals_to_create_immutables,
 
 import 'package:facelift_constructions/constants.dart';
 import 'package:flutter/material.dart';
@@ -25,8 +25,8 @@ class HomeScreen extends StatelessWidget {
       return await showDialog(
             context: context,
             builder: (context) => AlertDialog(
-              title: Text('Exit App'),
-              content: Text('Do you want to exit an App?'),
+              title: const Text('Exit App'),
+              content: const Text('Do you want to exit an App?'),
               actions: <Widget>[
                 InkWell(
                   onTap: () => Navigator.of(context).pop(false),
@@ -39,7 +39,7 @@ class HomeScreen extends StatelessWidget {
                       decoration: BoxDecoration(
                           color: pinkColor,
                           borderRadius: BorderRadius.circular(11)),
-                      child: Center(
+                      child: const Center(
                           child: Text('No',
                               style: TextStyle(
                                   fontWeight: FontWeight.w600,
@@ -58,7 +58,7 @@ class HomeScreen extends StatelessWidget {
                       decoration: BoxDecoration(
                           color: pinkColor,
                           borderRadius: BorderRadius.circular(11)),
-                      child: Center(
+                      child: const Center(
                           child: Text('Yes',
                               style: TextStyle(
                                   fontWeight: FontWeight.w600,
@@ -84,9 +84,9 @@ class HomeScreen extends StatelessWidget {
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
                       Logo(size: size),
-                      Padding(
-                        padding: const EdgeInsets.symmetric(
-                            horizontal: 16, vertical: 16),
+                      const Padding(
+                        padding:
+                            EdgeInsets.symmetric(horizontal: 16, vertical: 16),
                         child: Text(
                           "House Room Photos",
                           style: TextStyle(
@@ -94,9 +94,8 @@ class HomeScreen extends StatelessWidget {
                         ),
                       ),
                       RoomGrid(size: size, s: constraints.maxWidth < 330),
-                      Padding(
-                        padding: const EdgeInsets.only(
-                            left: 16, top: 32, bottom: 16),
+                      const Padding(
+                        padding: EdgeInsets.only(left: 16, top: 32, bottom: 16),
                         child: Text(
                           "Labor",
                           style: TextStyle(
@@ -104,9 +103,8 @@ class HomeScreen extends StatelessWidget {
                         ),
                       ),
                       LaborList(size: size),
-                      Padding(
-                        padding: const EdgeInsets.only(
-                            left: 16, top: 32, bottom: 16),
+                      const Padding(
+                        padding: EdgeInsets.only(left: 16, top: 32, bottom: 16),
                         child: Text(
                           "Latest Tools and Machinery",
                           style: TextStyle(
@@ -116,29 +114,26 @@ class HomeScreen extends StatelessWidget {
                         ),
                       ),
                       ToolsList(size: size),
-                      Padding(
-                        padding: const EdgeInsets.only(
-                            left: 16, top: 32, bottom: 16),
+                      const Padding(
+                        padding: EdgeInsets.only(left: 16, top: 32, bottom: 16),
                         child: Text(
                           "Don't just live in your home, feel it!",
                           style: TextStyle(
                               fontWeight: FontWeight.w600, fontSize: 16),
                         ),
                       ),
-                      LuxuryElements(),
-                      Padding(
-                        padding: const EdgeInsets.only(
-                            left: 16, bottom: 24, top: 32),
+                      const LuxuryElements(),
+                      const Padding(
+                        padding: EdgeInsets.only(left: 16, bottom: 24, top: 32),
                         child: Text(
                           "Raw Materials",
                           style: TextStyle(
                               fontWeight: FontWeight.w400, fontSize: 16),
                         ),
                       ),
-                      RawList(),
-                      Padding(
-                        padding: const EdgeInsets.only(
-                            left: 16, bottom: 24, top: 32),
+                      const RawList(),
+                      const Padding(
+                        padding: EdgeInsets.only(left: 16, bottom: 24, top: 32),
                         child: Text(
                           "Finishing Materials",
                           style: TextStyle(
@@ -149,17 +144,17 @@ class HomeScreen extends StatelessWidget {
                       premiumUser == false
                           ? PremiumWidget(
                               size: size, s: constraints.maxWidth > 335)
-                          : SizedBox(),
-                      Padding(
-                        padding: const EdgeInsets.symmetric(
-                            horizontal: 16, vertical: 32),
+                          : const SizedBox(),
+                      const Padding(
+                        padding:
+                            EdgeInsets.symmetric(horizontal: 16, vertical: 32),
                         child: Text(
                           "Facelift promotes Green spaces",
                           style: TextStyle(
                               fontWeight: FontWeight.w600, fontSize: 16),
                         ),
                       ),
-                      GreenSpaces(),
+                      const GreenSpaces(),
                       SizedBox(
                         height: size.height * 0.1,
                       )
@@ -170,39 +165,12 @@ class HomeScreen extends StatelessWidget {
             ),
           );
         } else {
-          return Center(
+          return const Center(
             child: Text(
                 "Screen under maintainance. Try using your phone in potrait mode."),
           );
         }
       },
     );
-    // extendBody: true,
-    // bottomNavigationBar: Container(
-    //   decoration: BoxDecoration(
-    //     color: pinkColor,
-    //     borderRadius: BorderRadius.only(
-    //       topLeft: Radius.circular(16),
-    //       topRight: Radius.circular(16),
-    //     ),
-    //   ),
-    //   height: 60,
-    //   child: Row(
-    //     mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-    //     children: [
-    //       GestureDetector(
-    //         onTap: () => Navigator.push(context,
-    //             MaterialPageRoute(builder: (context) => PofileScreen())),
-    //         child: Icon(Icons.account_circle_outlined),
-    //       ),
-    //       Icon(Icons.maps_home_work),
-    //       GestureDetector(
-    //         onTap: () => Navigator.push(context,
-    //             MaterialPageRoute(builder: (context) => PremiumScreen())),
-    //         child: Icon(Icons.fireplace_outlined),
-    //       ),
-    //     ],
-    //   ),
-    // ),
   }
 }

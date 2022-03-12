@@ -1,3 +1,5 @@
+// ignore_for_file: use_rethrow_when_possible
+
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:facelift_constructions/constants.dart';
 
@@ -64,6 +66,12 @@ class DatabaseService {
   final DocumentReference userRequestForRoomDoc =
       FirebaseFirestore.instance.collection('RequestsRooms').doc(number);
 
+  final DocumentReference userRequestForToolsDoc =
+      FirebaseFirestore.instance.collection('RequestsTools').doc(number);
+
+  final DocumentReference userRequestForRawMatDoc =
+      FirebaseFirestore.instance.collection('RequestsRawMaterials').doc(number);
+
   //-----------------------------------------------------------------------------------------
 
   Future<bool> checkUser() async {
@@ -96,6 +104,24 @@ class DatabaseService {
   Future<bool> checkRoomsReq() async {
     try {
       var d = await userRequestForRoomDoc.get();
+      return d.exists;
+    } catch (e) {
+      throw e;
+    }
+  }
+
+  Future<bool> checkRawMatReq() async {
+    try {
+      var d = await userRequestForRawMatDoc.get();
+      return d.exists;
+    } catch (e) {
+      throw e;
+    }
+  }
+
+  Future<bool> checkToolsReq() async {
+    try {
+      var d = await userRequestForToolsDoc.get();
       return d.exists;
     } catch (e) {
       throw e;
@@ -199,6 +225,27 @@ class DatabaseService {
       return await userRequestForRoomDoc.update({"time": time, name: true});
     } else {
       return await userRequestForRoomDoc
+          .set({"request": b, "time": time, name: true});
+    }
+  }
+
+  Future<void> updateUserRequestTools(String? time, bool b, String name) async {
+    bool exist = await checkToolsReq();
+    if (exist) {
+      return await userRequestForToolsDoc.update({"time": time, name: true});
+    } else {
+      return await userRequestForToolsDoc
+          .set({"request": b, "time": time, name: true});
+    }
+  }
+
+  Future<void> updateUserRequestRawMaterial(
+      String? time, bool b, String name) async {
+    bool exist = await checkRawMatReq();
+    if (exist) {
+      return await userRequestForRawMatDoc.update({"time": time, name: true});
+    } else {
+      return await userRequestForRawMatDoc
           .set({"request": b, "time": time, name: true});
     }
   }
