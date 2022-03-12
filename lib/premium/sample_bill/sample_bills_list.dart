@@ -97,9 +97,9 @@ class SampleBillsList extends StatelessWidget {
                             stream: DatabaseService().userAmountStream,
                             builder: (context, snapshot) {
                               if (snapshot.hasData) {
-                                nu = "${snapshot.data!.total}";
+                                nu = "Rs ${snapshot.data!.total}";
                               } else {
-                                nu = "0";
+                                nu = "Rs 0";
                               }
                               return Material(
                                 elevation: 10,
@@ -215,14 +215,14 @@ class UserBillCard extends StatelessWidget {
             padding: const EdgeInsets.only(left: 8, top: 8, bottom: 4),
             child: Text(
               name,
-              style: TextStyle(fontSize: 8),
+              style: TextStyle(fontSize: 12),
             ),
           ),
           Padding(
             padding: const EdgeInsets.symmetric(horizontal: 8),
             child: Text(
               "$amount",
-              style: TextStyle(fontSize: 8, fontWeight: FontWeight.w300),
+              style: TextStyle(fontSize: 10, fontWeight: FontWeight.w300),
             ),
           ),
         ],
@@ -268,14 +268,14 @@ class SampleBillCard extends StatelessWidget {
               padding: const EdgeInsets.only(left: 8, top: 8, bottom: 4),
               child: Text(
                 bill.name,
-                style: TextStyle(fontSize: 8),
+                style: TextStyle(fontSize: 12),
               ),
             ),
             Padding(
               padding: const EdgeInsets.symmetric(horizontal: 8),
               child: Text(
                 bill.amount,
-                style: TextStyle(fontSize: 8, fontWeight: FontWeight.w300),
+                style: TextStyle(fontSize: 10, fontWeight: FontWeight.w300),
               ),
             ),
           ],

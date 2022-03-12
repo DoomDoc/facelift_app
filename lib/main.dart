@@ -70,6 +70,7 @@ class _MyAppState extends State<MyApp> {
                       borderRadius: BorderRadius.circular(30),
                       child: BottomNavigationBar(
                         type: BottomNavigationBarType.fixed,
+                        unselectedItemColor: Colors.white,
                         selectedItemColor: Colors.black,
                         showSelectedLabels: false,
                         showUnselectedLabels: false,

@@ -63,10 +63,6 @@ class PremiumScreen extends StatelessWidget {
                     ),
                   ),
                 ),
-                // ElevatedButton(
-                //   onPressed: () => Navigator.of(context).pop(true),
-                //   child: Text('Yes'),
-                // ),
               ],
             ),
           ) ??
@@ -186,7 +182,6 @@ class PremiumScreen extends StatelessWidget {
                             ),
                           ],
                         ),
-                        // BillsGrid(size: size),
                         SampleBillsList()
                       ],
                     ),
