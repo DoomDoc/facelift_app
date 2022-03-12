@@ -3,7 +3,8 @@
 import 'package:facelift_constructions/models/raw.dart';
 import 'package:flutter/material.dart';
 
-import '../get_premium_button.dart';
+import '../../constants.dart';
+import '../../services/databases.dart';
 
 class RawSceen extends StatelessWidget {
   final RawMaterial material;
@@ -90,10 +91,31 @@ class RawSceen extends StatelessWidget {
                 ],
               ),
             ),
-            Padding(
-              padding: EdgeInsets.all(32),
-              child: GetPremiumButton(),
-            )
+            SizedBox(height: 20),
+
+            InkWell(
+              onTap: () {
+                final time = DateTime.now().millisecondsSinceEpoch.toString();
+                DatabaseService().updateUserRequestRawMaterial(
+                    time, true, material.name.replaceAll(' ', ''));
+
+                showAnimatedDialogBox(
+                    context, "A ${material.name} will be apointed");
+              },
+              child: Container(
+                height: 45,
+                width: 220,
+                decoration: BoxDecoration(
+                  borderRadius: BorderRadius.circular(32),
+                  color: pinkColor,
+                ),
+                child: Center(child: Text("Get ${material.name}")),
+              ),
+            ),
+            // Padding(
+            //   padding: EdgeInsets.all(32),
+            //   child: GetPremiumButton(),
+            // )
           ],
         ),
       ),

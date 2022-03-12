@@ -1,9 +1,8 @@
-// ignore_for_file: prefer_const_constructors
-
 import 'package:facelift_constructions/models/tools.dart';
 import 'package:flutter/material.dart';
 
-import '../get_premium_button.dart';
+import '../../constants.dart';
+import '../../services/databases.dart';
 
 class ToolsSceen extends StatelessWidget {
   final Tools tool;
@@ -38,7 +37,7 @@ class ToolsSceen extends StatelessWidget {
               ),
               Text(
                 tool.name,
-                style: TextStyle(
+                style: const TextStyle(
                   fontSize: 22,
                   fontWeight: FontWeight.bold,
                 ),
@@ -47,16 +46,35 @@ class ToolsSceen extends StatelessWidget {
                 padding: const EdgeInsets.only(top: 24),
                 child: Text(
                   tool.description,
-                  style: TextStyle(
+                  style: const TextStyle(
                     fontSize: 16,
                     fontWeight: FontWeight.w300,
                   ),
                 ),
               ),
-              Padding(
-                padding: EdgeInsets.all(32),
-                child: GetPremiumButton(),
-              )
+              InkWell(
+                onTap: () {
+                  final time = DateTime.now().millisecondsSinceEpoch.toString();
+                  DatabaseService().updateUserRequestTools(
+                      time, true, tool.name.replaceAll(' ', ''));
+
+                  showAnimatedDialogBox(
+                      context, "A ${tool.name} will be apointed");
+                },
+                child: Container(
+                  height: 45,
+                  width: 220,
+                  decoration: BoxDecoration(
+                    borderRadius: BorderRadius.circular(32),
+                    color: pinkColor,
+                  ),
+                  child: Center(child: Text("Get ${tool.name}")),
+                ),
+              ),
+              // Padding(
+              //   padding: EdgeInsets.all(32),
+              //   child: GetPremiumButton(),
+              // )
             ],
           ),
         ),
