@@ -104,32 +104,6 @@ class PremiumScreen extends StatelessWidget {
                         Superviser(),
                         SampleLaborerList(),
                         Padding(
-                          padding: const EdgeInsets.all(16),
-                          child: Column(
-                            children: [
-                              InkWell(
-                                onTap: () =>
-                                    showAnimatedDialogBox(context, "name"),
-                                child: Material(
-                                  borderRadius: BorderRadius.circular(32),
-                                  elevation: 10,
-                                  shadowColor: Colors.white,
-                                  child: Container(
-                                    height: 35,
-                                    width: size.width * 0.8,
-                                    decoration: BoxDecoration(
-                                      color: pinkColor,
-                                      borderRadius: BorderRadius.circular(32),
-                                    ),
-                                    child: Center(
-                                        child: Text("Raise a Complaint")),
-                                  ),
-                                ),
-                              ),
-                            ],
-                          ),
-                        ),
-                        Padding(
                           padding: const EdgeInsets.symmetric(
                               horizontal: 16, vertical: 8),
                           child: Row(

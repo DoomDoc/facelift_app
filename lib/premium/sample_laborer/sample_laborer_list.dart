@@ -1,6 +1,7 @@
 // ignore_for_file: prefer_const_constructors
 
 import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:facelift_constructions/premium/sample_laborer/select_labor.dart';
 import 'package:facelift_constructions/services/databases.dart';
 import 'package:flutter/material.dart';
 
@@ -15,6 +16,7 @@ class SampleLaborerList extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    Size size = MediaQuery.of(context).size;
     return StreamBuilder<QuerySnapshot>(
       stream: DatabaseService().userLaborer.snapshots(),
       builder: (context, snapshot) {
@@ -75,6 +77,40 @@ class SampleLaborerList extends StatelessWidget {
                           labor: sampleLaborList[index],
                         ),
                       ),
+              ),
+              Padding(
+                padding: const EdgeInsets.all(16),
+                child: Column(
+                  children: [
+                    InkWell(
+                      onTap: () {
+                        snapshot.hasData
+                            ? snapshot.data!.docs.isNotEmpty
+                                ? Navigator.push(context,
+                                    MaterialPageRoute(builder: (context) {
+                                    return SelectLaborScreen();
+                                  }))
+                                : showAnimatedDialogBox(context,
+                                    "You don't have any Labor appointed at your site")
+                            : () {};
+                      },
+                      child: Material(
+                        borderRadius: BorderRadius.circular(32),
+                        elevation: 10,
+                        shadowColor: Colors.white,
+                        child: Container(
+                          height: 35,
+                          width: size.width * 0.8,
+                          decoration: BoxDecoration(
+                            color: pinkColor,
+                            borderRadius: BorderRadius.circular(32),
+                          ),
+                          child: Center(child: Text("Raise a Complaint")),
+                        ),
+                      ),
+                    ),
+                  ],
+                ),
               ),
             ],
           );
