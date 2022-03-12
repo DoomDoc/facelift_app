@@ -28,13 +28,43 @@ class HomeScreen extends StatelessWidget {
               title: Text('Exit App'),
               content: Text('Do you want to exit an App?'),
               actions: <Widget>[
-                ElevatedButton(
-                  onPressed: () => Navigator.of(context).pop(false),
-                  child: Text('No'),
+                InkWell(
+                  onTap: () => Navigator.of(context).pop(false),
+                  child: Material(
+                    elevation: 5,
+                    borderRadius: BorderRadius.circular(16),
+                    child: Container(
+                      height: 40,
+                      width: size.width * 0.3,
+                      decoration: BoxDecoration(
+                          color: pinkColor,
+                          borderRadius: BorderRadius.circular(11)),
+                      child: Center(
+                          child: Text('No',
+                              style: TextStyle(
+                                  fontWeight: FontWeight.w600,
+                                  color: Colors.white))),
+                    ),
+                  ),
                 ),
-                ElevatedButton(
-                  onPressed: () => Navigator.of(context).pop(true),
-                  child: Text('Yes'),
+                InkWell(
+                  onTap: () => Navigator.of(context).pop(true),
+                  child: Material(
+                    elevation: 5,
+                    borderRadius: BorderRadius.circular(16),
+                    child: Container(
+                      height: 40,
+                      width: size.width * 0.3,
+                      decoration: BoxDecoration(
+                          color: pinkColor,
+                          borderRadius: BorderRadius.circular(11)),
+                      child: Center(
+                          child: Text('Yes',
+                              style: TextStyle(
+                                  fontWeight: FontWeight.w600,
+                                  color: Colors.white))),
+                    ),
+                  ),
                 ),
               ],
             ),
@@ -60,7 +90,7 @@ class HomeScreen extends StatelessWidget {
                         child: Text(
                           "House Room Photos",
                           style: TextStyle(
-                              fontWeight: FontWeight.w400, fontSize: 16),
+                              fontWeight: FontWeight.w600, fontSize: 16),
                         ),
                       ),
                       RoomGrid(size: size, s: constraints.maxWidth < 330),

@@ -131,32 +131,39 @@ class RoomCard extends StatelessWidget {
           context,
           MaterialPageRoute(builder: (context) => RoomScreen(photos: photos)),
         ),
-        child: Material(
-          elevation: 10,
-          shadowColor: Colors.white,
-          borderRadius: BorderRadius.circular(16),
-          child: Column(
-            // crossAxisAlignment: CrossAxisAlignment.start,
-            children: <Widget>[
-              Padding(
-                padding: const EdgeInsets.only(top: 8, left: 8, right: 8),
-                child: ClipRRect(
-                  borderRadius: BorderRadius.circular(16),
-                  child: SizedBox(
-                    width: s == true ? size.width * 0.4 : size.width * 0.43,
-                    height: s == true ? size.height * 0.14 : size.height * 0.16,
-                    child: Image.asset(
-                      image,
-                      fit: BoxFit.cover,
+        child: SizedBox(
+          // height:,
+          child: Material(
+            elevation: 10,
+            shadowColor: Colors.white,
+            borderRadius: BorderRadius.circular(16),
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: <Widget>[
+                Padding(
+                  padding: const EdgeInsets.only(top: 8, left: 8, right: 8),
+                  child: ClipRRect(
+                    borderRadius: BorderRadius.circular(16),
+                    child: SizedBox(
+                      width: s ? size.width * 0.4 : size.width * 0.43,
+                      height: s ? size.height * 0.16 : size.height * 0.18,
+                      child: Image.asset(
+                        image,
+                        fit: BoxFit.cover,
+                      ),
                     ),
                   ),
                 ),
-              ),
-              Padding(
-                padding: const EdgeInsets.only(top: 8, bottom: 8),
-                child: Text(name),
-              )
-            ],
+                Padding(
+                  padding: const EdgeInsets.only(top: 8, bottom: 4, left: 16),
+                  child: Text(
+                    name,
+                    style: const TextStyle(
+                        fontWeight: FontWeight.w300, fontSize: 14),
+                  ),
+                )
+              ],
+            ),
           ),
         ),
       ),

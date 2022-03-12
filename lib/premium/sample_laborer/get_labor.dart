@@ -14,16 +14,27 @@ class GetLaborerScreen extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(
         elevation: 0,
+        toolbarHeight: 75,
+        leading: IconButton(
+          onPressed: () => Navigator.pop(context),
+          icon: Icon(Icons.arrow_back_ios_new),
+        ),
+        title: Text("Get Laborer for $premiumName",
+            style: TextStyle(color: Colors.black)),
+        centerTitle: true,
         backgroundColor: Colors.transparent,
-        iconTheme: const IconThemeData(color: Colors.black),
+        iconTheme: const IconThemeData(color: Colors.black54),
       ),
       body: SingleChildScrollView(
-        child: ListView.builder(
-          shrinkWrap: true,
-          physics: new NeverScrollableScrollPhysics(),
-          itemCount: labor_list.length,
-          itemBuilder: (context, index) => GetLaborerCard(
-            labor: labor_list[index],
+        child: Padding(
+          padding: const EdgeInsets.only(top: 16, left: 16),
+          child: ListView.builder(
+            shrinkWrap: true,
+            physics: new NeverScrollableScrollPhysics(),
+            itemCount: labor_list.length,
+            itemBuilder: (context, index) => GetLaborerCard(
+              labor: labor_list[index],
+            ),
           ),
         ),
       ),
@@ -40,6 +51,7 @@ class GetLaborerCard extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    Size size = MediaQuery.of(context).size;
     return InkWell(
       onTap: () {
         final time = DateTime.now().millisecondsSinceEpoch.toString();
@@ -51,19 +63,35 @@ class GetLaborerCard extends StatelessWidget {
         showAnimatedDialogBox(
             context, "A ${labor.name} will be apointed at $premiumName");
       },
-      child: Row(
-        children: [
-          Padding(
-            padding: const EdgeInsets.all(16),
-            child: ClipOval(
-              child: SizedBox.fromSize(
-                size: Size.fromRadius(20),
-                child: Image.asset(labor.image, fit: BoxFit.cover),
-              ),
+      child: SizedBox(
+        height: 70,
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.start,
+          crossAxisAlignment: CrossAxisAlignment.end,
+          children: [
+            Row(
+              children: [
+                Padding(
+                  padding: const EdgeInsets.only(right: 16),
+                  // padding: const EdgeInsets.all(16),
+                  child: ClipOval(
+                    child: SizedBox.fromSize(
+                      size: Size.fromRadius(22),
+                      child: Image.asset(labor.image, fit: BoxFit.cover),
+                    ),
+                  ),
+                ),
+                Text("Get ${labor.name}", style: TextStyle(fontSize: 16))
+              ],
             ),
-          ),
-          Text("Get ${labor.name}", style: TextStyle(fontSize: 14))
-        ],
+            SizedBox(height: 8),
+            Container(
+              height: 0.1,
+              width: size.width * 0.82,
+              color: Colors.black,
+            )
+          ],
+        ),
       ),
     );
   }

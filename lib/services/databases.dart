@@ -161,7 +161,7 @@ class DatabaseService {
   }
 
   Future<void> updateUserRequestSuper(String? time, bool b, bool change) async {
-    bool exist = await checkRequests();
+    bool exist = await checkSuperviser();
     if (exist) {
       return await userRequestForSuperDoc
           .update({"time": time, "change": change});

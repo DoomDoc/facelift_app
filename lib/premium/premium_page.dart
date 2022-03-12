@@ -17,28 +17,62 @@ class PremiumScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    Size size = MediaQuery.of(context).size;
     Future<bool> showExitPopup() async {
       return await showDialog(
             context: context,
             builder: (context) => AlertDialog(
               title: Text('Exit App'),
-              content: Text('Do you want to exit an App?'),
+              content: Text('Do you really want to exit?'),
               actions: <Widget>[
-                ElevatedButton(
-                  onPressed: () => Navigator.of(context).pop(false),
-                  child: Text('No'),
+                InkWell(
+                  onTap: () => Navigator.of(context).pop(false),
+                  child: Material(
+                    elevation: 5,
+                    borderRadius: BorderRadius.circular(16),
+                    child: Container(
+                      height: 40,
+                      width: size.width * 0.3,
+                      decoration: BoxDecoration(
+                          color: pinkColor,
+                          borderRadius: BorderRadius.circular(11)),
+                      child: Center(
+                          child: Text('No',
+                              style: TextStyle(
+                                  fontWeight: FontWeight.w600,
+                                  color: Colors.white))),
+                    ),
+                  ),
                 ),
-                ElevatedButton(
-                  onPressed: () => Navigator.of(context).pop(true),
-                  child: Text('Yes'),
+                InkWell(
+                  onTap: () => Navigator.of(context).pop(true),
+                  child: Material(
+                    elevation: 5,
+                    borderRadius: BorderRadius.circular(16),
+                    child: Container(
+                      height: 40,
+                      width: size.width * 0.3,
+                      decoration: BoxDecoration(
+                          color: pinkColor,
+                          borderRadius: BorderRadius.circular(11)),
+                      child: Center(
+                          child: Text('Yes',
+                              style: TextStyle(
+                                  fontWeight: FontWeight.w600,
+                                  color: Colors.white))),
+                    ),
+                  ),
                 ),
+                // ElevatedButton(
+                //   onPressed: () => Navigator.of(context).pop(true),
+                //   child: Text('Yes'),
+                // ),
               ],
             ),
           ) ??
           false;
     }
 
-    Size size = MediaQuery.of(context).size;
     if (premiumUser) {
       return StreamBuilder<PremiumDataModel>(
         stream: DatabaseService().userPrmiumDataStream,

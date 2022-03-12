@@ -17,13 +17,21 @@ class RoomScreen extends StatelessWidget {
           elevation: 0,
           iconTheme: IconThemeData(color: Colors.black),
         ),
-        body: ListView.builder(
-          itemCount: photos.length,
-          shrinkWrap: true,
-          itemBuilder: (context, index) => PhotoBox(
-            photo: photos[index],
-            size: size,
-            photos: photos,
+        body: SingleChildScrollView(
+          child: Column(
+            children: [
+              ListView.builder(
+                physics: NeverScrollableScrollPhysics(),
+                itemCount: photos.length,
+                shrinkWrap: true,
+                itemBuilder: (context, index) => PhotoBox(
+                  photo: photos[index],
+                  size: size,
+                  photos: photos,
+                ),
+              ),
+              ElevatedButton(onPressed: () {}, child: Text("data"))
+            ],
           ),
         ),
       ),
@@ -52,7 +60,7 @@ class PhotoBox extends StatelessWidget {
         child: Image.asset(
           photo.image,
           fit: BoxFit.cover,
-          height: size.height * 0.7,
+          height: size.height * 0.5,
           width: size.width,
         ),
       ),

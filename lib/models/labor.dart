@@ -59,7 +59,7 @@ List<Labor> labor_list = [
     image: "assets/labor/carpenter.png",
   ),
   Labor(
-    name: "welder",
+    name: "Welder",
     description: """
 1 Best in quality gates, girders, channels, railings, etc. at the fastest pace possible.
 
@@ -68,7 +68,7 @@ List<Labor> labor_list = [
     image: "assets/labor/welder.jpg",
   ),
   Labor(
-    name: "plumber",
+    name: "Plumber",
     description: """
 1 Works according to the plumbing plans provided.
 
@@ -77,7 +77,7 @@ List<Labor> labor_list = [
     image: "assets/labor/plumber.jpg",
   ),
   Labor(
-    name: "glass labor",
+    name: "Glass labor",
     description: """
 1 Professional in lifting every size of glass used in houses.
 
@@ -88,7 +88,7 @@ List<Labor> labor_list = [
     image: "assets/labor/glass_labor.jpg",
   ),
   Labor(
-    name: "electrician",
+    name: "Electrician",
     description: """
 1 Electrician work according to the requirements finalized by you.
 

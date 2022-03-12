@@ -144,7 +144,7 @@ class _AddBillScreenState extends State<AddBillScreen> {
     Size size = MediaQuery.of(context).size;
     return Scaffold(
       appBar: AppBar(
-        toolbarHeight: 100,
+        toolbarHeight: 75,
         elevation: 0,
         backgroundColor: Colors.transparent,
         leading: IconButton(
