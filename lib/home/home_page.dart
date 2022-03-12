@@ -96,21 +96,23 @@ class HomeScreen extends StatelessWidget {
                       RoomGrid(size: size, s: constraints.maxWidth < 330),
                       Padding(
                         padding: const EdgeInsets.only(
-                            left: 16, top: 40, bottom: 16),
+                            left: 16, top: 32, bottom: 16),
                         child: Text(
                           "Labor",
                           style: TextStyle(
-                              fontWeight: FontWeight.w400, fontSize: 16),
+                              fontWeight: FontWeight.w600, fontSize: 16),
                         ),
                       ),
                       LaborList(size: size),
                       Padding(
                         padding: const EdgeInsets.only(
-                            left: 16, top: 40, bottom: 16),
+                            left: 16, top: 32, bottom: 16),
                         child: Text(
                           "Latest Tools and Machinery",
                           style: TextStyle(
-                              fontWeight: FontWeight.w400, fontSize: 16),
+                            fontWeight: FontWeight.w600,
+                            fontSize: 16,
+                          ),
                         ),
                       ),
                       ToolsList(size: size),
@@ -120,7 +122,7 @@ class HomeScreen extends StatelessWidget {
                         child: Text(
                           "Don't just live in your home, feel it!",
                           style: TextStyle(
-                              fontWeight: FontWeight.w400, fontSize: 16),
+                              fontWeight: FontWeight.w600, fontSize: 16),
                         ),
                       ),
                       LuxuryElements(),
@@ -154,7 +156,7 @@ class HomeScreen extends StatelessWidget {
                         child: Text(
                           "Facelift promotes Green spaces",
                           style: TextStyle(
-                              fontWeight: FontWeight.w400, fontSize: 16),
+                              fontWeight: FontWeight.w600, fontSize: 16),
                         ),
                       ),
                       GreenSpaces(),

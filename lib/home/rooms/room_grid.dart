@@ -24,9 +24,9 @@ class RoomGrid extends StatelessWidget {
           name1: "Living",
           image1: "assets/room/living.gif",
           photos1: living_photos,
-          name2: "Dressing",
-          image2: "assets/room/dressing.jpg",
-          photos2: dressing_photos,
+          name2: "Bathroom",
+          image2: "assets/room/bath.gif",
+          photos2: bathroom_photos,
           s: s,
         ),
         SizedBox(
@@ -46,10 +46,10 @@ class RoomGrid extends StatelessWidget {
           height: size.height * 0.01,
         ),
         RowofRoomCard(
+          name1: "Dressing",
+          image1: "assets/room/dressing.jpg",
+          photos1: dressing_photos,
           size: size,
-          name1: "Bathroom",
-          image1: "assets/room/bath.gif",
-          photos1: bathroom_photos,
           name2: "House front",
           image2: "assets/room/house.jpg",
           photos2: front_photos,
@@ -125,7 +125,7 @@ class RoomCard extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: const EdgeInsets.symmetric(horizontal: 4),
+      padding: const EdgeInsets.symmetric(horizontal: 4, vertical: 4),
       child: GestureDetector(
         onTap: () => Navigator.push(
           context,
@@ -155,7 +155,7 @@ class RoomCard extends StatelessWidget {
                   ),
                 ),
                 Padding(
-                  padding: const EdgeInsets.only(top: 8, bottom: 4, left: 16),
+                  padding: const EdgeInsets.only(top: 8, bottom: 8, left: 24),
                   child: Text(
                     name,
                     style: const TextStyle(
