@@ -11,12 +11,12 @@ class SampleBill {
 
 List<SampleBill> sampleBillList = [
   SampleBill(
-    name: "Sanitary - cistern",
+    name: "Sanitary",
     amount: "4700",
     image: "assets/sample_bills/1.jpg",
   ),
   SampleBill(
-    name: "Flush Doors & Windows",
+    name: "Flush Doors",
     amount: "154932",
     image: "assets/sample_bills/2.jpg",
   ),

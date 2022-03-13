@@ -118,22 +118,14 @@ class FinishingCard extends StatelessWidget {
             borderRadius: BorderRadius.circular(16),
             child: SizedBox(
               width: size.width * 0.47,
-              height: size.height * 0.19,
+              height: size.height * 0.185,
               child: Padding(
                 padding: const EdgeInsets.only(left: 0),
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.center,
                   children: [
                     Container(
-                      padding: EdgeInsets.only(
-                        top: 4,
-                      ),
-                      // constraints: BoxConstraints(
-                      //   minHeight: size.height * 0.15,
-                      //   minWidth: size.width * 0.43,
-                      //   maxHeight: size.height * 0.15,
-                      //   maxWidth: size.width * 0.43,
-                      // ),
+                      padding: EdgeInsets.only(top: 4),
                       height: size.height * 0.15,
                       width: size.width * 0.44,
                       child: ClipRRect(
@@ -145,12 +137,17 @@ class FinishingCard extends StatelessWidget {
                       ),
                     ),
                     Padding(
-                      padding: const EdgeInsets.only(left: 0, top: 8),
-                      child: Text(
-                        name,
-                        style: TextStyle(
-                          fontSize: 11,
-                          fontWeight: FontWeight.w300,
+                      padding: const EdgeInsets.only(left: 16, top: 4),
+                      child: SizedBox(
+                        width: size.width * 0.47,
+                        child: Text(
+                          name,
+                          maxLines: 1,
+                          textAlign: TextAlign.start,
+                          style: TextStyle(
+                            fontSize: 14,
+                            fontWeight: FontWeight.w400,
+                          ),
                         ),
                       ),
                     )

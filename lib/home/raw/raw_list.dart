@@ -55,7 +55,7 @@ class RawCard extends StatelessWidget {
               padding: const EdgeInsets.symmetric(vertical: 8),
               child: Text(
                 material.name,
-                style: TextStyle(fontWeight: FontWeight.w300),
+                style: TextStyle(fontWeight: FontWeight.w400),
               ),
             )
           ],

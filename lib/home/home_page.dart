@@ -128,7 +128,7 @@ class HomeScreen extends StatelessWidget {
                         child: Text(
                           "Raw Materials",
                           style: TextStyle(
-                              fontWeight: FontWeight.w400, fontSize: 16),
+                              fontWeight: FontWeight.w600, fontSize: 16),
                         ),
                       ),
                       const RawList(),
@@ -137,7 +137,7 @@ class HomeScreen extends StatelessWidget {
                         child: Text(
                           "Finishing Materials",
                           style: TextStyle(
-                              fontWeight: FontWeight.w400, fontSize: 16),
+                              fontWeight: FontWeight.w600, fontSize: 16),
                         ),
                       ),
                       FinishingList(size: size),

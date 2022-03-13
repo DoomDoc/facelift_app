@@ -12,9 +12,14 @@ import '../models/models.dart';
 import '../services/auth_service.dart';
 import '../services/databases.dart';
 
-class PofileScreen extends StatelessWidget {
+class PofileScreen extends StatefulWidget {
   const PofileScreen({Key? key}) : super(key: key);
 
+  @override
+  State<PofileScreen> createState() => _PofileScreenState();
+}
+
+class _PofileScreenState extends State<PofileScreen> {
   _launchUrl(String siteUrl) async {
     final url = siteUrl;
     if (await canLaunch(url)) {
@@ -118,6 +123,12 @@ class PofileScreen extends StatelessWidget {
                           press: () {
                             _launchUrl(
                                 'https://www.facelift.construction/privacy-policy');
+                          },
+                        ),
+                        ProfileMenu(
+                          name: "Call Us",
+                          press: () {
+                            _launchUrl('tel:7207225725');
                           },
                         ),
                         ProfileMenu(
