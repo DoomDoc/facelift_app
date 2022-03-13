@@ -5,6 +5,7 @@ import 'package:facelift_constructions/profile/accounts_page.dart';
 import 'package:facelift_constructions/profile/upload_pic_page.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+import 'package:url_launcher/url_launcher.dart';
 
 import '../constants.dart';
 import '../models/models.dart';
@@ -14,9 +15,19 @@ import '../services/databases.dart';
 class PofileScreen extends StatelessWidget {
   const PofileScreen({Key? key}) : super(key: key);
 
+  _launchUrl(String siteUrl) async {
+    final url = siteUrl;
+    if (await canLaunch(url)) {
+      await launch(url);
+    } else {
+      throw 'Could not launch $url';
+    }
+  }
+
   @override
   Widget build(BuildContext context) {
     Size size = MediaQuery.of(context).size;
+
     Future<bool> showExitPopup() async {
       return await showDialog(
             context: context,
@@ -98,11 +109,16 @@ class PofileScreen extends StatelessWidget {
                         ),
                         ProfileMenu(
                           name: "My Site",
-                          press: () {},
+                          press: () {
+                            _launchUrl('https://www.facelift.construction/');
+                          },
                         ),
                         ProfileMenu(
                           name: "FAQs",
-                          press: () {},
+                          press: () {
+                            _launchUrl(
+                                'https://www.facelift.construction/privacy-policy');
+                          },
                         ),
                         ProfileMenu(
                           name: "Log Out",
