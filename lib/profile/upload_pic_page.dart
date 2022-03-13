@@ -6,6 +6,7 @@ import 'package:facelift_constructions/constants.dart';
 import 'package:facelift_constructions/services/databases.dart';
 import 'package:firebase_storage/firebase_storage.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_animated_dialog/flutter_animated_dialog.dart';
 import 'package:image_picker/image_picker.dart';
 
 class UploadPicScreen extends StatefulWidget {
@@ -21,13 +22,55 @@ class _UploadPicScreenState extends State<UploadPicScreen> {
   String? downloadUrl;
   bool isLoading = false;
 
+  void showPickerDialogBox(BuildContext context) => showAnimatedDialog(
+        barrierDismissible: true,
+        animationType: DialogTransitionType.slideFromBottom,
+        curve: Curves.fastOutSlowIn,
+        duration: Duration(seconds: 1),
+        context: context,
+        builder: (BuildContext context) {
+          return AlertDialog(
+            title: Text("Choose option"),
+            content: SingleChildScrollView(
+              child: ListBody(children: [
+                ListTile(
+                  onTap: () {
+                    imagePickerFunc();
+                    Navigator.pop(context);
+                  },
+                  title: Text("Gallery"),
+                ),
+                ListTile(
+                  onTap: () {
+                    imagePickerCameraFunc();
+                    Navigator.pop(context);
+                  },
+                  title: Text("Camera"),
+                ),
+              ]),
+            ),
+          );
+        },
+      );
+
   Future imagePickerFunc() async {
     final pick = await imagePicker.pickImage(source: ImageSource.gallery);
     setState(() {
       if (pick != null) {
         _image = File(pick.path);
       } else {
-        showSnackBar("No file");
+        showSnackBar(context, "No file");
+      }
+    });
+  }
+
+  Future imagePickerCameraFunc() async {
+    final pick = await imagePicker.pickImage(source: ImageSource.camera);
+    setState(() {
+      if (pick != null) {
+        _image = File(pick.path);
+      } else {
+        showSnackBar(context, "No file");
       }
     });
   }
@@ -46,91 +89,92 @@ class _UploadPicScreenState extends State<UploadPicScreen> {
       setState(() {
         isLoading = false;
       });
-      showSnackBar("uploaded");
+      showSnackBar(context, "uploaded");
       Navigator.pop(context);
     });
-  }
-
-  showSnackBar(String text) {
-    final snackBar = SnackBar(content: Text(text));
-    ScaffoldMessenger.of(context).showSnackBar(snackBar);
   }
 
   @override
   Widget build(BuildContext context) {
     Size size = MediaQuery.of(context).size;
     return Scaffold(
-      body: SingleChildScrollView(
-        child: SafeArea(
-          child: SizedBox(
-            height: size.height * 0.7,
-            width: size.width,
+      appBar: AppBar(
+        toolbarHeight: 75,
+        elevation: 0,
+        leading: IconButton(
+          onPressed: () => Navigator.pop(context),
+          icon: Icon(Icons.arrow_back_ios_new),
+        ),
+        title:
+            Text("Update Profile Pic", style: TextStyle(color: Colors.black)),
+        centerTitle: true,
+        backgroundColor: Colors.transparent,
+        iconTheme: const IconThemeData(color: Colors.black54),
+      ),
+      body: SafeArea(
+        child: SizedBox(
+          height: size.height,
+          width: size.width,
+          child: SingleChildScrollView(
             child: Column(
-              mainAxisAlignment: MainAxisAlignment.center,
+              // mainAxisAlignment: MainAxisAlignment.start,
               children: [
-                SizedBox(height: 50),
-                Expanded(
-                  flex: 4,
+                Padding(
+                  padding:
+                      const EdgeInsets.symmetric(horizontal: 24, vertical: 16),
                   child: Container(
+                    height: 500,
                     width: size.width * 0.9,
+                    padding: EdgeInsets.symmetric(horizontal: 8),
                     decoration:
-                        BoxDecoration(border: Border.all(color: Colors.red)),
-                    child: Center(
-                      child: Column(
-                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                        children: [
-                          Expanded(
-                            child: _image != null
-                                ? Image.file(_image!)
-                                : const Center(
-                                    child: Text("nothing"),
-                                  ),
+                        BoxDecoration(border: Border.all(color: pinkColor)),
+                    child: _image != null
+                        ? Image.file(_image!)
+                        : const Center(
+                            child: Text("No Image Uploaded"),
                           ),
-                          isLoading
-                              ? SizedBox(height: 50)
-                              : InkWell(
-                                  onTap: () {
-                                    imagePickerFunc();
-                                  },
-                                  child: Container(
-                                    height: 50,
-                                    width: 150,
-                                    decoration: BoxDecoration(
-                                      color: pinkColor,
-                                      borderRadius: BorderRadius.circular(10),
-                                    ),
-                                    child: Center(child: Text("Select")),
-                                  ),
-                                ),
-                          SizedBox(height: 20),
-                          isLoading
-                              ? CircularProgressIndicator()
-                              : InkWell(
-                                  onTap: () {
-                                    if (_image != null) {
-                                      setState(() {
-                                        isLoading = true;
-                                      });
-                                      uploadImage();
-                                    } else {
-                                      showSnackBar("error up");
-                                    }
-                                  },
-                                  child: Container(
-                                    height: 50,
-                                    width: 150,
-                                    decoration: BoxDecoration(
-                                      color: pinkColor,
-                                      borderRadius: BorderRadius.circular(10),
-                                    ),
-                                    child: Center(child: Text("Upload")),
-                                  ),
-                                ),
-                        ],
-                      ),
-                    ),
                   ),
                 ),
+                isLoading
+                    ? SizedBox(height: 50)
+                    : InkWell(
+                        onTap: () {
+                          showPickerDialogBox(context);
+                        },
+                        child: Container(
+                          height: 50,
+                          width: 150,
+                          decoration: BoxDecoration(
+                            color: pinkColor,
+                            borderRadius: BorderRadius.circular(16),
+                          ),
+                          child: Center(child: Text("Select")),
+                        ),
+                      ),
+                SizedBox(height: 10),
+                isLoading
+                    ? CircularProgressIndicator()
+                    : InkWell(
+                        onTap: () {
+                          if (_image != null) {
+                            setState(() {
+                              isLoading = true;
+                            });
+                            uploadImage();
+                          } else {
+                            showSnackBar(context, "error");
+                          }
+                        },
+                        child: Container(
+                          height: 50,
+                          width: 150,
+                          decoration: BoxDecoration(
+                            color: pinkColor,
+                            borderRadius: BorderRadius.circular(16),
+                          ),
+                          child: Center(child: Text("Upload")),
+                        ),
+                      ),
               ],
             ),
           ),

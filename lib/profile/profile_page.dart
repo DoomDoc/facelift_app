@@ -6,6 +6,7 @@ import 'package:facelift_constructions/profile/upload_pic_page.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 
+import '../constants.dart';
 import '../models/models.dart';
 import '../services/auth_service.dart';
 import '../services/databases.dart';
@@ -15,6 +16,7 @@ class PofileScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    Size size = MediaQuery.of(context).size;
     Future<bool> showExitPopup() async {
       return await showDialog(
             context: context,
@@ -22,13 +24,43 @@ class PofileScreen extends StatelessWidget {
               title: Text('Exit App'),
               content: Text('Do you want to exit an App?'),
               actions: <Widget>[
-                ElevatedButton(
-                  onPressed: () => Navigator.of(context).pop(false),
-                  child: Text('No'),
+                InkWell(
+                  onTap: () => Navigator.of(context).pop(false),
+                  child: Material(
+                    elevation: 5,
+                    borderRadius: BorderRadius.circular(16),
+                    child: Container(
+                      height: 40,
+                      width: size.width * 0.3,
+                      decoration: BoxDecoration(
+                          color: pinkColor,
+                          borderRadius: BorderRadius.circular(11)),
+                      child: Center(
+                          child: Text('No',
+                              style: TextStyle(
+                                  fontWeight: FontWeight.w600,
+                                  color: Colors.white))),
+                    ),
+                  ),
                 ),
-                ElevatedButton(
-                  onPressed: () => Navigator.of(context).pop(true),
-                  child: Text('Yes'),
+                InkWell(
+                  onTap: () => Navigator.of(context).pop(true),
+                  child: Material(
+                    elevation: 5,
+                    borderRadius: BorderRadius.circular(16),
+                    child: Container(
+                      height: 40,
+                      width: size.width * 0.3,
+                      decoration: BoxDecoration(
+                          color: pinkColor,
+                          borderRadius: BorderRadius.circular(11)),
+                      child: Center(
+                          child: Text('Yes',
+                              style: TextStyle(
+                                  fontWeight: FontWeight.w600,
+                                  color: Colors.white))),
+                    ),
+                  ),
                 ),
               ],
             ),
@@ -55,7 +87,7 @@ class PofileScreen extends StatelessWidget {
                         Text(snapshot.data!.phone),
                         SizedBox(height: 20),
                         ProfileMenu(
-                          name: "Edit Account",
+                          name: "Edit Name",
                           press: () {
                             // print(authClass.getUid());
                             Navigator.push(

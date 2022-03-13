@@ -1,4 +1,4 @@
-// ignore_for_file: prefer_const_constructors, use_key_in_widget_constructors
+// ignore_for_file: use_key_in_widget_constructors
 
 import 'package:facelift_constructions/constants.dart';
 import 'package:facelift_constructions/services/databases.dart';
@@ -12,8 +12,6 @@ class AccountsScreen extends StatefulWidget {
 }
 
 class _AccountsScreenState extends State<AccountsScreen> {
-  // AuthClass authClass = AuthClass();
-  final _formKey = GlobalKey<FormState>();
   String _currentName = "";
   @override
   Widget build(BuildContext context) {
@@ -23,48 +21,67 @@ class _AccountsScreenState extends State<AccountsScreen> {
       builder: (context, snapshot) {
         if (snapshot.hasData) {
           return Scaffold(
+            appBar: AppBar(
+              toolbarHeight: 75,
+              elevation: 0,
+              leading: IconButton(
+                onPressed: () => Navigator.pop(context),
+                icon: const Icon(Icons.arrow_back_ios_new),
+              ),
+              title: const Text("Update Name",
+                  style: TextStyle(color: Colors.black)),
+              centerTitle: true,
+              backgroundColor: Colors.transparent,
+              iconTheme: const IconThemeData(color: Colors.black54),
+            ),
             body: SafeArea(
-              child: Form(
-                key: _formKey,
-                child: SizedBox(
-                  height: size.height,
-                  width: size.width,
-                  child: Column(
-                    // mainAxisAlignment: MainAxisAlignment.center,
-                    crossAxisAlignment: CrossAxisAlignment.center,
-                    children: [
-                      SizedBox(height: 50),
-                      TextFormField(
+              child: SizedBox(
+                height: size.height,
+                width: size.width,
+                child: Column(
+                  // mainAxisAlignment: MainAxisAlignment.center,
+                  crossAxisAlignment: CrossAxisAlignment.center,
+                  children: [
+                    const SizedBox(height: 50),
+                    SizedBox(
+                      height: 50,
+                      width: size.width * 0.9,
+                      child: TextFormField(
                         initialValue: snapshot.data!.name,
-                        validator: (val) => val == null
-                            ? "Please Enter a Name"
-                            : val.isEmpty
-                                ? "Please Enter a Name"
-                                : null,
-                        onChanged: (val) => setState(() => _currentName = val),
-                      ),
-                      InkWell(
-                        onTap: () async {
-                          if (_formKey.currentState!.validate()) {
-                            await DatabaseService()
-                                .updateUserName(_currentName);
-                            Navigator.pop(context);
+                        decoration:
+                            const InputDecoration(hintText: "Enter Name"),
+                        onChanged: (val) {
+                          if (val == "") {
+                            val = "New User";
                           }
+                          setState(() => _currentName = val);
                         },
-                        child: Container(
-                          height: 40,
+                      ),
+                    ),
+                    const SizedBox(height: 20),
+                    InkWell(
+                      onTap: () async {
+                        if (_currentName == "") {
+                          _currentName = snapshot.data!.name;
+                        }
+                        await DatabaseService().updateUserName(_currentName);
+                        Navigator.pop(context);
+                      },
+                      child: Container(
+                          height: 50,
                           width: 200,
-                          decoration: BoxDecoration(color: pinkColor),
-                        ),
-                      )
-                    ],
-                  ),
+                          decoration: BoxDecoration(
+                              color: pinkColor,
+                              borderRadius: BorderRadius.circular(32)),
+                          child: const Center(child: Text("Update"))),
+                    )
+                  ],
                 ),
               ),
             ),
           );
         } else {
-          return CircularProgressIndicator();
+          return const CircularProgressIndicator();
         }
       },
     );
