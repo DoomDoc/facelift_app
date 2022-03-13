@@ -54,7 +54,7 @@ class GetLaborerCard extends StatelessWidget {
     Size size = MediaQuery.of(context).size;
     return InkWell(
       onTap: () {
-        final time = DateTime.now().millisecondsSinceEpoch.toString();
+        final time = DateTime.now().millisecondsSinceEpoch;
         if (labor.name == "Tile/Marble Mistri") {
           DatabaseService().updateUserRequestLabor(time, true, "marble_mistr");
         } else {

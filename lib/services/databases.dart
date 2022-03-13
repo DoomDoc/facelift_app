@@ -71,6 +71,7 @@ class DatabaseService {
 
   final DocumentReference userRequestForRawMatDoc =
       FirebaseFirestore.instance.collection('RequestsRawMaterials').doc(number);
+
   final DocumentReference userComplaintsDoc =
       FirebaseFirestore.instance.collection('Complaints').doc(number);
 
@@ -209,7 +210,7 @@ class DatabaseService {
     return await userProfileDoc.set({"url": val});
   }
 
-  Future<void> updateUserRequestSuper(String? time, bool b, bool change) async {
+  Future<void> updateUserRequestSuper(int? time, bool b, bool change) async {
     bool exist = await checkSuperviser();
     if (exist) {
       return await userRequestForSuperDoc
@@ -220,7 +221,7 @@ class DatabaseService {
     }
   }
 
-  Future<void> updateUserRequestLabor(String? time, bool b, String name) async {
+  Future<void> updateUserRequestLabor(int? time, bool b, String name) async {
     bool exist = await checkRequests();
     if (exist) {
       return await userRequestsLabor.update({"time": time, name: true});
@@ -230,7 +231,7 @@ class DatabaseService {
     }
   }
 
-  Future<void> updateUserRequestRoom(String? time, bool b, String name) async {
+  Future<void> updateUserRequestRoom(int? time, bool b, String name) async {
     bool exist = await checkRoomsReq();
     if (exist) {
       return await userRequestForRoomDoc.update({"time": time, name: true});
@@ -240,7 +241,7 @@ class DatabaseService {
     }
   }
 
-  Future<void> updateUserRequestTools(String? time, bool b, String name) async {
+  Future<void> updateUserRequestTools(int? time, bool b, String name) async {
     bool exist = await checkToolsReq();
     if (exist) {
       return await userRequestForToolsDoc.update({"time": time, name: true});
@@ -251,7 +252,7 @@ class DatabaseService {
   }
 
   Future<void> updateUserRequestRawMaterial(
-      String? time, bool b, String name) async {
+      int? time, bool b, String name) async {
     bool exist = await checkRawMatReq();
     if (exist) {
       return await userRequestForRawMatDoc.update({"time": time, name: true});
@@ -262,18 +263,18 @@ class DatabaseService {
   }
 
   Future<void> updateUserComplaint(
-      String? time, bool b, String name, String skill) async {
+      int? time, bool b, String name, String skill, String reason) async {
     bool exist = await checkComplaints();
     if (exist) {
       return await userComplaintsDoc.update({
         "time": time,
-        "${name}_$skill": true,
+        "${name}_$skill": reason,
       });
     } else {
       return await userComplaintsDoc.set({
         "request": b,
         "time": time,
-        "${name}_$skill": true,
+        "${name}_$skill": reason,
       });
     }
   }

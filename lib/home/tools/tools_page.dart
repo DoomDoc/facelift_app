@@ -54,7 +54,7 @@ class ToolsSceen extends StatelessWidget {
               ),
               InkWell(
                 onTap: () {
-                  final time = DateTime.now().millisecondsSinceEpoch.toString();
+                  final time = DateTime.now().millisecondsSinceEpoch;
                   DatabaseService().updateUserRequestTools(
                       time, true, tool.name.replaceAll(' ', ''));
 

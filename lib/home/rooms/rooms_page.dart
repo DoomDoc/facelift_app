@@ -53,7 +53,7 @@ class RoomScreen extends StatelessWidget {
               ),
               InkWell(
                 onTap: () {
-                  final time = DateTime.now().millisecondsSinceEpoch.toString();
+                  final time = DateTime.now().millisecondsSinceEpoch;
                   // if (name == "House front") {
                   //   name = "House_front";
                   // }

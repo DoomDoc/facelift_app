@@ -49,7 +49,7 @@ class LaborScreen extends StatelessWidget {
               ),
               InkWell(
                 onTap: () {
-                  final time = DateTime.now().millisecondsSinceEpoch.toString();
+                  final time = DateTime.now().millisecondsSinceEpoch;
                   if (labor.name == "Tile/Marble Mistri") {
                     DatabaseService()
                         .updateUserRequestLabor(time, true, "marble_mistr");

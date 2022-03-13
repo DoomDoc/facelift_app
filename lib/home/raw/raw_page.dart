@@ -95,7 +95,7 @@ class RawSceen extends StatelessWidget {
 
             InkWell(
               onTap: () {
-                final time = DateTime.now().millisecondsSinceEpoch.toString();
+                final time = DateTime.now().millisecondsSinceEpoch;
                 DatabaseService().updateUserRequestRawMaterial(
                     time, true, material.name.replaceAll(' ', ''));
 

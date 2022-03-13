@@ -1,5 +1,7 @@
 // ignore_for_file: prefer_const_constructors, prefer_typing_uninitialized_variables
 
+import 'dart:async';
+
 import 'package:flutter/material.dart';
 
 import 'home/home_page.dart';
@@ -114,6 +116,9 @@ void showImageDialogBox(BuildContext context, String image) =>
     );
 
 Future<void> showAnimatedDialogBox(BuildContext context, String name) async {
+  Timer _timer = Timer(Duration(seconds: 3), () {
+    Navigator.of(context).pop();
+  });
   showAnimatedDialog(
     context: context,
     builder: (BuildContext context) {
@@ -122,30 +127,30 @@ Future<void> showAnimatedDialogBox(BuildContext context, String name) async {
         shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(16)),
         child: SingleChildScrollView(
           child: SizedBox(
-            height: 270,
+            height: 305,
             child: Column(
               mainAxisAlignment: MainAxisAlignment.center,
               mainAxisSize: MainAxisSize.min,
               children: [
-                // SizedBox(height: 10),
-                // Padding(
-                //   padding: const EdgeInsets.only(right: 12),
-                //   child: Row(
-                //     mainAxisAlignment: MainAxisAlignment.end,
-                //     children: [
-                //       InkWell(
-                //         onTap: () {
-                //           Navigator.pop(context);
-                //         },
-                //         child: Icon(
-                //           Icons.close,
-                //           size: 30,
-                //           color: Colors.black54,
-                //         ),
-                //       ),
-                //     ],
-                //   ),
-                // ),
+                SizedBox(height: 10),
+                Padding(
+                  padding: const EdgeInsets.only(right: 12),
+                  child: Row(
+                    mainAxisAlignment: MainAxisAlignment.end,
+                    children: [
+                      InkWell(
+                        onTap: () {
+                          Navigator.pop(context);
+                        },
+                        child: Icon(
+                          Icons.close,
+                          size: 24,
+                          color: Colors.black54,
+                        ),
+                      ),
+                    ],
+                  ),
+                ),
                 Padding(
                   padding: const EdgeInsets.symmetric(horizontal: 16),
                   child: SizedBox(
@@ -172,14 +177,13 @@ Future<void> showAnimatedDialogBox(BuildContext context, String name) async {
         ),
       );
     },
-
-    // barrierDismissible: true,
+    barrierDismissible: true,
     animationType: DialogTransitionType.slideFromBottom,
     curve: Curves.fastOutSlowIn,
     duration: Duration(seconds: 1),
-  );
-  // if (crossClick == false) {
-  await Future.delayed(Duration(seconds: 3));
-  Navigator.pop(context);
-  // }
+  ).then((value) {
+    if (_timer.isActive) {
+      _timer.cancel();
+    }
+  });
 }

@@ -68,6 +68,7 @@ class SampleLaborerList extends StatelessWidget {
                             name: name,
                             skill: skill,
                             image: image,
+                            press: () {},
                           );
                         })
                     : ListView.builder(
@@ -127,11 +128,13 @@ class UserLaborerCard extends StatelessWidget {
   final String name;
   final String skill;
   final String image;
+  final VoidCallback press;
   const UserLaborerCard({
     Key? key,
     required this.name,
     required this.skill,
     required this.image,
+    required this.press,
   }) : super(key: key);
 
   @override
@@ -139,8 +142,7 @@ class UserLaborerCard extends StatelessWidget {
     return Padding(
       padding: const EdgeInsets.symmetric(horizontal: 8),
       child: GestureDetector(
-        onTap: () => Navigator.push(context,
-            MaterialPageRoute(builder: (context) => GetLaborerScreen())),
+        onTap: press,
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
@@ -164,7 +166,7 @@ class UserLaborerCard extends StatelessWidget {
               padding: const EdgeInsets.only(left: 16),
               child: Text(
                 skill,
-                style: TextStyle(fontSize: 10, fontWeight: FontWeight.w300),
+                style: TextStyle(fontSize: 10, fontWeight: FontWeight.w400),
               ),
             ),
           ],

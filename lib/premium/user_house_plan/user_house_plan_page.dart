@@ -108,6 +108,7 @@ class _UserHousePlanScreenState extends State<UserHousePlanScreen> {
     Size size = MediaQuery.of(context).size;
     return Scaffold(
       appBar: AppBar(
+        toolbarHeight: 75,
         elevation: 0,
         leading: IconButton(
           onPressed: () => Navigator.pop(context),
