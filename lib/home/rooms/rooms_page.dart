@@ -18,12 +18,12 @@ class RoomScreen extends StatelessWidget {
       child: Scaffold(
         appBar: AppBar(
           elevation: 0,
-          // toolbarHeight: 75,
+          toolbarHeight: 65,
           leading: IconButton(
             onPressed: () => Navigator.pop(context),
             icon: Icon(Icons.arrow_back_ios_new),
           ),
-          // title: Text("Add House Plan", style: TextStyle(color: Colors.black)),
+          title: Text("$name Photos", style: TextStyle(color: Colors.black)),
           centerTitle: true,
           backgroundColor: Colors.transparent,
           iconTheme: const IconThemeData(color: Colors.black54),
@@ -58,7 +58,8 @@ class RoomScreen extends StatelessWidget {
                   //   name = "House_front";
                   // }
                   showAnimatedDialogBoxHome(context, name);
-                  DatabaseService().updateUserRequestRoom(time, true, name=="House front"?"House_front": name);
+                  DatabaseService().updateUserRequestRoom(
+                      time, true, name == "House front" ? "House_front" : name);
                 },
                 child: Container(
                   width: size.width * 0.7,

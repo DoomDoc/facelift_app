@@ -25,6 +25,7 @@ class FinishingList extends StatelessWidget {
           id1: 0,
           id2: 1,
         ),
+        const SizedBox(height: 8),
         FinishingRow(
           size: size,
           name1: "Doors and Accessories",
@@ -34,6 +35,7 @@ class FinishingList extends StatelessWidget {
           id1: 2,
           id2: 3,
         ),
+        const SizedBox(height: 8),
         FinishingRow(
           size: size,
           name1: "Kitchen",
@@ -71,6 +73,7 @@ class FinishingRow extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Row(
+      mainAxisAlignment: MainAxisAlignment.center,
       children: [
         FinishingCard(
           size: size,
@@ -116,44 +119,39 @@ class FinishingCard extends StatelessWidget {
             elevation: 10,
             // shadowColor: Colors.white,
             borderRadius: BorderRadius.circular(16),
-            child: SizedBox(
-              width: size.width * 0.47,
-              height: size.height * 0.185,
-              child: Padding(
-                padding: const EdgeInsets.only(left: 0),
-                child: Column(
-                  crossAxisAlignment: CrossAxisAlignment.center,
-                  children: [
-                    Container(
-                      padding: EdgeInsets.only(top: 4),
-                      height: size.height * 0.15,
-                      width: size.width * 0.44,
-                      child: ClipRRect(
-                        borderRadius: BorderRadius.circular(16),
-                        child: Image.asset(
-                          image,
-                          fit: BoxFit.cover,
-                        ),
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.center,
+              children: [
+                Padding(
+                  padding: const EdgeInsets.only(top: 8, left: 8, right: 8),
+                  child: ClipRRect(
+                    borderRadius: BorderRadius.circular(16),
+                    child: SizedBox(
+                      height: size.height * 0.18,
+                      width: size.width * 0.43,
+                      child: Image.asset(
+                        image,
+                        fit: BoxFit.cover,
                       ),
                     ),
-                    Padding(
-                      padding: const EdgeInsets.only(left: 16, top: 4),
-                      child: SizedBox(
-                        width: size.width * 0.47,
-                        child: Text(
-                          name,
-                          maxLines: 1,
-                          textAlign: TextAlign.start,
-                          style: TextStyle(
-                            fontSize: 14,
-                            fontWeight: FontWeight.w400,
-                          ),
-                        ),
-                      ),
-                    )
-                  ],
+                  ),
                 ),
-              ),
+                Padding(
+                  padding: const EdgeInsets.only(left: 16, top: 8, bottom: 8),
+                  child: SizedBox(
+                    width: size.width * 0.43,
+                    child: Text(
+                      name,
+                      maxLines: 1,
+                      textAlign: TextAlign.start,
+                      style: TextStyle(
+                        fontSize: size.width < 330 ? 10 : 14,
+                        fontWeight: FontWeight.w400,
+                      ),
+                    ),
+                  ),
+                )
+              ],
             )),
       ),
     );

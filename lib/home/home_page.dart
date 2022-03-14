@@ -72,105 +72,85 @@ class HomeScreen extends StatelessWidget {
           false;
     }
 
-    return LayoutBuilder(
-      builder: (context, constraints) {
-        if (constraints.maxWidth < 426) {
-          return WillPopScope(
-            onWillPop: showExitPopup,
-            child: Scaffold(
-              body: SingleChildScrollView(
-                child: SafeArea(
-                  child: Column(
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: [
-                      Logo(size: size),
-                      const Padding(
-                        padding:
-                            EdgeInsets.symmetric(horizontal: 16, vertical: 16),
-                        child: Text(
-                          "House Room Photos",
-                          style: TextStyle(
-                              fontWeight: FontWeight.w600, fontSize: 16),
-                        ),
-                      ),
-                      RoomGrid(size: size, s: constraints.maxWidth < 330),
-                      const Padding(
-                        padding: EdgeInsets.only(left: 16, top: 32, bottom: 16),
-                        child: Text(
-                          "Labor",
-                          style: TextStyle(
-                              fontWeight: FontWeight.w600, fontSize: 16),
-                        ),
-                      ),
-                      LaborList(size: size),
-                      const Padding(
-                        padding: EdgeInsets.only(left: 16, top: 32, bottom: 16),
-                        child: Text(
-                          "Latest Tools and Machinery",
-                          style: TextStyle(
-                            fontWeight: FontWeight.w600,
-                            fontSize: 16,
-                          ),
-                        ),
-                      ),
-                      ToolsList(size: size),
-                      const Padding(
-                        padding: EdgeInsets.only(left: 16, top: 32, bottom: 16),
-                        child: Text(
-                          "Don't just live in your home, feel it!",
-                          style: TextStyle(
-                              fontWeight: FontWeight.w600, fontSize: 16),
-                        ),
-                      ),
-                      const LuxuryElements(),
-                      const Padding(
-                        padding: EdgeInsets.only(left: 16, bottom: 24, top: 32),
-                        child: Text(
-                          "Raw Materials",
-                          style: TextStyle(
-                              fontWeight: FontWeight.w600, fontSize: 16),
-                        ),
-                      ),
-                      const RawList(),
-                      const Padding(
-                        padding: EdgeInsets.only(left: 16, bottom: 24, top: 32),
-                        child: Text(
-                          "Finishing Materials",
-                          style: TextStyle(
-                              fontWeight: FontWeight.w600, fontSize: 16),
-                        ),
-                      ),
-                      FinishingList(size: size),
-                      premiumUser == false
-                          ? PremiumWidget(
-                              size: size, s: constraints.maxWidth > 335)
-                          : const SizedBox(),
-                      const Padding(
-                        padding:
-                            EdgeInsets.symmetric(horizontal: 16, vertical: 32),
-                        child: Text(
-                          "Facelift promotes Green spaces",
-                          style: TextStyle(
-                              fontWeight: FontWeight.w600, fontSize: 16),
-                        ),
-                      ),
-                      const GreenSpaces(),
-                      SizedBox(
-                        height: size.height * 0.1,
-                      )
-                    ],
+    return WillPopScope(
+      onWillPop: showExitPopup,
+      child: Scaffold(
+        body: SingleChildScrollView(
+          child: SafeArea(
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                Logo(size: size),
+                const Padding(
+                  padding: EdgeInsets.symmetric(horizontal: 16, vertical: 16),
+                  child: Text(
+                    "House Room Photos",
+                    style: TextStyle(fontWeight: FontWeight.w600, fontSize: 16),
                   ),
                 ),
-              ),
+                RoomGrid(size: size, s: size.width < 330),
+                const Padding(
+                  padding: EdgeInsets.only(left: 16, top: 32, bottom: 16),
+                  child: Text(
+                    "Labor",
+                    style: TextStyle(fontWeight: FontWeight.w600, fontSize: 16),
+                  ),
+                ),
+                LaborList(size: size),
+                const Padding(
+                  padding: EdgeInsets.only(left: 16, top: 32, bottom: 16),
+                  child: Text(
+                    "Latest Tools and Machinery",
+                    style: TextStyle(
+                      fontWeight: FontWeight.w600,
+                      fontSize: 16,
+                    ),
+                  ),
+                ),
+                ToolsList(size: size),
+                const Padding(
+                  padding: EdgeInsets.only(left: 16, top: 32, bottom: 16),
+                  child: Text(
+                    "Don't just live in your home, feel it!",
+                    style: TextStyle(fontWeight: FontWeight.w600, fontSize: 16),
+                  ),
+                ),
+                const LuxuryElements(),
+                const Padding(
+                  padding: EdgeInsets.only(left: 16, bottom: 24, top: 32),
+                  child: Text(
+                    "Raw Materials",
+                    style: TextStyle(fontWeight: FontWeight.w600, fontSize: 16),
+                  ),
+                ),
+                const RawList(),
+                const Padding(
+                  padding: EdgeInsets.only(left: 16, bottom: 24, top: 32),
+                  child: Text(
+                    "Finishing Materials",
+                    style: TextStyle(fontWeight: FontWeight.w600, fontSize: 16),
+                  ),
+                ),
+                FinishingList(size: size),
+                premiumUser == false
+                    ? PremiumWidget(size: size, s: size.width > 330)
+                    : const SizedBox(),
+                const Padding(
+                  padding: EdgeInsets.symmetric(horizontal: 16, vertical: 32),
+                  child: Text(
+                    "Facelift promotes Green spaces",
+                    style: TextStyle(fontWeight: FontWeight.w600, fontSize: 16),
+                  ),
+                ),
+                const GreenSpaces(),
+                SizedBox(
+                  height: size.height * 0.1,
+                )
+              ],
             ),
-          );
-        } else {
-          return const Center(
-            child: Text(
-                "Screen under maintainance. Try using your phone in potrait mode."),
-          );
-        }
-      },
+          ),
+        ),
+      ),
     );
   }
 }

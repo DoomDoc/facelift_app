@@ -324,38 +324,38 @@ List<FinishingMaterial> doors = [
 List<FinishingMaterial> doorsLatest = [
   FinishingMaterial(
       name: "Metal Handles",
-      image: "assets/finishing/Accessories/latest/1.JPG"),
+      image: "assets/finishing/Accessories/latest/1.jpg"),
   FinishingMaterial(
       name: "Aluminium Profiles",
-      image: "assets/finishing/Accessories/latest/2.JPG"),
+      image: "assets/finishing/Accessories/latest/2.jpg"),
   FinishingMaterial(
       name: "Bottom Runners",
-      image: "assets/finishing/Accessories/latest/3.JPG"),
+      image: "assets/finishing/Accessories/latest/3.jpg"),
   FinishingMaterial(
       name: "Ball-bearing Runners",
-      image: "assets/finishing/Accessories/latest/4.JPG"),
+      image: "assets/finishing/Accessories/latest/4.jpg"),
   FinishingMaterial(
-      name: "Cargo Wire", image: "assets/finishing/Accessories/latest/5.JPG"),
+      name: "Cargo Wire", image: "assets/finishing/Accessories/latest/5.jpg"),
   FinishingMaterial(
       name: "Folding Sliders",
-      image: "assets/finishing/Accessories/latest/6.JPG"),
+      image: "assets/finishing/Accessories/latest/6.jpg"),
   FinishingMaterial(
       name: "Glass Drawers",
-      image: "assets/finishing/Accessories/latest/7.JPG"),
+      image: "assets/finishing/Accessories/latest/7.jpg"),
   FinishingMaterial(
       name: "One Lock Systems",
-      image: "assets/finishing/Accessories/latest/8.JPG"),
+      image: "assets/finishing/Accessories/latest/8.jpg"),
   FinishingMaterial(
       name: "Single Touch Doors",
-      image: "assets/finishing/Accessories/latest/9.JPG"),
+      image: "assets/finishing/Accessories/latest/9.jpg"),
   FinishingMaterial(
       name: "Space Corners",
-      image: "assets/finishing/Accessories/latest/10.JPG"),
+      image: "assets/finishing/Accessories/latest/10.jpg"),
   FinishingMaterial(
-      name: "Top Running", image: "assets/finishing/Accessories/latest/11.JPG"),
+      name: "Top Running", image: "assets/finishing/Accessories/latest/11.jpg"),
   FinishingMaterial(
       name: "Tuck-in Sliders",
-      image: "assets/finishing/Accessories/latest/12.JPG"),
+      image: "assets/finishing/Accessories/latest/12.jpg"),
 ];
 
 List<FinishingMaterial> doorsLight = [

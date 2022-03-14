@@ -137,7 +137,7 @@ class PremiumText extends StatelessWidget {
               text,
               textAlign: TextAlign.start,
               style: TextStyle(
-                fontSize: s == true ? 15 : 10,
+                fontSize: s ? 15 : 10,
                 color: Colors.white,
                 fontWeight: FontWeight.w300,
               ),

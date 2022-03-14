@@ -13,8 +13,15 @@ class FinishingScreen extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(
         elevation: 0,
+        toolbarHeight: 65,
+        leading: IconButton(
+          onPressed: () => Navigator.pop(context),
+          icon: Icon(Icons.arrow_back_ios_new),
+        ),
+        title: Text("Materials", style: TextStyle(color: Colors.black)),
+        centerTitle: true,
         backgroundColor: Colors.transparent,
-        iconTheme: const IconThemeData(color: Colors.black),
+        iconTheme: const IconThemeData(color: Colors.black54),
       ),
       body: id == 0
           ? SingleChildScrollView(
@@ -171,11 +178,14 @@ class FinishingList extends StatelessWidget {
       children: [
         Padding(
           padding: const EdgeInsets.symmetric(horizontal: 16),
-          child: Text(name),
+          child: Text(
+            name,
+            style: TextStyle(fontSize: 16),
+          ),
         ),
         Container(
-          padding: EdgeInsets.only(top: 16, left: 8),
-          height: 200,
+          padding: EdgeInsets.only(top: 8, left: 4),
+          height: 210,
           // height: double.maxFinite,
           child: ListView.builder(
             shrinkWrap: true,
@@ -223,10 +233,14 @@ class FinishingPageCard extends StatelessWidget {
             ),
           ),
           Padding(
-            padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 8),
-            child: Text(
-              material.name,
-              style: TextStyle(fontSize: 12),
+            padding: const EdgeInsets.symmetric(horizontal: 8, vertical: 8),
+            child: SizedBox(
+              width: 140,
+              child: Text(
+                material.name,
+                maxLines: 2,
+                style: TextStyle(fontSize: 12),
+              ),
             ),
           )
         ],

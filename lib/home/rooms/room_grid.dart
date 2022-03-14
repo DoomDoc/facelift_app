@@ -29,9 +29,7 @@ class RoomGrid extends StatelessWidget {
           photos2: bathroom_photos,
           s: s,
         ),
-        SizedBox(
-          height: size.height * 0.01,
-        ),
+        const SizedBox(height: 8),
         RowofRoomCard(
           size: size,
           name1: "Bedroom",
@@ -42,9 +40,7 @@ class RoomGrid extends StatelessWidget {
           photos2: kitchen_photos,
           s: s,
         ),
-        SizedBox(
-          height: size.height * 0.01,
-        ),
+        const SizedBox(height: 8),
         RowofRoomCard(
           name1: "Dressing",
           image1: "assets/room/dressing.jpg",
@@ -143,7 +139,7 @@ class RoomCard extends StatelessWidget {
             borderRadius: BorderRadius.circular(16),
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
-              children: <Widget>[
+              children: [
                 Padding(
                   padding: const EdgeInsets.only(top: 8, left: 8, right: 8),
                   child: ClipRRect(
