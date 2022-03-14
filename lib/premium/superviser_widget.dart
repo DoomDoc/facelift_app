@@ -19,7 +19,7 @@ class Superviser extends StatelessWidget {
         return Column(
           children: [
             Padding(
-              padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 24),
+              padding: const EdgeInsets.only(left: 16, right: 16, top: 16),
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
@@ -27,22 +27,23 @@ class Superviser extends StatelessWidget {
                   Expanded(
                     child: Text(
                       snapshot.hasData
-                          ? "$premiumName Site Supervisor"
+                          ? "$premiumName's Site Supervisor"
                           : "Sample Site Supervisor",
-                      style: TextStyle(fontSize: 16),
+                      maxLines: 2,
+                      style:
+                          TextStyle(fontSize: 16, fontWeight: FontWeight.w400),
                     ),
                   ),
                   TextButton(
                     onPressed: () {
                       showAnimatedDialogBox(context,
                           "A site Superviser will be appointed within 24 hours");
-                      final time =
-                          DateTime.now().millisecondsSinceEpoch;
+                      final time = DateTime.now().millisecondsSinceEpoch;
                       DatabaseService().updateUserRequestSuper(
                           time, true, snapshot.hasData ? true : false);
                     },
                     child: Text(
-                      snapshot.hasData ? "change" : "Appoint",
+                      snapshot.hasData ? "Change" : "Appoint",
                       style: TextStyle(
                         fontSize: 16,
                         color: pinkColor,
@@ -78,7 +79,7 @@ class Superviser extends StatelessWidget {
                           maxLines: 2,
                           textAlign: TextAlign.center,
                           style: TextStyle(
-                            fontSize: 18,
+                            fontSize: 16,
                             // fontWeight: FontWeight.w500,
                           ),
                         ),
@@ -87,6 +88,7 @@ class Superviser extends StatelessWidget {
                           snapshot.hasData
                               ? "Phone Number - ${snapshot.data!.age}"
                               : "Phone Number",
+                          textAlign: TextAlign.center,
                           style: TextStyle(
                             fontSize: 14,
                             fontWeight: FontWeight.w300,

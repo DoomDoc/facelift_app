@@ -1,5 +1,3 @@
-// ignore_for_file: prefer_const_constructors
-
 import 'dart:io';
 
 import 'package:facelift_constructions/constants.dart';
@@ -28,11 +26,11 @@ class _UserHousePlanScreenState extends State<UserHousePlanScreen> {
         barrierDismissible: true,
         animationType: DialogTransitionType.slideFromBottom,
         curve: Curves.fastOutSlowIn,
-        duration: Duration(seconds: 1),
+        duration: const Duration(seconds: 1),
         context: context,
         builder: (BuildContext context) {
           return AlertDialog(
-            title: Text("Choose option"),
+            title: const Text("Choose option"),
             content: SingleChildScrollView(
               child: ListBody(children: [
                 ListTile(
@@ -40,14 +38,14 @@ class _UserHousePlanScreenState extends State<UserHousePlanScreen> {
                     imagePickerFunc();
                     Navigator.pop(context);
                   },
-                  title: Text("Gallery"),
+                  title: const Text("Gallery"),
                 ),
                 ListTile(
                   onTap: () {
                     imagePickerCameraFunc();
                     Navigator.pop(context);
                   },
-                  title: Text("Camera"),
+                  title: const Text("Camera"),
                 ),
               ]),
             ),
@@ -112,9 +110,9 @@ class _UserHousePlanScreenState extends State<UserHousePlanScreen> {
         elevation: 0,
         leading: IconButton(
           onPressed: () => Navigator.pop(context),
-          icon: Icon(Icons.arrow_back_ios_new),
+          icon: const Icon(Icons.arrow_back_ios_new),
         ),
-        title: Text("Add House Plan", style: TextStyle(color: Colors.black)),
+        title: const Text("Add House Plan", style: TextStyle(color: Colors.black)),
         centerTitle: true,
         backgroundColor: Colors.transparent,
         iconTheme: const IconThemeData(color: Colors.black54),
@@ -142,7 +140,7 @@ class _UserHousePlanScreenState extends State<UserHousePlanScreen> {
                       child: Center(
                         child: _image != null
                             ? Image.file(_image!)
-                            : Text("Add Image"),
+                            : const Text("Add Image"),
                       ),
                     ),
                   ),
@@ -173,7 +171,7 @@ class _UserHousePlanScreenState extends State<UserHousePlanScreen> {
                 ),
               ),
               isLoading
-                  ? CircularProgressIndicator()
+                  ? const CircularProgressIndicator()
                   : InkWell(
                       onTap: () {
                         if (_image != null) {
@@ -196,7 +194,7 @@ class _UserHousePlanScreenState extends State<UserHousePlanScreen> {
                             borderRadius: BorderRadius.circular(32),
                             color: pinkColor,
                           ),
-                          child: Center(child: Text("Upload")),
+                          child: const Center(child: Text("Upload")),
                         ),
                       ),
                     )

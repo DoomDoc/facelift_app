@@ -41,10 +41,12 @@ class SampleBillsList extends StatelessWidget {
                       Text(
                         snapshot.hasData
                             ? snapshot.data!.docs.isNotEmpty
-                                ? "$premiumName Bills"
+                                ? "$premiumName's Bills"
                                 : "Sample Bills"
                             : "",
-                        style: TextStyle(fontSize: 16),
+                        maxLines: 2,
+                        style: TextStyle(
+                            fontSize: 16, fontWeight: FontWeight.w400),
                       ),
                       TextButton(
                         onPressed: () => Navigator.push(
@@ -268,10 +270,13 @@ class UserBillCard extends StatelessWidget {
               ),
             ),
             Padding(
-              padding: const EdgeInsets.symmetric(horizontal: 10),
-              child: Text(
-                "Rs $amount",
-                style: TextStyle(fontSize: 10, fontWeight: FontWeight.w400),
+              padding: const EdgeInsets.symmetric(horizontal: 8),
+              child: SizedBox(
+                width: 100,
+                child: Text(
+                  "Rs $amount",
+                  style: TextStyle(fontSize: 10, fontWeight: FontWeight.w400),
+                ),
               ),
             ),
           ],

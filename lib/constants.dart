@@ -10,6 +10,9 @@ import 'profile/profile_page.dart';
 import 'package:flutter_animated_dialog/flutter_animated_dialog.dart';
 
 var pinkColor = Color(0xFFFF72B9);
+var progressLime = Color(0xFF92D050);
+var progressYellow = Color(0xFFFFC000);
+var progressGrey = Colors.grey.shade400;
 var premiumUser = false;
 var iindex = 1;
 var valueChose;
@@ -116,6 +119,80 @@ void showImageDialogBox(BuildContext context, String image) =>
     );
 
 Future<void> showAnimatedDialogBox(BuildContext context, String name) async {
+  Timer _timer = Timer(Duration(seconds: 3), () {
+    Navigator.of(context).pop();
+  });
+  showAnimatedDialog(
+    context: context,
+    builder: (BuildContext context) {
+      return Dialog(
+        insetPadding: EdgeInsets.symmetric(horizontal: 30),
+        shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(16)),
+        child: SingleChildScrollView(
+          child: SizedBox(
+            height: 305,
+            child: Column(
+              mainAxisAlignment: MainAxisAlignment.center,
+              mainAxisSize: MainAxisSize.min,
+              children: [
+                SizedBox(height: 10),
+                Padding(
+                  padding: const EdgeInsets.only(right: 12),
+                  child: Row(
+                    mainAxisAlignment: MainAxisAlignment.end,
+                    children: [
+                      InkWell(
+                        onTap: () {
+                          Navigator.pop(context);
+                        },
+                        child: Icon(
+                          Icons.close,
+                          size: 24,
+                          color: Colors.black54,
+                        ),
+                      ),
+                    ],
+                  ),
+                ),
+                Padding(
+                  padding: const EdgeInsets.symmetric(horizontal: 16),
+                  child: SizedBox(
+                    height: 200,
+                    child: ClipRRect(
+                        borderRadius: BorderRadius.circular(16),
+                        child: Image.asset(
+                          "assets/images/modal1.png",
+                        )),
+                  ),
+                ),
+                SizedBox(height: 0),
+                Padding(
+                  padding: const EdgeInsets.all(16),
+                  child: Text(
+                    name,
+                    textAlign: TextAlign.center,
+                    style: TextStyle(fontSize: 14),
+                  ),
+                ),
+              ],
+            ),
+          ),
+        ),
+      );
+    },
+    barrierDismissible: true,
+    animationType: DialogTransitionType.slideFromBottom,
+    curve: Curves.fastOutSlowIn,
+    duration: Duration(seconds: 1),
+  ).then((value) {
+    if (_timer.isActive) {
+      _timer.cancel();
+    }
+  });
+}
+
+Future<void> showAnimatedDialogBoxHome(
+    BuildContext context, String name) async {
   Timer _timer = Timer(Duration(seconds: 3), () {
     Navigator.of(context).pop();
   });

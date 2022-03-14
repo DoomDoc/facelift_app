@@ -32,7 +32,10 @@ class HousePlansList extends StatelessWidget {
                               ? "$premiumName's House Plans"
                               : "Sample House Plans"
                           : "",
-                      style: TextStyle(fontSize: 16),
+                      style:
+                          TextStyle(fontSize: 16, fontWeight: FontWeight.w400),
+                      maxLines: 2,
+                      overflow: TextOverflow.ellipsis,
                     ),
                   ),
                   TextButton(
@@ -67,14 +70,17 @@ class HousePlansList extends StatelessWidget {
                             return UserHousePlanCard(
                               name: name,
                               image: url,
+                              sample: false,
                             );
                           },
                         )
                       : ListView.builder(
                           scrollDirection: Axis.horizontal,
                           itemCount: sampleHousePlansList.length,
-                          itemBuilder: (context, index) => HousePlanCard(
-                            plan: sampleHousePlansList[index],
+                          itemBuilder: (context, index) => UserHousePlanCard(
+                            name: sampleHousePlansList[index].name,
+                            image: sampleHousePlansList[index].image,
+                            sample: true,
                           ),
                         )
                   : Center(child: CircularProgressIndicator()),
@@ -90,10 +96,12 @@ class UserHousePlanCard extends StatelessWidget {
   // final SampleHousePlans plan;
   final String name;
   final String image;
+  final bool sample;
   const UserHousePlanCard({
     Key? key,
     required this.name,
     required this.image,
+    required this.sample,
   }) : super(key: key);
 
   @override
@@ -102,7 +110,12 @@ class UserHousePlanCard extends StatelessWidget {
       padding: const EdgeInsets.symmetric(horizontal: 8),
       child: GestureDetector(
         onTap: () {
-          showImageDialogBox(context, image);
+          sample
+              ? Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                      builder: (context) => UserHousePlanScreen()))
+              : showImageDialogBox(context, image);
         },
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
@@ -112,19 +125,31 @@ class UserHousePlanCard extends StatelessWidget {
               elevation: 10,
               child: ClipRRect(
                 borderRadius: BorderRadius.circular(16),
-                child: Image.network(
-                  image,
-                  height: 235,
-                  width: 150,
-                  fit: BoxFit.cover,
-                ),
+                child: sample
+                    ? Image.asset(
+                        image,
+                        height: 235,
+                        width: 150,
+                        fit: BoxFit.cover,
+                      )
+                    : Image.network(
+                        image,
+                        height: 235,
+                        width: 150,
+                        fit: BoxFit.cover,
+                      ),
               ),
             ),
             Padding(
-              padding: const EdgeInsets.symmetric(vertical: 8, horizontal: 16),
-              child: Text(
-                name,
-                style: TextStyle(fontSize: 12),
+              padding: const EdgeInsets.only(top: 8, left: 8),
+              child: SizedBox(
+                width: 140,
+                child: Text(
+                  name,
+                  overflow: TextOverflow.ellipsis,
+                  maxLines: 1,
+                  style: TextStyle(fontSize: 12),
+                ),
               ),
             )
           ],
@@ -134,46 +159,46 @@ class UserHousePlanCard extends StatelessWidget {
   }
 }
 
-class HousePlanCard extends StatelessWidget {
-  final SampleHousePlans plan;
-  const HousePlanCard({
-    Key? key,
-    required this.plan,
-  }) : super(key: key);
+// class HousePlanCard extends StatelessWidget {
+//   final SampleHousePlans plan;
+//   const HousePlanCard({
+//     Key? key,
+//     required this.plan,
+//   }) : super(key: key);
 
-  @override
-  Widget build(BuildContext context) {
-    return Padding(
-      padding: const EdgeInsets.symmetric(horizontal: 8),
-      child: GestureDetector(
-        onTap: () => Navigator.push(context,
-            MaterialPageRoute(builder: (context) => UserHousePlanScreen())),
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
-            Material(
-              borderRadius: BorderRadius.circular(16),
-              elevation: 10,
-              child: ClipRRect(
-                borderRadius: BorderRadius.circular(16),
-                child: Image.asset(
-                  plan.image,
-                  height: 235,
-                  width: 150,
-                  fit: BoxFit.cover,
-                ),
-              ),
-            ),
-            Padding(
-              padding: const EdgeInsets.symmetric(vertical: 8, horizontal: 16),
-              child: Text(
-                plan.name,
-                style: TextStyle(fontSize: 12),
-              ),
-            )
-          ],
-        ),
-      ),
-    );
-  }
-}
+//   @override
+//   Widget build(BuildContext context) {
+//     return Padding(
+//       padding: const EdgeInsets.symmetric(horizontal: 8),
+//       child: GestureDetector(
+//         onTap: () => Navigator.push(context,
+//             MaterialPageRoute(builder: (context) => UserHousePlanScreen())),
+//         child: Column(
+//           crossAxisAlignment: CrossAxisAlignment.start,
+//           children: [
+//             Material(
+//               borderRadius: BorderRadius.circular(16),
+//               elevation: 10,
+//               child: ClipRRect(
+//                 borderRadius: BorderRadius.circular(16),
+//                 child: Image.asset(
+//                   plan.image,
+//                   height: 235,
+//                   width: 150,
+//                   fit: BoxFit.cover,
+//                 ),
+//               ),
+//             ),
+//             Padding(
+//               padding: const EdgeInsets.symmetric(vertical: 8, horizontal: 16),
+//               child: Text(
+//                 plan.name,
+//                 style: TextStyle(fontSize: 12),
+//               ),
+//             )
+//           ],
+//         ),
+//       ),
+//     );
+//   }
+// }

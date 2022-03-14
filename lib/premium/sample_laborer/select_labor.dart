@@ -53,6 +53,7 @@ class SelectLaborScreen extends StatelessWidget {
                                   name: name,
                                   skill: skill,
                                   image: image,
+                                  sample: false,
                                   press: () => Navigator.push(
                                     context,
                                     MaterialPageRoute(

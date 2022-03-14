@@ -111,7 +111,8 @@ class PremiumScreen extends StatelessWidget {
                             children: [
                               Text(
                                 "Progress",
-                                style: TextStyle(fontSize: 16),
+                                style: TextStyle(
+                                    fontSize: 16, fontWeight: FontWeight.w400),
                               ),
                               TextButton(
                                 onPressed: () {
@@ -133,29 +134,37 @@ class PremiumScreen extends StatelessWidget {
                             ],
                           ),
                         ),
-                        Column(
-                          children: [
-                            SizedBox(
-                              height: 120,
-                              width: 120,
-                              child: Stack(
-                                fit: StackFit.expand,
+                        StreamBuilder<UserProgressModel>(
+                            stream: DatabaseService().userProgressStream,
+                            builder: (context, snapshot) {
+                              return Column(
                                 children: [
-                                  CircularProgressIndicator(
-                                    value: 0.07,
-                                    valueColor:
-                                        AlwaysStoppedAnimation(pinkColor),
-                                    strokeWidth: 20,
-                                    backgroundColor: Colors.grey[400],
+                                  SizedBox(
+                                    height: 120,
+                                    width: 120,
+                                    child: Stack(
+                                      fit: StackFit.expand,
+                                      children: [
+                                        CircularProgressIndicator(
+                                          value: snapshot.hasData
+                                              ? snapshot.data!.overAllvalue
+                                              : 0.07,
+                                          valueColor:
+                                              AlwaysStoppedAnimation(pinkColor),
+                                          strokeWidth: 20,
+                                          backgroundColor: Colors.grey[400],
+                                        ),
+                                        Center(
+                                          child: Text(snapshot.hasData
+                                              ? "${snapshot.data!.percentage}%"
+                                              : "0%"),
+                                        )
+                                      ],
+                                    ),
                                   ),
-                                  Center(
-                                    child: Text("7%"),
-                                  )
                                 ],
-                              ),
-                            ),
-                          ],
-                        ),
+                              );
+                            }),
                         SampleBillsList()
                       ],
                     ),

@@ -57,6 +57,12 @@ class DatabaseService {
       .collection('Usr')
       .doc('superviser');
 
+  final DocumentReference userSiteProgressDoc = FirebaseFirestore.instance
+      .collection('userData')
+      .doc(number)
+      .collection('Usr')
+      .doc('progress');
+
   final DocumentReference userRequestsLabor =
       FirebaseFirestore.instance.collection('RequestsLabor').doc(number);
 
@@ -319,6 +325,22 @@ class DatabaseService {
             "https://cdn.searchenginejournal.com/wp-content/uploads/2019/08/c573bf41-6a7c-4927-845c-4ca0260aad6b-760x400.jpeg");
   }
 
+  UserProgressModel _userProgressFromSnapshot(DocumentSnapshot snapshot) {
+    Map<String, dynamic> dat = snapshot.data() as Map<String, dynamic>;
+    return UserProgressModel(
+      percentage: dat["percentage"]??"0",
+      overAllvalue: dat["value"] ?? 0.00,
+      value1: dat["value1"] ?? 0,
+      value2: dat["value2"] ?? 0,
+      value3: dat["value3"] ?? 0,
+      value4: dat["value4"] ?? 0,
+      value5: dat["value5"] ?? 0,
+      value6: dat["value6"] ?? 0,
+      value7: dat["value7"] ?? 0,
+      value8: dat["value8"] ?? 0,
+    );
+  }
+
   UserAmountModel _userAmountFromSnapshot(DocumentSnapshot snap) {
     Map<String, dynamic> dat = snap.data() as Map<String, dynamic>;
     return UserAmountModel(total: dat["total"] ?? 0);
@@ -351,5 +373,9 @@ class DatabaseService {
 
   Stream<UserAmountModel> get userAmountStream {
     return userHousebillAmount.snapshots().map(_userAmountFromSnapshot);
+  }
+
+  Stream<UserProgressModel> get userProgressStream {
+    return userSiteProgressDoc.snapshots().map(_userProgressFromSnapshot);
   }
 }

@@ -32,10 +32,11 @@ class SampleLaborerList extends StatelessWidget {
                     Text(
                       snapshot.hasData
                           ? snapshot.data!.docs.isNotEmpty
-                              ? "$premiumName Laborers"
+                              ? "$premiumName's Laborers"
                               : "Sample Laborers"
                           : "",
-                      style: TextStyle(fontSize: 16),
+                      style:
+                          TextStyle(fontSize: 16, fontWeight: FontWeight.w400),
                     ),
                     TextButton(
                       onPressed: () => Navigator.push(
@@ -69,13 +70,21 @@ class SampleLaborerList extends StatelessWidget {
                             skill: skill,
                             image: image,
                             press: () {},
+                            sample: false,
                           );
                         })
                     : ListView.builder(
                         scrollDirection: Axis.horizontal,
                         itemCount: sampleLaborList.length,
-                        itemBuilder: (context, index) => SampleLaborerCard(
-                          labor: sampleLaborList[index],
+                        itemBuilder: (context, index) => UserLaborerCard(
+                          name: sampleLaborList[index].name,
+                          skill: sampleLaborList[index].skill,
+                          image: sampleLaborList[index].image,
+                          press: () => Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                  builder: (context) => GetLaborerScreen())),
+                          sample: true,
                         ),
                       ),
               ),
@@ -129,12 +138,14 @@ class UserLaborerCard extends StatelessWidget {
   final String skill;
   final String image;
   final VoidCallback press;
+  final bool sample;
   const UserLaborerCard({
     Key? key,
     required this.name,
     required this.skill,
     required this.image,
     required this.press,
+    required this.sample,
   }) : super(key: key);
 
   @override
@@ -148,25 +159,42 @@ class UserLaborerCard extends StatelessWidget {
           children: [
             ClipRRect(
               borderRadius: BorderRadius.circular(16),
-              child: Image.network(
-                image,
-                height: 150,
-                width: 150,
-                fit: BoxFit.cover,
+              child: sample
+                  ? Image.asset(
+                      image,
+                      height: 150,
+                      width: 150,
+                      fit: BoxFit.cover,
+                    )
+                  : Image.network(
+                      image,
+                      height: 150,
+                      width: 150,
+                      fit: BoxFit.cover,
+                    ),
+            ),
+            Padding(
+              padding: const EdgeInsets.only(top: 8, left: 8),
+              child: SizedBox(
+                width: 140,
+                child: Text(
+                  name,
+                  maxLines: 1,
+                  overflow: TextOverflow.ellipsis,
+                  style: TextStyle(fontSize: 12),
+                ),
               ),
             ),
             Padding(
-              padding: const EdgeInsets.only(top: 8, left: 16),
-              child: Text(
-                name,
-                style: TextStyle(fontSize: 12),
-              ),
-            ),
-            Padding(
-              padding: const EdgeInsets.only(left: 16),
-              child: Text(
-                skill,
-                style: TextStyle(fontSize: 10, fontWeight: FontWeight.w400),
+              padding: const EdgeInsets.only(left: 8),
+              child: SizedBox(
+                width: 140,
+                child: Text(
+                  skill,
+                  maxLines: 1,
+                  overflow: TextOverflow.ellipsis,
+                  style: TextStyle(fontSize: 10, fontWeight: FontWeight.w400),
+                ),
               ),
             ),
           ],
@@ -176,49 +204,49 @@ class UserLaborerCard extends StatelessWidget {
   }
 }
 
-class SampleLaborerCard extends StatelessWidget {
-  final SampleLabor labor;
-  const SampleLaborerCard({
-    Key? key,
-    required this.labor,
-  }) : super(key: key);
+// class SampleLaborerCard extends StatelessWidget {
+//   final SampleLabor labor;
+//   const SampleLaborerCard({
+//     Key? key,
+//     required this.labor,
+//   }) : super(key: key);
 
-  @override
-  Widget build(BuildContext context) {
-    return Padding(
-      padding: const EdgeInsets.symmetric(horizontal: 8),
-      child: GestureDetector(
-        onTap: () => Navigator.push(context,
-            MaterialPageRoute(builder: (context) => GetLaborerScreen())),
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
-            ClipRRect(
-              borderRadius: BorderRadius.circular(16),
-              child: Image.asset(
-                labor.image,
-                height: 150,
-                width: 150,
-                fit: BoxFit.cover,
-              ),
-            ),
-            Padding(
-              padding: const EdgeInsets.only(top: 8, left: 16),
-              child: Text(
-                labor.name,
-                style: TextStyle(fontSize: 12),
-              ),
-            ),
-            Padding(
-              padding: const EdgeInsets.only(left: 16),
-              child: Text(
-                labor.skill,
-                style: TextStyle(fontSize: 10, fontWeight: FontWeight.w300),
-              ),
-            ),
-          ],
-        ),
-      ),
-    );
-  }
-}
+//   @override
+//   Widget build(BuildContext context) {
+//     return Padding(
+//       padding: const EdgeInsets.symmetric(horizontal: 8),
+//       child: GestureDetector(
+//         onTap: () => Navigator.push(context,
+//             MaterialPageRoute(builder: (context) => GetLaborerScreen())),
+//         child: Column(
+//           crossAxisAlignment: CrossAxisAlignment.start,
+//           children: [
+//             ClipRRect(
+//               borderRadius: BorderRadius.circular(16),
+//               child: Image.asset(
+//                 labor.image,
+//                 height: 150,
+//                 width: 150,
+//                 fit: BoxFit.cover,
+//               ),
+//             ),
+//             Padding(
+//               padding: const EdgeInsets.only(top: 8, left: 16),
+//               child: Text(
+//                 labor.name,
+//                 style: TextStyle(fontSize: 12),
+//               ),
+//             ),
+//             Padding(
+//               padding: const EdgeInsets.only(left: 16),
+//               child: Text(
+//                 labor.skill,
+//                 style: TextStyle(fontSize: 10, fontWeight: FontWeight.w300),
+//               ),
+//             ),
+//           ],
+//         ),
+//       ),
+//     );
+//   }
+// }

@@ -55,3 +55,28 @@ class UserAmountModel {
   int total;
   UserAmountModel({required this.total});
 }
+
+class UserProgressModel {
+  String percentage;
+  double overAllvalue;
+  int value1;
+  int value2;
+  int value3;
+  int value4;
+  int value5;
+  int value6;
+  int value7;
+  int value8;
+  UserProgressModel({
+    required this.percentage,
+    required this.overAllvalue,
+    required this.value1,
+    required this.value2,
+    required this.value3,
+    required this.value4,
+    required this.value5,
+    required this.value6,
+    required this.value7,
+    required this.value8,
+  });
+}
