@@ -1,5 +1,3 @@
-// ignore_for_file: prefer_const_constructors, prefer_const_literals_to_create_immutables, use_key_in_widget_constructors
-
 import 'package:facelift_constructions/constants.dart';
 import 'package:facelift_constructions/premium/new_premium_user.dart';
 import 'package:facelift_constructions/services/databases.dart';
@@ -13,7 +11,7 @@ import 'superviser_widget.dart';
 import 'user_house_plan/plan_list.dart';
 
 class PremiumScreen extends StatelessWidget {
-  // const PremiumScreen({Key? key}) : super(key: key);
+  const PremiumScreen({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -24,9 +22,9 @@ class PremiumScreen extends StatelessWidget {
             builder: (context) => AlertDialog(
               shape: RoundedRectangleBorder(
                   borderRadius: BorderRadius.circular(16)),
-              title: Text('Exit App'),
-              content: Text('Do you really want to exit?'),
-              actions: <Widget>[
+              title: const Text('Exit App'),
+              content: const Text('Do you really want to exit?'),
+              actions: [
                 InkWell(
                   onTap: () => Navigator.of(context).pop(false),
                   child: Material(
@@ -38,7 +36,7 @@ class PremiumScreen extends StatelessWidget {
                       decoration: BoxDecoration(
                           color: Colors.grey,
                           borderRadius: BorderRadius.circular(11)),
-                      child: Center(
+                      child: const Center(
                           child: Text('No',
                               style: TextStyle(
                                   fontWeight: FontWeight.w600,
@@ -57,7 +55,7 @@ class PremiumScreen extends StatelessWidget {
                       decoration: BoxDecoration(
                           color: pinkColor,
                           borderRadius: BorderRadius.circular(11)),
-                      child: Center(
+                      child: const Center(
                           child: Text('Yes',
                               style: TextStyle(
                                   fontWeight: FontWeight.w600,
@@ -91,27 +89,27 @@ class PremiumScreen extends StatelessWidget {
                           child: Text(
                             snapshot.data!.houseName,
                             textAlign: TextAlign.center,
-                            style: TextStyle(
+                            style: const TextStyle(
                                 fontSize: 26, fontWeight: FontWeight.w600),
                           ),
                         ),
-                        SizedBox(height: 10),
+                        const SizedBox(height: 10),
                         Text(
                           "${snapshot.data!.area} Sq Ft",
                           textAlign: TextAlign.center,
                           style: TextStyle(fontSize: 16, color: pinkColor),
                         ),
-                        SizedBox(height: 30),
-                        HousePlansList(),
-                        Superviser(),
-                        SampleLaborerList(),
+                        const SizedBox(height: 30),
+                        const HousePlansList(),
+                        const Superviser(),
+                        const SampleLaborerList(),
                         Padding(
                           padding: const EdgeInsets.symmetric(
                               horizontal: 16, vertical: 8),
                           child: Row(
                             mainAxisAlignment: MainAxisAlignment.spaceBetween,
                             children: [
-                              Text(
+                              const Text(
                                 "Progress",
                                 style: TextStyle(
                                     fontSize: 16, fontWeight: FontWeight.w400),
@@ -122,7 +120,7 @@ class PremiumScreen extends StatelessWidget {
                                       context,
                                       MaterialPageRoute(
                                           builder: (context) =>
-                                              ProgressScreen()));
+                                              const ProgressScreen()));
                                 },
                                 child: Text(
                                   "See All",
@@ -159,7 +157,7 @@ class PremiumScreen extends StatelessWidget {
                                         Center(
                                           child: Text(snapshot.hasData
                                               ? "${snapshot.data!.percentage}%"
-                                              : "0%"),
+                                              : "7%"),
                                         )
                                       ],
                                     ),
@@ -167,7 +165,7 @@ class PremiumScreen extends StatelessWidget {
                                 ],
                               );
                             }),
-                        SampleBillsList()
+                        const SampleBillsList()
                       ],
                     ),
                   ),
@@ -175,12 +173,12 @@ class PremiumScreen extends StatelessWidget {
               ),
             );
           } else {
-            return Center(child: CircularProgressIndicator());
+            return const Center(child: CircularProgressIndicator());
           }
         },
       );
     } else {
-      return NewPrimiumUserScreen();
+      return const NewPrimiumUserScreen();
     }
   }
 }

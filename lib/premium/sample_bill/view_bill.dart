@@ -57,7 +57,8 @@ class ViewBillScreen extends StatelessWidget {
                 const SizedBox(height: 20),
                 textPlace(context, name, "Name", true),
                 const SizedBox(height: 20),
-                textPlace(context, "Rs $amount", "Amount", false),
+                textPlace(
+                    context, "Rs ${commaNumber(amount)}", "Amount", false),
                 const SizedBox(height: 20),
                 textPlace(context, "$warrenty years", "Warranty", false),
                 const SizedBox(height: 20),

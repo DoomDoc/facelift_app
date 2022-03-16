@@ -1,4 +1,4 @@
-// ignore_for_file: prefer_const_constructors, prefer_const_literals_to_create_immutables
+// ignore_for_file: prefer_const_literals_to_create_immutables
 
 import 'package:facelift_constructions/log_in/welcome.dart';
 import 'package:facelift_constructions/profile/accounts_page.dart';
@@ -33,27 +33,91 @@ class _PofileScreenState extends State<PofileScreen> {
   Widget build(BuildContext context) {
     Size size = MediaQuery.of(context).size;
 
+    AuthClass authClass = AuthClass();
+
     Future<bool> showExitPopup() async {
       return await showDialog(
             context: context,
             builder: (context) => AlertDialog(
               shape: RoundedRectangleBorder(
                   borderRadius: BorderRadius.circular(16)),
-              title: Text('Exit App'),
-              content: Text('Do you want to exit an App?'),
-              actions: <Widget>[
+              title: const Text('Exit App'),
+              content: const Text('Do you want to exit an App?'),
+              actions: [
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    InkWell(
+                      onTap: () => Navigator.of(context).pop(false),
+                      child: Material(
+                        elevation: 5,
+                        borderRadius: BorderRadius.circular(16),
+                        child: Container(
+                          width: size.width * 0.3,
+                          height: 40,
+                          decoration: BoxDecoration(
+                              color: Colors.grey,
+                              borderRadius: BorderRadius.circular(11)),
+                          child: const Center(
+                              child: Text('No',
+                                  style: TextStyle(
+                                      fontWeight: FontWeight.w600,
+                                      color: Colors.white))),
+                        ),
+                      ),
+                    ),
+                    const SizedBox(width: 10),
+                    InkWell(
+                      onTap: () => Navigator.of(context).pop(true),
+                      child: Material(
+                        elevation: 5,
+                        borderRadius: BorderRadius.circular(16),
+                        child: Container(
+                          height: 40,
+                          width: size.width * 0.3,
+                          decoration: BoxDecoration(
+                              color: pinkColor,
+                              borderRadius: BorderRadius.circular(11)),
+                          child: const Center(
+                              child: Text('Yes',
+                                  style: TextStyle(
+                                      fontWeight: FontWeight.w600,
+                                      color: Colors.white))),
+                        ),
+                      ),
+                    ),
+                  ],
+                ),
+              ],
+            ),
+          ) ??
+          false;
+    }
+
+    Future<void> showLogoutPopup() async {
+      return await showDialog(
+        context: context,
+        builder: (context) => AlertDialog(
+          shape:
+              RoundedRectangleBorder(borderRadius: BorderRadius.circular(16)),
+          title: const Text('Log out'),
+          content: const Text('Do you want to Logout of your exiting account?'),
+          actions: [
+            Row(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
                 InkWell(
-                  onTap: () => Navigator.of(context).pop(false),
+                  onTap: () => Navigator.pop(context),
                   child: Material(
                     elevation: 5,
                     borderRadius: BorderRadius.circular(16),
                     child: Container(
                       height: 40,
-                      width: size.width * 0.3,
+                      width: size.width * 0.35,
                       decoration: BoxDecoration(
                           color: Colors.grey,
                           borderRadius: BorderRadius.circular(11)),
-                      child: Center(
+                      child: const Center(
                           child: Text('No',
                               style: TextStyle(
                                   fontWeight: FontWeight.w600,
@@ -61,18 +125,27 @@ class _PofileScreenState extends State<PofileScreen> {
                     ),
                   ),
                 ),
+                const SizedBox(width: 10),
                 InkWell(
-                  onTap: () => Navigator.of(context).pop(true),
+                  onTap: () async {
+                    await authClass.signOut(context: context);
+                    Navigator.pushAndRemoveUntil(
+                      context,
+                      MaterialPageRoute(
+                          builder: (context) => const WelcomeScreen()),
+                      (route) => false,
+                    );
+                  },
                   child: Material(
                     elevation: 5,
                     borderRadius: BorderRadius.circular(16),
                     child: Container(
                       height: 40,
-                      width: size.width * 0.3,
+                      width: size.width * 0.35,
                       decoration: BoxDecoration(
                           color: pinkColor,
                           borderRadius: BorderRadius.circular(11)),
-                      child: Center(
+                      child: const Center(
                           child: Text('Yes',
                               style: TextStyle(
                                   fontWeight: FontWeight.w600,
@@ -82,11 +155,11 @@ class _PofileScreenState extends State<PofileScreen> {
                 ),
               ],
             ),
-          ) ??
-          false;
+          ],
+        ),
+      );
     }
 
-    AuthClass authClass = AuthClass();
     return StreamBuilder<Uuser>(
         stream: DatabaseService().userDataStream,
         builder: (context, snapshot) {
@@ -98,12 +171,12 @@ class _PofileScreenState extends State<PofileScreen> {
                   child: SafeArea(
                     child: Column(
                       children: [
-                        SizedBox(height: 50),
-                        ProfilePic(),
-                        SizedBox(height: 20),
+                        const SizedBox(height: 50),
+                        const ProfilePic(),
+                        const SizedBox(height: 20),
                         Text(snapshot.data!.name),
                         Text(snapshot.data!.phone),
-                        SizedBox(height: 20),
+                        const SizedBox(height: 20),
                         ProfileMenu(
                           name: "Edit Name",
                           press: () {
@@ -134,16 +207,10 @@ class _PofileScreenState extends State<PofileScreen> {
                           },
                         ),
                         ProfileMenu(
-                          name: "Log Out",
-                          press: () async {
-                            await authClass.signOut(context: context);
-                            Navigator.pushAndRemoveUntil(
-                                context,
-                                MaterialPageRoute(
-                                    builder: (context) => WelcomeScreen()),
-                                (route) => false);
-                          },
-                        ),
+                            name: "Log Out",
+                            press: () {
+                              showLogoutPopup();
+                            }),
                       ],
                     ),
                   ),
@@ -154,7 +221,8 @@ class _PofileScreenState extends State<PofileScreen> {
             // return Scaffold(
             //   body: Center(child: Text("error")),
             // );
-            return Scaffold(body: Center(child: CircularProgressIndicator()));
+            return const Scaffold(
+                body: Center(child: CircularProgressIndicator()));
           }
         });
   }
@@ -172,15 +240,15 @@ class ProfileMenu extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: EdgeInsets.symmetric(horizontal: 20, vertical: 10),
+      padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 10),
       child: TextButton(
         style: TextButton.styleFrom(
           // primary: kPrimaryColor,
-          primary: Color(0xffff72b9),
-          padding: EdgeInsets.all(20),
+          primary: const Color(0xffff72b9),
+          padding: const EdgeInsets.all(20),
           shape:
               RoundedRectangleBorder(borderRadius: BorderRadius.circular(15)),
-          backgroundColor: Color(0xFFF5F6F9),
+          backgroundColor: const Color(0xFFF5F6F9),
         ),
         onPressed: press,
         child: Row(
@@ -188,12 +256,12 @@ class ProfileMenu extends StatelessWidget {
             SvgPicture.asset(
               "assets/images/Camera_icon.svg",
               // color: kPrimaryColor,
-              color: Color(0xffff72b9),
+              color: const Color(0xffff72b9),
               width: 22,
             ),
-            SizedBox(width: 20),
+            const SizedBox(width: 20),
             Expanded(child: Text(name)),
-            Icon(Icons.arrow_forward_ios),
+            const Icon(Icons.arrow_forward_ios),
           ],
         ),
       ),
@@ -221,10 +289,9 @@ class ProfilePic extends StatelessWidget {
                 snapshot.hasData
                     ? CircleAvatar(
                         backgroundImage: NetworkImage(snapshot.data!.url))
-                    : CircleAvatar(
+                    : const CircleAvatar(
                         backgroundImage:
-                            AssetImage("assets/images/profile.jpg"),
-                      ),
+                            AssetImage("assets/images/profile.jpg")),
                 Positioned(
                   right: -16,
                   bottom: 0,
@@ -235,16 +302,16 @@ class ProfilePic extends StatelessWidget {
                       style: TextButton.styleFrom(
                         shape: RoundedRectangleBorder(
                           borderRadius: BorderRadius.circular(50),
-                          side: BorderSide(color: Colors.white),
+                          side: const BorderSide(color: Colors.white),
                         ),
                         primary: Colors.white,
-                        backgroundColor: Color(0xFFF5F6F9),
+                        backgroundColor: const Color(0xFFF5F6F9),
                       ),
                       onPressed: () {
                         Navigator.push(
                             context,
                             MaterialPageRoute(
-                                builder: (context) => UploadPicScreen()));
+                                builder: (context) => const UploadPicScreen()));
                       },
                       child: SvgPicture.asset("assets/images/Camera_icon.svg"),
                     ),

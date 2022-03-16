@@ -68,7 +68,7 @@ class _NewPrimiumUserScreenState extends State<NewPrimiumUserScreen> {
       });
       await DatabaseService().updateUserPremium(true);
       await DatabaseService().updateUserPremiumData(
-        premiumName,
+        capitalize(premiumName),
         houseLength,
         houseWidth,
         houseSize,

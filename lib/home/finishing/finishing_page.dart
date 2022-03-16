@@ -173,30 +173,40 @@ class FinishingList extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Column(
-      crossAxisAlignment: CrossAxisAlignment.start,
-      children: [
-        Padding(
-          padding: const EdgeInsets.symmetric(horizontal: 16),
-          child: Text(
-            name,
-            style: TextStyle(fontSize: 16),
-          ),
-        ),
-        Container(
-          padding: EdgeInsets.only(top: 8, left: 4),
-          height: 210,
-          // height: double.maxFinite,
-          child: ListView.builder(
-            shrinkWrap: true,
-            scrollDirection: Axis.horizontal,
-            itemCount: materialList.length,
-            itemBuilder: (context, index) => FinishingPageCard(
-              material: materialList[index],
+    Size size = MediaQuery.of(context).size;
+    bool _phoneWidth;
+    if (size.width > 320 && size.width < 280) {
+      _phoneWidth = false;
+    } else {
+      _phoneWidth = true;
+    }
+    return Padding(
+      padding: const EdgeInsets.only(bottom: 16),
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          Padding(
+            padding: const EdgeInsets.only(left: 16, bottom: 8),
+            child: Text(
+              name,
+              style: TextStyle(fontSize: 16),
             ),
           ),
-        ),
-      ],
+          Container(
+            padding: EdgeInsets.only(top: 8, left: 4),
+            height: _phoneWidth ? 190 : 165,
+            // height: double.maxFinite,
+            child: ListView.builder(
+              shrinkWrap: true,
+              scrollDirection: Axis.horizontal,
+              itemCount: materialList.length,
+              itemBuilder: (context, index) => FinishingPageCard(
+                material: materialList[index],
+              ),
+            ),
+          ),
+        ],
+      ),
     );
   }
 }
@@ -210,6 +220,13 @@ class FinishingPageCard extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    Size size = MediaQuery.of(context).size;
+    bool phoneWidth;
+    if (size.width > 320 && size.width < 280) {
+      phoneWidth = false;
+    } else {
+      phoneWidth = true;
+    }
     return Padding(
       padding: const EdgeInsets.symmetric(horizontal: 8),
       child: Column(
@@ -220,8 +237,8 @@ class FinishingPageCard extends StatelessWidget {
             borderRadius: BorderRadius.circular(24),
             shadowColor: Colors.white,
             child: SizedBox(
-              height: 150,
-              width: 150,
+              height: phoneWidth ? 150 : 125,
+              width: phoneWidth ? 150 : 125,
               // color: Colors.black12,
               child: ClipRRect(
                 borderRadius: BorderRadius.circular(24),
@@ -235,7 +252,7 @@ class FinishingPageCard extends StatelessWidget {
           Padding(
             padding: const EdgeInsets.symmetric(horizontal: 8, vertical: 8),
             child: SizedBox(
-              width: 140,
+              width: phoneWidth ? 140 : 105,
               child: Text(
                 material.name,
                 maxLines: 2,

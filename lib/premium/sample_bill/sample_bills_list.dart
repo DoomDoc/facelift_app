@@ -26,6 +26,7 @@ class SampleBillsList extends StatelessWidget {
     int _month = 0;
     int _year = 0;
     String nu = "";
+    String numb = "";
     return StreamBuilder<QuerySnapshot>(
         stream: DatabaseService().userHousebill.snapshots(),
         builder: (context, snapshot) {
@@ -104,7 +105,8 @@ class SampleBillsList extends StatelessWidget {
                             stream: DatabaseService().userAmountStream,
                             builder: (context, snapshot) {
                               if (snapshot.hasData) {
-                                nu = "Rs ${snapshot.data!.total}";
+                                numb = commaNumber(snapshot.data!.total);
+                                nu = "Rs $numb";
                               } else {
                                 nu = "Rs 0";
                               }

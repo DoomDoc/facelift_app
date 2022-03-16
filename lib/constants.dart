@@ -3,6 +3,7 @@
 import 'dart:async';
 
 import 'package:flutter/material.dart';
+import 'package:intl/intl.dart';
 
 import 'home/home_page.dart';
 import 'premium/premium_page.dart';
@@ -30,6 +31,13 @@ String userrName = "";
 bool navBarVisibility = true;
 var screens = [PofileScreen(), HomeScreen(), PremiumScreen()];
 bool crossClick = false;
+
+String capitalize(String s) => s[0].toUpperCase() + s.substring(1);
+
+commaNumber(int n) {
+  var f = NumberFormat("##,##,###", "en_US").format(n);
+  return f;
+}
 
 void showSnackBar(BuildContext context, String text) {
   final snackBar = SnackBar(content: Text(text));
@@ -82,7 +90,8 @@ void showImageDialogBox(BuildContext context, String image) =>
       },
     );
 
-Future<void> showAnimatedDialogBox(BuildContext context, String name, VoidCallback press) async {
+Future<void> showAnimatedDialogBox(
+    BuildContext context, String name, VoidCallback press) async {
   Timer _timer = Timer(Duration(seconds: 3), press);
   showAnimatedDialog(
     context: context,

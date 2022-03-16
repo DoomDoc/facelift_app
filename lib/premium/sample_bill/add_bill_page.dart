@@ -23,7 +23,7 @@ class _AddBillScreenState extends State<AddBillScreen> {
   File? _image;
   final imagePicker = ImagePicker();
   String? downloadUrl;
-  String? name;
+  String name = "";
   int? amount;
   int? finalAmount;
   int? currentAmount;
@@ -106,7 +106,7 @@ class _AddBillScreenState extends State<AddBillScreen> {
 
     await DatabaseService()
         .updateUserHouseBill(
-      name,
+      capitalize(name),
       amount,
       warranty,
       downloadUrl,

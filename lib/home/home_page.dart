@@ -145,9 +145,19 @@ class HomeScreen extends StatelessWidget {
                   ),
                 ),
                 const GreenSpaces(),
-                SizedBox(
-                  height: size.height * 0.1,
-                )
+                const SizedBox(height: 10),
+                Container(
+                  width: size.width,
+                  height: 100,
+                  decoration: const BoxDecoration(color: Colors.black),
+                  child: const Center(
+                    child: Text(
+                      "That's all here... click on the nav bar to see premium or profile section",
+                      textAlign: TextAlign.center,
+                      style: TextStyle(color: Colors.white),
+                    ),
+                  ),
+                ),
               ],
             ),
           ),
