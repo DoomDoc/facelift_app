@@ -151,7 +151,7 @@ class _AddBillScreenState extends State<AddBillScreen> {
           onPressed: () => Navigator.pop(context),
           icon: Icon(Icons.arrow_back_ios_new),
         ),
-        title: Text("Add House Plan", style: TextStyle(color: Colors.black)),
+        title: Text("Add a Bill", style: TextStyle(color: Colors.black)),
         centerTitle: true,
         iconTheme: const IconThemeData(color: Colors.black54),
       ),

@@ -1,5 +1,3 @@
-// ignore_for_file: prefer_const_constructors
-
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:facelift_constructions/services/databases.dart';
 import 'package:flutter/material.dart';
@@ -32,8 +30,8 @@ class HousePlansList extends StatelessWidget {
                               ? "$premiumName's House Plans"
                               : "Sample House Plans"
                           : "",
-                      style:
-                          TextStyle(fontSize: 16, fontWeight: FontWeight.w400),
+                      style: const TextStyle(
+                          fontSize: 16, fontWeight: FontWeight.w400),
                       maxLines: 2,
                       overflow: TextOverflow.ellipsis,
                     ),
@@ -42,9 +40,9 @@ class HousePlansList extends StatelessWidget {
                     onPressed: () => Navigator.push(
                         context,
                         MaterialPageRoute(
-                            builder: (context) => UserHousePlanScreen())),
+                            builder: (context) => const UserHousePlanScreen())),
                     child: Text(
-                      "Add Your Plan",
+                      "Add Plan",
                       style: TextStyle(
                         fontSize: 16,
                         color: pinkColor,
@@ -83,7 +81,7 @@ class HousePlansList extends StatelessWidget {
                             sample: true,
                           ),
                         )
-                  : Center(child: CircularProgressIndicator()),
+                  : const Center(child: CircularProgressIndicator()),
             ),
           ],
         );
@@ -114,7 +112,7 @@ class UserHousePlanCard extends StatelessWidget {
               ? Navigator.push(
                   context,
                   MaterialPageRoute(
-                      builder: (context) => UserHousePlanScreen()))
+                      builder: (context) => const UserHousePlanScreen()))
               : showImageDialogBox(context, image);
         },
         child: Column(
@@ -141,14 +139,14 @@ class UserHousePlanCard extends StatelessWidget {
               ),
             ),
             Padding(
-              padding: const EdgeInsets.only(top: 8, left: 8),
+              padding: const EdgeInsets.only(top: 16, left: 8),
               child: SizedBox(
                 width: 140,
                 child: Text(
                   name,
                   overflow: TextOverflow.ellipsis,
                   maxLines: 1,
-                  style: TextStyle(fontSize: 12),
+                  style: const TextStyle(fontSize: 12),
                 ),
               ),
             )

@@ -100,8 +100,14 @@ class SampleLaborerList extends StatelessWidget {
                                     MaterialPageRoute(builder: (context) {
                                     return SelectLaborScreen();
                                   }))
-                                : showAnimatedDialogBox(context,
-                                    "You don't have any Labor appointed at your site")
+                                : showAnimatedDialogBox(
+                                    context,
+                                    "You don't have any Labor appointed at your site",
+                                    () => Navigator.push(
+                                        context,
+                                        MaterialPageRoute(
+                                            builder: (context) =>
+                                                GetLaborerScreen())))
                             : () {};
                       },
                       child: Material(

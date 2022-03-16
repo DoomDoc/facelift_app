@@ -99,7 +99,7 @@ class RawSceen extends StatelessWidget {
                 DatabaseService().updateUserRequestRawMaterial(
                     time, true, material.name.replaceAll(' ', ''));
 
-                showAnimatedDialogBox(
+                showAnimatedDialogBoxHome(
                     context, "A ${material.name} will be apointed");
               },
               child: Container(

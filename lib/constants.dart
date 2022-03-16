@@ -36,42 +36,6 @@ void showSnackBar(BuildContext context, String text) {
   ScaffoldMessenger.of(context).showSnackBar(snackBar);
 }
 
-// void showModalDialogBox(BuildContext context, String name) => showDialog(
-//       context: context,
-//       builder: (_) => Dialog(
-//         shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(16)),
-//         child: Column(
-//           mainAxisAlignment: MainAxisAlignment.center,
-//           mainAxisSize: MainAxisSize.min,
-//           children: [
-//             // SizedBox(height: 10),
-//             Padding(
-//               padding: const EdgeInsets.only(right: 16, top: 5),
-//               child: Row(
-//                 mainAxisAlignment: MainAxisAlignment.end,
-//                 children: const [
-//                   Icon(
-//                     Icons.cancel_outlined,
-//                     color: Colors.black54,
-//                   ),
-//                 ],
-//               ),
-//             ),
-//             Padding(
-//               padding: const EdgeInsets.symmetric(vertical: 5, horizontal: 16),
-//               child: ClipRRect(
-//                 borderRadius: BorderRadius.circular(16),
-//                 child: Image.network(
-//                     "https://cdn.searchenginejournal.com/wp-content/uploads/2019/08/c573bf41-6a7c-4927-845c-4ca0260aad6b-1520x800.jpeg"),
-//               ),
-//             ),
-//             // SizedBox(height: 15),
-//             // Text("name"),
-//           ],
-//         ),
-//       ),
-//     );
-
 void showImageDialogBox(BuildContext context, String image) =>
     showAnimatedDialog(
       barrierDismissible: true,
@@ -118,10 +82,8 @@ void showImageDialogBox(BuildContext context, String image) =>
       },
     );
 
-Future<void> showAnimatedDialogBox(BuildContext context, String name) async {
-  Timer _timer = Timer(Duration(seconds: 3), () {
-    Navigator.of(context).pop();
-  });
+Future<void> showAnimatedDialogBox(BuildContext context, String name, VoidCallback press) async {
+  Timer _timer = Timer(Duration(seconds: 3), press);
   showAnimatedDialog(
     context: context,
     builder: (BuildContext context) {
@@ -129,53 +91,53 @@ Future<void> showAnimatedDialogBox(BuildContext context, String name) async {
         insetPadding: EdgeInsets.symmetric(horizontal: 30),
         shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(16)),
         child: SingleChildScrollView(
-          child: SizedBox(
-            height: 305,
-            child: Column(
-              mainAxisAlignment: MainAxisAlignment.center,
-              mainAxisSize: MainAxisSize.min,
-              children: [
-                SizedBox(height: 10),
-                Padding(
-                  padding: const EdgeInsets.only(right: 12),
-                  child: Row(
-                    mainAxisAlignment: MainAxisAlignment.end,
-                    children: [
-                      InkWell(
-                        onTap: () {
-                          Navigator.pop(context);
-                        },
-                        child: Icon(
-                          Icons.close,
-                          size: 24,
-                          color: Colors.black54,
-                        ),
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.center,
+            mainAxisSize: MainAxisSize.min,
+            children: [
+              SizedBox(height: 10),
+              Padding(
+                padding: const EdgeInsets.only(right: 12),
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.end,
+                  children: [
+                    InkWell(
+                      onTap: () {
+                        Navigator.pop(context);
+                      },
+                      child: Icon(
+                        Icons.close,
+                        size: 24,
+                        color: Colors.black54,
                       ),
-                    ],
-                  ),
+                    ),
+                  ],
                 ),
-                Padding(
-                  padding: const EdgeInsets.symmetric(horizontal: 16),
-                  child: SizedBox(
-                    height: 200,
-                    child: ClipRRect(
-                        borderRadius: BorderRadius.circular(16),
-                        child: Image.asset(
-                          "assets/images/modal1.png",
-                        )),
-                  ),
+              ),
+              Padding(
+                padding: const EdgeInsets.symmetric(horizontal: 16),
+                child: SizedBox(
+                  height: 200,
+                  child: ClipRRect(
+                      borderRadius: BorderRadius.circular(16),
+                      child: Image.asset(
+                        "assets/images/modal1.png",
+                      )),
                 ),
-                SizedBox(height: 0),
-                Padding(
-                  padding: const EdgeInsets.all(16),
+              ),
+              SizedBox(height: 0),
+              Padding(
+                padding: const EdgeInsets.all(16),
+                child: SizedBox(
+                  width: MediaQuery.of(context).size.width,
                   child: Text(
                     name,
                     textAlign: TextAlign.center,
                     style: TextStyle(fontSize: 14),
                   ),
                 ),
-              ],
-            ),
+              ),
+            ],
           ),
         ),
       );
@@ -203,53 +165,50 @@ Future<void> showAnimatedDialogBoxHome(
         insetPadding: EdgeInsets.symmetric(horizontal: 30),
         shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(16)),
         child: SingleChildScrollView(
-          child: SizedBox(
-            height: 305,
-            child: Column(
-              mainAxisAlignment: MainAxisAlignment.center,
-              mainAxisSize: MainAxisSize.min,
-              children: [
-                SizedBox(height: 10),
-                Padding(
-                  padding: const EdgeInsets.only(right: 12),
-                  child: Row(
-                    mainAxisAlignment: MainAxisAlignment.end,
-                    children: [
-                      InkWell(
-                        onTap: () {
-                          Navigator.pop(context);
-                        },
-                        child: Icon(
-                          Icons.close,
-                          size: 24,
-                          color: Colors.black54,
-                        ),
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.center,
+            mainAxisSize: MainAxisSize.min,
+            children: [
+              SizedBox(height: 10),
+              Padding(
+                padding: const EdgeInsets.only(right: 12),
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.end,
+                  children: [
+                    InkWell(
+                      onTap: () {
+                        Navigator.pop(context);
+                      },
+                      child: Icon(
+                        Icons.close,
+                        size: 24,
+                        color: Colors.black54,
                       ),
-                    ],
-                  ),
+                    ),
+                  ],
                 ),
-                Padding(
-                  padding: const EdgeInsets.symmetric(horizontal: 16),
-                  child: SizedBox(
-                    height: 200,
-                    child: ClipRRect(
-                        borderRadius: BorderRadius.circular(16),
-                        child: Image.asset(
-                          "assets/images/modal1.png",
-                        )),
-                  ),
+              ),
+              Padding(
+                padding: const EdgeInsets.symmetric(horizontal: 16),
+                child: SizedBox(
+                  height: 200,
+                  child: ClipRRect(
+                      borderRadius: BorderRadius.circular(16),
+                      child: Image.asset(
+                        "assets/images/modal1.png",
+                      )),
                 ),
-                SizedBox(height: 0),
-                Padding(
-                  padding: const EdgeInsets.all(16),
-                  child: Text(
-                    name,
-                    textAlign: TextAlign.center,
-                    style: TextStyle(fontSize: 14),
-                  ),
+              ),
+              SizedBox(height: 0),
+              Padding(
+                padding: const EdgeInsets.all(16),
+                child: Text(
+                  name,
+                  textAlign: TextAlign.center,
+                  style: TextStyle(fontSize: 14),
                 ),
-              ],
-            ),
+              ),
+            ],
           ),
         ),
       );

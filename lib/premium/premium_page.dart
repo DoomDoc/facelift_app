@@ -1,7 +1,7 @@
 // ignore_for_file: prefer_const_constructors, prefer_const_literals_to_create_immutables, use_key_in_widget_constructors
 
 import 'package:facelift_constructions/constants.dart';
-import 'package:facelift_constructions/premium/newPremiumUser.dart';
+import 'package:facelift_constructions/premium/new_premium_user.dart';
 import 'package:facelift_constructions/services/databases.dart';
 import 'package:flutter/material.dart';
 
@@ -22,6 +22,8 @@ class PremiumScreen extends StatelessWidget {
       return await showDialog(
             context: context,
             builder: (context) => AlertDialog(
+              shape: RoundedRectangleBorder(
+                  borderRadius: BorderRadius.circular(16)),
               title: Text('Exit App'),
               content: Text('Do you really want to exit?'),
               actions: <Widget>[
@@ -34,7 +36,7 @@ class PremiumScreen extends StatelessWidget {
                       height: 40,
                       width: size.width * 0.3,
                       decoration: BoxDecoration(
-                          color: pinkColor,
+                          color: Colors.grey,
                           borderRadius: BorderRadius.circular(11)),
                       child: Center(
                           child: Text('No',

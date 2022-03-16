@@ -36,8 +36,10 @@ class Superviser extends StatelessWidget {
                   ),
                   TextButton(
                     onPressed: () {
-                      showAnimatedDialogBox(context,
-                          "A site Superviser will be appointed within 24 hours");
+                      showAnimatedDialogBox(
+                          context,
+                          "A site Superviser will be appointed within 24 hours",
+                          () => Navigator.of(context).pop());
                       final time = DateTime.now().millisecondsSinceEpoch;
                       DatabaseService().updateUserRequestSuper(
                           time, true, snapshot.hasData ? true : false);
@@ -75,7 +77,7 @@ class Superviser extends StatelessWidget {
                       crossAxisAlignment: CrossAxisAlignment.center,
                       children: [
                         Text(
-                          snapshot.hasData ? snapshot.data!.name : "name",
+                          snapshot.hasData ? snapshot.data!.name : "Name",
                           maxLines: 2,
                           textAlign: TextAlign.center,
                           style: TextStyle(

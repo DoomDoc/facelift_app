@@ -37,6 +37,8 @@ class _PofileScreenState extends State<PofileScreen> {
       return await showDialog(
             context: context,
             builder: (context) => AlertDialog(
+              shape: RoundedRectangleBorder(
+                  borderRadius: BorderRadius.circular(16)),
               title: Text('Exit App'),
               content: Text('Do you want to exit an App?'),
               actions: <Widget>[
@@ -49,7 +51,7 @@ class _PofileScreenState extends State<PofileScreen> {
                       height: 40,
                       width: size.width * 0.3,
                       decoration: BoxDecoration(
-                          color: pinkColor,
+                          color: Colors.grey,
                           borderRadius: BorderRadius.circular(11)),
                       child: Center(
                           child: Text('No',

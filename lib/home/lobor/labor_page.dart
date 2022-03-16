@@ -57,7 +57,7 @@ class LaborScreen extends StatelessWidget {
                     DatabaseService()
                         .updateUserRequestLabor(time, true, labor.name);
                   }
-                  showAnimatedDialogBox(
+                  showAnimatedDialogBoxHome(
                       context, "A ${labor.name} will be apointed");
                 },
                 child: Container(

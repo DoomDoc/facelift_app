@@ -53,7 +53,7 @@ List<FinishingMaterial> flooringGranite = [
 
 List<FinishingMaterial> flooringItalian = [
   FinishingMaterial(
-      name: "Armani Brown Interiors",
+      name: "Brown Interiors",
       image: "assets/finishing/Flooring/marble_italian/1.jpg"),
   FinishingMaterial(
       name: "Armani Brown",
@@ -86,13 +86,13 @@ List<FinishingMaterial> flooringItalian = [
       name: "Golden Portoro",
       image: "assets/finishing/Flooring/marble_italian/11.jpg"),
   FinishingMaterial(
-      name: "Golden Portoro Majectic",
+      name: "Portoro Majectic",
       image: "assets/finishing/Flooring/marble_italian/12.jpg"),
   FinishingMaterial(
       name: "Michael Angelo",
       image: "assets/finishing/Flooring/marble_italian/13.jpg"),
   FinishingMaterial(
-      name: "Michael Angelo Bathroom",
+      name: "Angelo Bathroom",
       image: "assets/finishing/Flooring/marble_italian/14.jpg"),
   FinishingMaterial(
       name: "Statuario Floor",

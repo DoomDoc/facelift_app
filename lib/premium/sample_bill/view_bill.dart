@@ -55,13 +55,13 @@ class ViewBillScreen extends StatelessWidget {
                   ),
                 ),
                 const SizedBox(height: 20),
-                textPlace(context, name, "Name"),
+                textPlace(context, name, "Name", true),
                 const SizedBox(height: 20),
-                textPlace(context, "Rs $amount", "Amount"),
+                textPlace(context, "Rs $amount", "Amount", false),
                 const SizedBox(height: 20),
-                textPlace(context, "$warrenty years", "Warrenty"),
+                textPlace(context, "$warrenty years", "Warranty", false),
                 const SizedBox(height: 20),
-                textPlace(context, "$date/$month/$year", "Date"),
+                textPlace(context, "$date/$month/$year", "Date", false),
               ],
             ),
           ),
@@ -70,21 +70,37 @@ class ViewBillScreen extends StatelessWidget {
     );
   }
 
-  Widget textPlace(BuildContext context, String text, String head) {
+  Widget textPlace(
+      BuildContext context, String text, String head, bool filled) {
     Size size = MediaQuery.of(context).size;
     return SizedBox(
       width: size.width * 0.9,
       height: 50,
       child: Container(
-        decoration: BoxDecoration(
-            border: Border.all(color: pinkColor),
-            borderRadius: BorderRadius.circular(32)),
+        decoration: filled
+            ? BoxDecoration(
+                color: pinkColor,
+                borderRadius: BorderRadius.circular(32),
+              )
+            : BoxDecoration(
+                border: Border.all(color: pinkColor),
+                borderRadius: BorderRadius.circular(32),
+              ),
         child: Center(
           child: SizedBox(
             width: size.width * 0.8,
-            child: Text(
-              "$head - $text",
-              textAlign: TextAlign.start,
+            child: Row(
+              children: [
+                Text(
+                  "$head - ",
+                  style: const TextStyle(fontWeight: FontWeight.w600),
+                  textAlign: TextAlign.start,
+                ),
+                Text(
+                  text,
+                  textAlign: TextAlign.start,
+                ),
+              ],
             ),
           ),
         ),

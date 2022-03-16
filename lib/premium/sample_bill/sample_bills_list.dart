@@ -84,7 +84,7 @@ class SampleBillsList extends StatelessWidget {
                                 Text(
                                   snapshot.data!.docs.isNotEmpty
                                       ? snapshot.data!.docs.length.toString()
-                                      : "5",
+                                      : "0",
                                   style:
                                       TextStyle(fontSize: 75, color: pinkColor),
                                 ),
@@ -118,7 +118,7 @@ class SampleBillsList extends StatelessWidget {
                                     child: Text(
                                       nu,
                                       style: TextStyle(
-                                          color: pinkColor, fontSize: 38),
+                                          color: pinkColor, fontSize: 30),
                                     ),
                                   ),
                                 ),

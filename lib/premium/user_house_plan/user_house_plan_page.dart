@@ -96,10 +96,24 @@ class _UserHousePlanScreenState extends State<UserHousePlanScreen> {
     });
   }
 
+  moveToNxtScreen(BuildContext context) async {
+    if (_formKey.currentState!.validate()) {
+      if (_image != null) {
+        setState(() {
+          isLoading = true;
+        });
+        uploadImage();
+      } else {
+        showSnackBar(context, "error uploading the image");
+      }
+    }
+  }
+
   // showSnackBar(String text) {
   //   final snackBar = SnackBar(content: Text(text));
   //   ScaffoldMessenger.of(context).showSnackBar(snackBar);
   // }
+  final _formKey = GlobalKey<FormState>();
 
   @override
   Widget build(BuildContext context) {
@@ -112,7 +126,8 @@ class _UserHousePlanScreenState extends State<UserHousePlanScreen> {
           onPressed: () => Navigator.pop(context),
           icon: const Icon(Icons.arrow_back_ios_new),
         ),
-        title: const Text("Add House Plan", style: TextStyle(color: Colors.black)),
+        title:
+            const Text("Add House Plan", style: TextStyle(color: Colors.black)),
         centerTitle: true,
         backgroundColor: Colors.transparent,
         iconTheme: const IconThemeData(color: Colors.black54),
@@ -120,85 +135,86 @@ class _UserHousePlanScreenState extends State<UserHousePlanScreen> {
       body: SingleChildScrollView(
         child: Padding(
           padding: const EdgeInsets.all(16),
-          child: Column(
-            children: [
-              // SizedBox(height: 20),
-              Row(
-                mainAxisAlignment: MainAxisAlignment.start,
-                children: [
-                  InkWell(
-                    onTap: () {
-                      showPickerDialogBox(context);
-                    },
-                    child: Container(
-                      height: 150,
-                      width: 150,
-                      decoration: BoxDecoration(
-                        color: Colors.grey[300],
-                        borderRadius: BorderRadius.circular(16),
-                      ),
-                      child: Center(
-                        child: _image != null
-                            ? Image.file(_image!)
-                            : const Text("Add Image"),
+          child: Form(
+            key: _formKey,
+            child: Column(
+              children: [
+                // SizedBox(height: 20),
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.start,
+                  children: [
+                    InkWell(
+                      onTap: () {
+                        showPickerDialogBox(context);
+                      },
+                      child: Container(
+                        height: 150,
+                        width: 150,
+                        decoration: BoxDecoration(
+                          color: Colors.grey[300],
+                          borderRadius: BorderRadius.circular(16),
+                        ),
+                        child: Center(
+                          child: _image != null
+                              ? Image.file(_image!)
+                              : const Text("Add Image"),
+                        ),
                       ),
                     ),
-                  ),
-                ],
-              ),
-              Padding(
-                padding: const EdgeInsets.only(top: 32, bottom: 16),
-                child: SizedBox(
-                  height: 50,
-                  width: size.width * 0.9,
-                  child: TextFormField(
-                    cursorColor: Colors.black,
-                    onChanged: (val) => setState(() {
-                      name = val;
-                    }),
-                    decoration: InputDecoration(
-                      hintText: "What is this Plan?",
-                      hintStyle: TextStyle(
-                        fontSize: 14,
-                        color: Colors.grey.shade500,
-                      ),
-                      // contentPadding: EdgeInsets.only(left: 0),
-                      border: OutlineInputBorder(
-                        borderRadius: BorderRadius.circular(24),
+                  ],
+                ),
+                Padding(
+                  padding: const EdgeInsets.only(top: 32, bottom: 16),
+                  child: SizedBox(
+                    height: 50,
+                    width: size.width * 0.9,
+                    child: TextFormField(
+                      cursorColor: Colors.black,
+                      onChanged: (val) => setState(() {
+                        name = val;
+                      }),
+                      validator: (value) {
+                        if (value!.isEmpty) {
+                          return "Name Cannot be Empty";
+                        }
+                        return null;
+                      },
+                      decoration: InputDecoration(
+                        errorStyle: const TextStyle(fontSize: 0.1),
+                        hintText: "What is this Plan?",
+                        hintStyle: TextStyle(
+                          fontSize: 14,
+                          color: Colors.grey.shade500,
+                        ),
+                        contentPadding: const EdgeInsets.only(left: 12),
+                        border: OutlineInputBorder(
+                          borderRadius: BorderRadius.circular(24),
+                        ),
                       ),
                     ),
                   ),
                 ),
-              ),
-              isLoading
-                  ? const CircularProgressIndicator()
-                  : InkWell(
-                      onTap: () {
-                        if (_image != null) {
-                          setState(() {
-                            isLoading = true;
-                          });
-                          uploadImage();
-                        } else {
-                          showSnackBar(context, "error up");
-                        }
-                      },
-                      child: Material(
-                        borderRadius: BorderRadius.circular(32),
-                        elevation: 10,
-                        shadowColor: Colors.white,
-                        child: Container(
-                          height: 40,
-                          width: 150,
-                          decoration: BoxDecoration(
-                            borderRadius: BorderRadius.circular(32),
-                            color: pinkColor,
+                isLoading
+                    ? const CircularProgressIndicator()
+                    : InkWell(
+                        onTap: () => moveToNxtScreen(context),
+                        child: Material(
+                          borderRadius: BorderRadius.circular(32),
+                          elevation: 10,
+                          shadowColor: Colors.white,
+                          child: Container(
+                            height: 40,
+                            width: 150,
+                            decoration: BoxDecoration(
+                              borderRadius: BorderRadius.circular(32),
+                              color: pinkColor,
+                            ),
+                            child: const Center(child: Text("Upload")),
                           ),
-                          child: const Center(child: Text("Upload")),
                         ),
-                      ),
-                    )
-            ],
+                      )
+              ],
+            ),
           ),
         ),
       ),

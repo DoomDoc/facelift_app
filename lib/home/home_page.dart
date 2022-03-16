@@ -25,6 +25,8 @@ class HomeScreen extends StatelessWidget {
       return await showDialog(
             context: context,
             builder: (context) => AlertDialog(
+              shape: RoundedRectangleBorder(
+                  borderRadius: BorderRadius.circular(16)),
               title: const Text('Exit App'),
               content: const Text('Do you want to exit an App?'),
               actions: <Widget>[
@@ -37,7 +39,7 @@ class HomeScreen extends StatelessWidget {
                       height: 40,
                       width: size.width * 0.3,
                       decoration: BoxDecoration(
-                          color: pinkColor,
+                          color: Colors.grey,
                           borderRadius: BorderRadius.circular(11)),
                       child: const Center(
                           child: Text('No',

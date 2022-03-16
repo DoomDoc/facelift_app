@@ -2,7 +2,7 @@
 
 import 'package:flutter/material.dart';
 
-import '../premium/newPremiumUser.dart';
+import '../premium/new_premium_user.dart';
 
 class GetPremiumButton extends StatelessWidget {
   const GetPremiumButton({

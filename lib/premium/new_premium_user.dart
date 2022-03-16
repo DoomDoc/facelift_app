@@ -1,7 +1,3 @@
-// ignore_for_file: prefer_const_constructors, prefer_typing_uninitialized_variables, prefer_const_literals_to_create_immutables, file_names
-
-// import 'dart:html';
-
 import 'package:facelift_constructions/main.dart';
 import 'package:facelift_constructions/services/databases.dart';
 import 'package:flutter/material.dart';
@@ -82,7 +78,7 @@ class _NewPrimiumUserScreenState extends State<NewPrimiumUserScreen> {
       );
       Navigator.pushAndRemoveUntil(
         context,
-        MaterialPageRoute(builder: ((context) => MyApp())),
+        MaterialPageRoute(builder: ((context) => const MyApp())),
         (route) => false,
       );
     }
@@ -105,8 +101,8 @@ class _NewPrimiumUserScreenState extends State<NewPrimiumUserScreen> {
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                Padding(
-                  padding: const EdgeInsets.only(top: 16, left: 16, bottom: 16),
+                const Padding(
+                  padding: EdgeInsets.only(top: 16, left: 16, bottom: 16),
                   child: Text(
                     "Give a Name to Your New Home",
                     style: TextStyle(fontSize: 18, fontWeight: FontWeight.w500),
@@ -126,7 +122,7 @@ class _NewPrimiumUserScreenState extends State<NewPrimiumUserScreen> {
                       },
                       onChanged: (value) => premiumName = value,
                       decoration: InputDecoration(
-                        errorStyle: TextStyle(fontSize: 0.1),
+                        errorStyle: const TextStyle(fontSize: 0.1),
                         fillColor: Colors.grey.shade200,
                         filled: true,
                         hintText: "Ex-Villa 41, Vig residence, Mannat, e.t.c.",
@@ -134,30 +130,30 @@ class _NewPrimiumUserScreenState extends State<NewPrimiumUserScreen> {
                           fontSize: 14,
                           color: Colors.grey.shade500,
                         ),
-                        contentPadding: EdgeInsets.only(left: 12),
+                        contentPadding: const EdgeInsets.only(left: 12),
                         // enabledBorder: UnderlineInputBorder,
                         focusedBorder: OutlineInputBorder(
-                          borderSide: BorderSide(color: Colors.black12),
+                          borderSide: const BorderSide(color: Colors.black12),
                           borderRadius: BorderRadius.circular(24),
                         ),
                         enabledBorder: OutlineInputBorder(
-                          borderSide: BorderSide(color: Colors.black12),
+                          borderSide: const BorderSide(color: Colors.black12),
                           borderRadius: BorderRadius.circular(24),
                         ),
                         focusedErrorBorder: OutlineInputBorder(
-                          borderSide: BorderSide(color: Colors.red),
+                          borderSide: const BorderSide(color: Colors.red),
                           borderRadius: BorderRadius.circular(24),
                         ),
                         errorBorder: OutlineInputBorder(
-                          borderSide: BorderSide(color: Colors.red),
+                          borderSide: const BorderSide(color: Colors.red),
                           borderRadius: BorderRadius.circular(24),
                         ),
                       ),
                     ),
                   ),
                 ),
-                Padding(
-                  padding: const EdgeInsets.only(top: 32, left: 16, bottom: 16),
+                const Padding(
+                  padding: EdgeInsets.only(top: 32, left: 16, bottom: 16),
                   child: Text(
                     "Size",
                     style: TextStyle(fontSize: 16, fontWeight: FontWeight.w500),
@@ -200,33 +196,35 @@ class _NewPrimiumUserScreenState extends State<NewPrimiumUserScreen> {
                                 color: Colors.grey.shade500,
                               ),
                               hintText: "Front",
-                              errorStyle: TextStyle(fontSize: 0.1),
+                              errorStyle: const TextStyle(fontSize: 0.1),
                               fillColor: Colors.grey.shade200,
                               filled: true,
                               // border: InputBorder.none,
-                              contentPadding: EdgeInsets.only(left: 0),
+                              contentPadding: const EdgeInsets.only(left: 0),
                               focusedBorder: OutlineInputBorder(
-                                borderSide: BorderSide(color: Colors.black12),
+                                borderSide:
+                                    const BorderSide(color: Colors.black12),
                                 borderRadius: BorderRadius.circular(24),
                               ),
                               enabledBorder: OutlineInputBorder(
-                                borderSide: BorderSide(color: Colors.black12),
+                                borderSide:
+                                    const BorderSide(color: Colors.black12),
                                 borderRadius: BorderRadius.circular(24),
                               ),
                               focusedErrorBorder: OutlineInputBorder(
-                                borderSide: BorderSide(color: Colors.red),
+                                borderSide: const BorderSide(color: Colors.red),
                                 borderRadius: BorderRadius.circular(24),
                               ),
                               errorBorder: OutlineInputBorder(
-                                borderSide: BorderSide(color: Colors.red),
+                                borderSide: const BorderSide(color: Colors.red),
                                 borderRadius: BorderRadius.circular(24),
                               ),
                             ),
                           ),
                         ),
-                        Text("ft"),
-                        Padding(
-                          padding: const EdgeInsets.symmetric(horizontal: 8),
+                        const Text("ft"),
+                        const Padding(
+                          padding: EdgeInsets.symmetric(horizontal: 8),
                           child: Text("X"),
                         ),
                         SizedBox(
@@ -259,32 +257,34 @@ class _NewPrimiumUserScreenState extends State<NewPrimiumUserScreen> {
                                 color: Colors.grey.shade500,
                               ),
                               hintText: "Back",
-                              errorStyle: TextStyle(fontSize: 0.1),
+                              errorStyle: const TextStyle(fontSize: 0.1),
                               fillColor: Colors.grey.shade100,
                               filled: true,
-                              contentPadding: EdgeInsets.only(left: 0),
+                              contentPadding: const EdgeInsets.only(left: 0),
                               focusedBorder: OutlineInputBorder(
-                                borderSide: BorderSide(color: Colors.black12),
+                                borderSide:
+                                    const BorderSide(color: Colors.black12),
                                 borderRadius: BorderRadius.circular(24),
                               ),
                               enabledBorder: OutlineInputBorder(
-                                borderSide: BorderSide(color: Colors.black12),
+                                borderSide:
+                                    const BorderSide(color: Colors.black12),
                                 borderRadius: BorderRadius.circular(24),
                               ),
                               focusedErrorBorder: OutlineInputBorder(
-                                borderSide: BorderSide(color: Colors.red),
+                                borderSide: const BorderSide(color: Colors.red),
                                 borderRadius: BorderRadius.circular(24),
                               ),
                               errorBorder: OutlineInputBorder(
-                                borderSide: BorderSide(color: Colors.red),
+                                borderSide: const BorderSide(color: Colors.red),
                                 borderRadius: BorderRadius.circular(24),
                               ),
                             ),
                           ),
                         ),
-                        Text("ft"),
-                        Padding(
-                          padding: const EdgeInsets.symmetric(horizontal: 8),
+                        const Text("ft"),
+                        const Padding(
+                          padding: EdgeInsets.symmetric(horizontal: 8),
                           child: Text(
                             "=",
                             style: TextStyle(fontSize: 20),
@@ -297,42 +297,44 @@ class _NewPrimiumUserScreenState extends State<NewPrimiumUserScreen> {
                             readOnly: true,
                             textAlign: TextAlign.center,
                             decoration: InputDecoration(
-                              hintStyle: TextStyle(
+                              hintStyle: const TextStyle(
                                 color: Colors.black,
                                 fontSize: 14,
                               ),
                               hintText:
                                   houseSize != 0 ? houseSize.toString() : "0",
-                              errorStyle: TextStyle(fontSize: 0.1),
+                              errorStyle: const TextStyle(fontSize: 0.1),
                               fillColor: Colors.grey.shade100,
                               filled: true,
-                              contentPadding: EdgeInsets.only(left: 0),
+                              contentPadding: const EdgeInsets.only(left: 0),
                               focusedBorder: OutlineInputBorder(
-                                borderSide: BorderSide(color: Colors.black12),
+                                borderSide:
+                                    const BorderSide(color: Colors.black12),
                                 borderRadius: BorderRadius.circular(24),
                               ),
                               enabledBorder: OutlineInputBorder(
-                                borderSide: BorderSide(color: Colors.black12),
+                                borderSide:
+                                    const BorderSide(color: Colors.black12),
                                 borderRadius: BorderRadius.circular(24),
                               ),
                               focusedErrorBorder: OutlineInputBorder(
-                                borderSide: BorderSide(color: Colors.red),
+                                borderSide: const BorderSide(color: Colors.red),
                                 borderRadius: BorderRadius.circular(24),
                               ),
                               errorBorder: OutlineInputBorder(
-                                borderSide: BorderSide(color: Colors.red),
+                                borderSide: const BorderSide(color: Colors.red),
                                 borderRadius: BorderRadius.circular(24),
                               ),
                             ),
                           ),
                         ),
-                        Text("sq ft"),
+                        const Text("sq ft"),
                       ],
                     ),
                   ),
                 ),
-                Padding(
-                  padding: const EdgeInsets.only(top: 32, left: 16, bottom: 16),
+                const Padding(
+                  padding: EdgeInsets.only(top: 32, left: 16, bottom: 16),
                   child: Text(
                     "Type of Constuction",
                     style: TextStyle(fontSize: 16, fontWeight: FontWeight.w500),
@@ -350,24 +352,25 @@ class _NewPrimiumUserScreenState extends State<NewPrimiumUserScreen> {
                         return null;
                       },
                       decoration: InputDecoration(
-                        errorStyle: TextStyle(fontSize: 0.1),
+                        errorStyle: const TextStyle(fontSize: 0.1),
                         fillColor: Colors.grey.shade100,
                         filled: true,
-                        contentPadding: EdgeInsets.symmetric(horizontal: 16),
+                        contentPadding:
+                            const EdgeInsets.symmetric(horizontal: 16),
                         focusedBorder: OutlineInputBorder(
-                          borderSide: BorderSide(color: Colors.black12),
+                          borderSide: const BorderSide(color: Colors.black12),
                           borderRadius: BorderRadius.circular(24),
                         ),
                         enabledBorder: OutlineInputBorder(
-                          borderSide: BorderSide(color: Colors.black12),
+                          borderSide: const BorderSide(color: Colors.black12),
                           borderRadius: BorderRadius.circular(24),
                         ),
                         focusedErrorBorder: OutlineInputBorder(
-                          borderSide: BorderSide(color: Colors.red),
+                          borderSide: const BorderSide(color: Colors.red),
                           borderRadius: BorderRadius.circular(24),
                         ),
                         errorBorder: OutlineInputBorder(
-                          borderSide: BorderSide(color: Colors.red),
+                          borderSide: const BorderSide(color: Colors.red),
                           borderRadius: BorderRadius.circular(24),
                         ),
                       ),
@@ -394,8 +397,8 @@ class _NewPrimiumUserScreenState extends State<NewPrimiumUserScreen> {
                     ),
                   ),
                 ),
-                Padding(
-                  padding: const EdgeInsets.only(top: 32, left: 16, bottom: 16),
+                const Padding(
+                  padding: EdgeInsets.only(top: 32, left: 16, bottom: 16),
                   child: Text(
                     "Your Location",
                     style: TextStyle(fontSize: 16, fontWeight: FontWeight.w500),
@@ -421,27 +424,29 @@ class _NewPrimiumUserScreenState extends State<NewPrimiumUserScreen> {
                             },
                             onChanged: (value) => premiumCity = value,
                             decoration: InputDecoration(
-                              errorStyle: TextStyle(fontSize: 0.1),
+                              errorStyle: const TextStyle(fontSize: 0.1),
                               fillColor: Colors.grey.shade200,
                               hintStyle: TextStyle(
                                   fontSize: 14, color: Colors.grey.shade500),
                               filled: true,
                               hintText: "city or area",
-                              contentPadding: EdgeInsets.only(left: 12),
+                              contentPadding: const EdgeInsets.only(left: 12),
                               focusedBorder: OutlineInputBorder(
-                                borderSide: BorderSide(color: Colors.black12),
+                                borderSide:
+                                    const BorderSide(color: Colors.black12),
                                 borderRadius: BorderRadius.circular(24),
                               ),
                               enabledBorder: OutlineInputBorder(
-                                borderSide: BorderSide(color: Colors.black12),
+                                borderSide:
+                                    const BorderSide(color: Colors.black12),
                                 borderRadius: BorderRadius.circular(24),
                               ),
                               focusedErrorBorder: OutlineInputBorder(
-                                borderSide: BorderSide(color: Colors.red),
+                                borderSide: const BorderSide(color: Colors.red),
                                 borderRadius: BorderRadius.circular(24),
                               ),
                               errorBorder: OutlineInputBorder(
-                                borderSide: BorderSide(color: Colors.red),
+                                borderSide: const BorderSide(color: Colors.red),
                                 borderRadius: BorderRadius.circular(24),
                               ),
                             ),
@@ -461,24 +466,26 @@ class _NewPrimiumUserScreenState extends State<NewPrimiumUserScreen> {
                             },
                             decoration: InputDecoration(
                               contentPadding:
-                                  EdgeInsets.symmetric(horizontal: 16),
-                              errorStyle: TextStyle(fontSize: 0.1),
+                                  const EdgeInsets.symmetric(horizontal: 16),
+                              errorStyle: const TextStyle(fontSize: 0.1),
                               fillColor: Colors.grey.shade100,
                               filled: true,
                               focusedBorder: OutlineInputBorder(
-                                borderSide: BorderSide(color: Colors.black12),
+                                borderSide:
+                                    const BorderSide(color: Colors.black12),
                                 borderRadius: BorderRadius.circular(24),
                               ),
                               enabledBorder: OutlineInputBorder(
-                                borderSide: BorderSide(color: Colors.black12),
+                                borderSide:
+                                    const BorderSide(color: Colors.black12),
                                 borderRadius: BorderRadius.circular(24),
                               ),
                               focusedErrorBorder: OutlineInputBorder(
-                                borderSide: BorderSide(color: Colors.red),
+                                borderSide: const BorderSide(color: Colors.red),
                                 borderRadius: BorderRadius.circular(24),
                               ),
                               errorBorder: OutlineInputBorder(
-                                borderSide: BorderSide(color: Colors.red),
+                                borderSide: const BorderSide(color: Colors.red),
                                 borderRadius: BorderRadius.circular(24),
                               ),
                             ),
@@ -526,7 +533,7 @@ class _NewPrimiumUserScreenState extends State<NewPrimiumUserScreen> {
                             decoration: BoxDecoration(
                                 color: Colors.black,
                                 borderRadius: BorderRadius.circular(32)),
-                            child: Center(
+                            child: const Center(
                               child: Text(
                                 "Get Premium",
                                 style: TextStyle(color: Colors.white),
@@ -548,7 +555,7 @@ class _NewPrimiumUserScreenState extends State<NewPrimiumUserScreen> {
         body: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           crossAxisAlignment: CrossAxisAlignment.stretch,
-          children: [
+          children: const [
             Text(
               "Alredy a Premium Customer",
               textAlign: TextAlign.center,
