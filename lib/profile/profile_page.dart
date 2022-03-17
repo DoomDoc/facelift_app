@@ -2,15 +2,15 @@
 
 import 'package:facelift_constructions/log_in/welcome.dart';
 import 'package:facelift_constructions/profile/accounts_page.dart';
-import 'package:facelift_constructions/profile/upload_pic_page.dart';
+import 'package:facelift_constructions/profile/contact_page.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_svg/flutter_svg.dart';
 import 'package:url_launcher/url_launcher.dart';
 
 import '../constants.dart';
 import '../models/models.dart';
 import '../services/auth_service.dart';
 import '../services/databases.dart';
+import 'pic_menu.dart';
 
 class PofileScreen extends StatefulWidget {
   const PofileScreen({Key? key}) : super(key: key);
@@ -178,9 +178,8 @@ class _PofileScreenState extends State<PofileScreen> {
                         Text(snapshot.data!.phone),
                         const SizedBox(height: 20),
                         ProfileMenu(
-                          name: "Edit Name",
+                          name: "Edit Account",
                           press: () {
-                            // print(authClass.getUid());
                             Navigator.push(
                                 context,
                                 MaterialPageRoute(
@@ -188,9 +187,13 @@ class _PofileScreenState extends State<PofileScreen> {
                           },
                         ),
                         ProfileMenu(
-                          name: "My Site",
+                          name: "Contact Us",
                           press: () {
-                            _launchUrl('https://www.facelift.construction/');
+                            Navigator.push(
+                                context,
+                                MaterialPageRoute(
+                                    builder: (context) =>
+                                        const ContactScreen()));
                           },
                         ),
                         ProfileMenu(
@@ -198,12 +201,6 @@ class _PofileScreenState extends State<PofileScreen> {
                           press: () {
                             _launchUrl(
                                 'https://www.facelift.construction/privacy-policy');
-                          },
-                        ),
-                        ProfileMenu(
-                          name: "Call Us",
-                          press: () {
-                            _launchUrl('tel:7207225725');
                           },
                         ),
                         ProfileMenu(
@@ -218,108 +215,9 @@ class _PofileScreenState extends State<PofileScreen> {
               ),
             );
           } else {
-            // return Scaffold(
-            //   body: Center(child: Text("error")),
-            // );
             return const Scaffold(
                 body: Center(child: CircularProgressIndicator()));
           }
-        });
-  }
-}
-
-class ProfileMenu extends StatelessWidget {
-  final String name;
-  final VoidCallback press;
-  const ProfileMenu({
-    Key? key,
-    required this.name,
-    required this.press,
-  }) : super(key: key);
-
-  @override
-  Widget build(BuildContext context) {
-    return Padding(
-      padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 10),
-      child: TextButton(
-        style: TextButton.styleFrom(
-          // primary: kPrimaryColor,
-          primary: const Color(0xffff72b9),
-          padding: const EdgeInsets.all(20),
-          shape:
-              RoundedRectangleBorder(borderRadius: BorderRadius.circular(15)),
-          backgroundColor: const Color(0xFFF5F6F9),
-        ),
-        onPressed: press,
-        child: Row(
-          children: [
-            SvgPicture.asset(
-              "assets/images/Camera_icon.svg",
-              // color: kPrimaryColor,
-              color: const Color(0xffff72b9),
-              width: 22,
-            ),
-            const SizedBox(width: 20),
-            Expanded(child: Text(name)),
-            const Icon(Icons.arrow_forward_ios),
-          ],
-        ),
-      ),
-    );
-  }
-}
-
-class ProfilePic extends StatelessWidget {
-  const ProfilePic({
-    Key? key,
-  }) : super(key: key);
-
-  @override
-  Widget build(BuildContext context) {
-    return StreamBuilder<UserProfilePicModel>(
-        stream: DatabaseService().userProfilePicStream,
-        builder: (context, snapshot) {
-          return SizedBox(
-            height: 115,
-            width: 115,
-            child: Stack(
-              fit: StackFit.expand,
-              clipBehavior: Clip.none,
-              children: [
-                snapshot.hasData
-                    ? CircleAvatar(
-                        backgroundImage: NetworkImage(snapshot.data!.url))
-                    : const CircleAvatar(
-                        backgroundImage:
-                            AssetImage("assets/images/profile.jpg")),
-                Positioned(
-                  right: -16,
-                  bottom: 0,
-                  child: SizedBox(
-                    height: 46,
-                    width: 46,
-                    child: TextButton(
-                      style: TextButton.styleFrom(
-                        shape: RoundedRectangleBorder(
-                          borderRadius: BorderRadius.circular(50),
-                          side: const BorderSide(color: Colors.white),
-                        ),
-                        primary: Colors.white,
-                        backgroundColor: const Color(0xFFF5F6F9),
-                      ),
-                      onPressed: () {
-                        Navigator.push(
-                            context,
-                            MaterialPageRoute(
-                                builder: (context) => const UploadPicScreen()));
-                      },
-                      child: SvgPicture.asset("assets/images/Camera_icon.svg"),
-                    ),
-                  ),
-                )
-              ],
-            ),
-          );
         });
   }
 }
