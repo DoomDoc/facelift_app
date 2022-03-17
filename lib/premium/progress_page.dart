@@ -14,27 +14,27 @@ class ProgressScreen extends StatefulWidget {
 class _ProgressScreenState extends State<ProgressScreen> {
   @override
   Widget build(BuildContext context) {
-    int val1 = 0;
-    int val2 = 0;
-    int val3 = 0;
-    int val4 = 0;
-    int val5 = 0;
-    int val6 = 0;
-    int val7 = 0;
-    int val8 = 0;
+    int val1 = 4;
+    int val2 = 2;
+    int val3 = 1;
+    int val4 = 1;
+    int val5 = 1;
+    int val6 = 1;
+    int val7 = 1;
+    int val8 = 1;
     Size size = MediaQuery.of(context).size;
     return StreamBuilder<UserProgressModel>(
         stream: DatabaseService().userProgressStream,
         builder: (context, snapshot) {
-          if (snapshot.hasData) { 
-              val1 = snapshot.data!.value1;
-              val2 = snapshot.data!.value2;
-              val3 = snapshot.data!.value3;
-              val4 = snapshot.data!.value4;
-              val5 = snapshot.data!.value5;
-              val6 = snapshot.data!.value6;
-              val7 = snapshot.data!.value7;
-              val8 = snapshot.data!.value8;
+          if (snapshot.hasData) {
+            val1 = snapshot.data!.value1;
+            val2 = snapshot.data!.value2;
+            val3 = snapshot.data!.value3;
+            val4 = snapshot.data!.value4;
+            val5 = snapshot.data!.value5;
+            val6 = snapshot.data!.value6;
+            val7 = snapshot.data!.value7;
+            val8 = snapshot.data!.value8;
           }
           return Scaffold(
             appBar: AppBar(
