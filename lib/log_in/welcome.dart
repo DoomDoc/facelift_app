@@ -107,14 +107,14 @@ class _WelcomeScreenState extends State<WelcomeScreen> {
           child: Column(
             children: [
               Expanded(
-                  flex: 7,
+                  flex: 15,
                   child: PageView.builder(
                       onPageChanged: (value) =>
                           setState(() => currentPage = value),
                       itemCount: 3,
                       itemBuilder: (context, index) => contentList[index])),
               Expanded(
-                flex: 2,
+                flex: 3,
                 child: Column(
                   children: [
                     Row(
@@ -125,22 +125,6 @@ class _WelcomeScreenState extends State<WelcomeScreen> {
                       ),
                     ),
                     const Spacer(),
-                    // currentPage != 3
-                    //     ? Material(
-                    //         elevation: 10,
-                    //         // shadowColor: Colors.white,
-                    //         borderRadius: BorderRadius.circular(32),
-                    //         child: Container(
-                    //           height: 60,
-                    //           width: 250,
-                    //           decoration: BoxDecoration(
-                    //             border: Border.all(color: pinkColor),
-                    //             borderRadius: BorderRadius.circular(32),
-                    //             color: const Color(0xFFD9D9D9),
-                    //           ),
-                    //           child: const Center(child: Text("Next")),
-                    //         ),
-                    //       )
                     InkWell(
                       onTap: () => Navigator.push(
                           context,
@@ -148,7 +132,6 @@ class _WelcomeScreenState extends State<WelcomeScreen> {
                               builder: (context) => const PhoneAuthScreen())),
                       child: Material(
                         elevation: 10,
-                        // shadowColor: Colors.white,
                         borderRadius: BorderRadius.circular(32),
                         child: Container(
                           height: 60,
@@ -165,13 +148,6 @@ class _WelcomeScreenState extends State<WelcomeScreen> {
                   ],
                 ),
               ),
-              // const Text(
-              //   "Welcome",
-              //   textAlign: TextAlign.center,
-              //   style: TextStyle(fontSize: 24, fontWeight: FontWeight.w600),
-              // ),
-              // const SizedBox(height: 24),
-              // welcomeButton("Continue with Phone", pinkColor, context),
             ],
           ),
         ),
@@ -229,65 +205,4 @@ class _WelcomeScreenState extends State<WelcomeScreen> {
       ],
     );
   }
-
-  Widget welcomeButton(bool next, VoidCallback press) {
-    return InkWell(
-      onTap: () => next
-          ? press
-          : () {
-              Navigator.push(
-                  context,
-                  MaterialPageRoute(
-                      builder: (context) => const PhoneAuthScreen()));
-            },
-      child: Material(
-        elevation: 10,
-        // shadowColor: Colors.white,
-        borderRadius: BorderRadius.circular(32),
-        child: Container(
-          height: 60,
-          width: 250,
-          decoration: BoxDecoration(
-            border: Border.all(
-              width: next ? 1 : 0,
-              color: pinkColor,
-            ),
-            borderRadius: BorderRadius.circular(32),
-            color: next ? const Color(0xFFD9D9D9) : pinkColor,
-          ),
-          child: Center(child: Text(next ? "Next" : "")),
-        ),
-      ),
-    );
-  }
-
-  // Widget welcomeButton(String name, Color color, BuildContext context) {
-  //   return GestureDetector(
-  //     onTap: () {
-  // if (name == "Continue with Phone") {
-  // Navigator.push(context,
-  //     MaterialPageRoute(builder: (context) => const PhoneAuthScreen()));
-  //       }
-  //       // else {
-  //       //   Navigator.push(context,
-  //       //       MaterialPageRoute(builder: (context) => NewUserScreen()));
-  //       // }
-  //     },
-  //     child: Padding(
-  //       padding: const EdgeInsets.symmetric(horizontal: 48),
-  //       child: Material(
-  //         borderRadius: BorderRadius.circular(16),
-  //         elevation: 10,
-  //         child: Container(
-  //           height: 75,
-  //           decoration: BoxDecoration(
-  //             color: color,
-  //             borderRadius: BorderRadius.circular(16),
-  //           ),
-  //           child: Center(child: Text(name)),
-  //         ),
-  //       ),
-  //     ),
-  //   );
-  // }
 }
