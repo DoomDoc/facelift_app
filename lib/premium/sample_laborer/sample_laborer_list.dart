@@ -111,7 +111,8 @@ class SampleLaborerList extends StatelessWidget {
                                                 GetLaborerScreen())),
                                     true,
                                     3,
-                                    "8.png")
+                                    "8.png",
+                                    false)
                             : () {};
                       },
                       child: Material(

@@ -48,8 +48,14 @@ void showImageDialogBox(BuildContext context, String image) =>
       },
     );
 
-Future<void> showAnimatedDialogBox(BuildContext context, String name,
-    VoidCallback press, bool barier, int duration, String image) async {
+Future<void> showAnimatedDialogBox(
+    BuildContext context,
+    String name,
+    VoidCallback press,
+    bool barier,
+    int duration,
+    String image,
+    bool cross) async {
   Timer _timer = Timer(Duration(seconds: duration), press);
   showAnimatedDialog(
     context: context,
@@ -62,23 +68,25 @@ Future<void> showAnimatedDialogBox(BuildContext context, String name,
             mainAxisAlignment: MainAxisAlignment.center,
             mainAxisSize: MainAxisSize.min,
             children: [
-              const SizedBox(height: 10),
-              Padding(
-                padding: const EdgeInsets.only(right: 12),
-                child: Row(
-                  mainAxisAlignment: MainAxisAlignment.end,
-                  children: [
-                    InkWell(
-                      onTap: press,
-                      child: const Icon(
-                        Icons.close,
-                        size: 24,
-                        color: Colors.black54,
+              SizedBox(height: cross ? 10 : 0),
+              cross
+                  ? Padding(
+                      padding: const EdgeInsets.only(right: 12),
+                      child: Row(
+                        mainAxisAlignment: MainAxisAlignment.end,
+                        children: [
+                          InkWell(
+                            onTap: press,
+                            child: const Icon(
+                              Icons.close,
+                              size: 24,
+                              color: Colors.black54,
+                            ),
+                          ),
+                        ],
                       ),
-                    ),
-                  ],
-                ),
-              ),
+                    )
+                  : const SizedBox(),
               Padding(
                 padding: const EdgeInsets.symmetric(horizontal: 16),
                 child: SizedBox(

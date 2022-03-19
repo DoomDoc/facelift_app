@@ -67,7 +67,8 @@ class GetLaborerCard extends StatelessWidget {
             () => Navigator.of(context).pop(),
             true,
             3,
-            "1.png");
+            "1.png",
+            true);
       },
       child: SizedBox(
         height: 70,

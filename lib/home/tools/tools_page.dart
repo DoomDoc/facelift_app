@@ -65,7 +65,8 @@ class ToolsSceen extends StatelessWidget {
                       () => Navigator.of(context).pop(),
                       true,
                       3,
-                      "4.png");
+                      "4.png",
+                      true);
                 },
                 child: Container(
                   height: 45,

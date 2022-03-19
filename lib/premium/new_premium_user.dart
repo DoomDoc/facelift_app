@@ -90,7 +90,8 @@ class _NewPrimiumUserScreenState extends State<NewPrimiumUserScreen> {
         },
         false,
         3,
-        "2.png"
+        "2.png",
+        false,
       );
     }
   }

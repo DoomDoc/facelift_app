@@ -1,10 +1,16 @@
 class Uuser {
   final String name;
   final String phone;
+  final String email;
+  final String city;
+  final String state;
 
   Uuser({
     required this.name,
     required this.phone,
+    required this.email,
+    required this.city,
+    required this.state,
   });
 }
 

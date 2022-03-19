@@ -13,6 +13,13 @@ class RawSceen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    Size size = MediaQuery.of(context).size;
+    double w = 110;
+    double h = 100;
+    if (size.width < 350) {
+      w = 90;
+      h = 80;
+    }
     return Scaffold(
       appBar: AppBar(
         elevation: 0,
@@ -59,9 +66,9 @@ class RawSceen extends StatelessWidget {
                       borderRadius: BorderRadius.circular(16),
                       child: Image.asset(
                         material.p1,
-                        height: 100,
-                        width: 120,
-                        fit: BoxFit.fill,
+                        height: h,
+                        width: w,
+                        fit: BoxFit.cover,
                       ),
                     ),
                   ),
@@ -71,9 +78,9 @@ class RawSceen extends StatelessWidget {
                       borderRadius: BorderRadius.circular(16),
                       child: Image.asset(
                         material.p2,
-                        height: 100,
-                        width: 120,
-                        fit: BoxFit.fill,
+                        height: h,
+                        width: w,
+                        fit: BoxFit.cover,
                       ),
                     ),
                   ),
@@ -83,9 +90,9 @@ class RawSceen extends StatelessWidget {
                       borderRadius: BorderRadius.circular(16),
                       child: Image.asset(
                         material.p3,
-                        height: 100,
-                        width: 120,
-                        fit: BoxFit.fill,
+                        height: h,
+                        width: w,
+                        fit: BoxFit.cover,
                       ),
                     ),
                   ),
@@ -101,13 +108,13 @@ class RawSceen extends StatelessWidget {
                     time, true, material.name.replaceAll(' ', ''));
 
                 showAnimatedDialogBox(
-                  context,
-                  "A ${material.name} will be apointed",
-                  () => Navigator.pop(context),
-                  true,
-                  3,
-                  "7.png",
-                );
+                    context,
+                    "A ${material.name} will be apointed",
+                    () => Navigator.pop(context),
+                    true,
+                    3,
+                    "7.png",
+                    true);
               },
               child: Container(
                 height: 45,

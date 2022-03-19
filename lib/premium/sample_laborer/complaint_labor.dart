@@ -94,13 +94,13 @@ class ComplaintsScreen extends StatelessWidget {
                       .updateUserComplaint(time, true, name, skill, reason)
                       .whenComplete(() {
                     showAnimatedDialogBox(
-                      context,
-                      "Complaint Registerd",
-                      () => Navigator.of(context).pop(),
-                      true,
-                      3,
-                      "3.png"
-                    );
+                        context,
+                        "Complaint Registerd",
+                        () => Navigator.of(context).pop(),
+                        true,
+                        3,
+                        "3.png",
+                        true);
                   });
                   Navigator.pop(context);
                 },

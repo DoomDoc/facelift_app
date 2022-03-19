@@ -64,7 +64,8 @@ class LaborScreen extends StatelessWidget {
                       () => Navigator.pop(context),
                       true,
                       3,
-                      "1.png");
+                      "1.png",
+                      true);
                 },
                 child: Container(
                   height: 45,

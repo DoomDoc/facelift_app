@@ -43,7 +43,8 @@ class Superviser extends StatelessWidget {
                           () => Navigator.of(context).pop(),
                           true,
                           5,
-                          "5.png");
+                          "5.png",
+                          true);
                       final time = DateTime.now().millisecondsSinceEpoch;
                       DatabaseService().updateUserRequestSuper(
                           time, true, snapshot.hasData ? true : false);

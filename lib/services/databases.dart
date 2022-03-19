@@ -157,8 +157,14 @@ class DatabaseService {
     }
   }
 
-  Future<void> updateUserName(String? val) async {
-    return await userCol.doc(number).update({"name": val});
+  Future<void> updateUserProfil(
+      String? name, String? email, String? city, String? state) async {
+    return await userCol.doc(number).update({
+      "name": name,
+      "email": email,
+      "city": city,
+      "state": state,
+    });
   }
 
   Future<void> updateUserPremium(bool val) async {
@@ -303,7 +309,11 @@ class DatabaseService {
   Uuser _userDataFromSnapshot(DocumentSnapshot snap) {
     Map<String, dynamic> dat = snap.data() as Map<String, dynamic>;
     return Uuser(
-        name: dat["name"] ?? "new user", phone: dat["phone"] ?? number);
+        name: dat["name"] ?? "new user",
+        phone: dat["phone"] ?? number,
+        email: dat["email"] ?? "",
+        city: dat["city"] ?? "",
+        state: dat["state"] ?? "");
   }
 
   UserPremiumBool _userPremiumBoolDataFromSnapshot(DocumentSnapshot snap) {
@@ -328,7 +338,7 @@ class DatabaseService {
   UserProgressModel _userProgressFromSnapshot(DocumentSnapshot snapshot) {
     Map<String, dynamic> dat = snapshot.data() as Map<String, dynamic>;
     return UserProgressModel(
-      percentage: dat["percentage"]??"0",
+      percentage: dat["percentage"] ?? "0",
       overAllvalue: dat["value"] ?? 0.00,
       value1: dat["value1"] ?? 0,
       value2: dat["value2"] ?? 0,
