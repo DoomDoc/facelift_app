@@ -200,7 +200,7 @@ class _PofileScreenState extends State<PofileScreen> {
                           name: "FAQs",
                           press: () {
                             _launchUrl(
-                                'https://www.facelift.construction/privacy-policy');
+                                'https://www.facelift.construction/faqs');
                           },
                         ),
                         ProfileMenu(

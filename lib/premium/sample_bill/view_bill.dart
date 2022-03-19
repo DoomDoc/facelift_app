@@ -1,6 +1,8 @@
 import 'package:facelift_constructions/constants.dart';
 import 'package:flutter/material.dart';
 
+import '../../dialogs.dart';
+
 class ViewBillScreen extends StatelessWidget {
   final String name;
   final String image;

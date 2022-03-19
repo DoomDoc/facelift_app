@@ -117,7 +117,7 @@ class _NewPrimiumUserScreenState extends State<NewPrimiumUserScreen> {
                       validator: (value) {
                         if (value!.isEmpty) {
                           return "Name Cannot be Empty";
-                        } else {}
+                        }
                         return null;
                       },
                       onChanged: (value) => premiumName = value,
@@ -180,6 +180,7 @@ class _NewPrimiumUserScreenState extends State<NewPrimiumUserScreen> {
                             cursorColor: Colors.black,
                             keyboardType: TextInputType.number,
                             inputFormatters: <TextInputFormatter>[
+                              LengthLimitingTextInputFormatter(4),
                               FilteringTextInputFormatter.digitsOnly
                             ],
                             onChanged: (value) {
@@ -241,6 +242,7 @@ class _NewPrimiumUserScreenState extends State<NewPrimiumUserScreen> {
                             cursorColor: Colors.black,
                             keyboardType: TextInputType.number,
                             inputFormatters: <TextInputFormatter>[
+                              LengthLimitingTextInputFormatter(4),
                               FilteringTextInputFormatter.digitsOnly
                             ],
                             onChanged: (value) {

@@ -4,6 +4,7 @@ import 'package:facelift_constructions/constants.dart';
 import 'package:facelift_constructions/services/databases.dart';
 import 'package:flutter/material.dart';
 
+import '../dialogs.dart';
 import '../models/models.dart';
 
 class Superviser extends StatelessWidget {

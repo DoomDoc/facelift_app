@@ -5,6 +5,8 @@ import 'package:facelift_constructions/models/room.dart';
 import 'package:facelift_constructions/services/databases.dart';
 import 'package:flutter/material.dart';
 
+import '../../dialogs.dart';
+
 class RoomScreen extends StatelessWidget {
   final name;
   final List<RoomPhotos> photos;
