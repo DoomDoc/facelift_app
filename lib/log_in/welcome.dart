@@ -102,7 +102,7 @@ class _WelcomeScreenState extends State<WelcomeScreen> {
     return WillPopScope(
       onWillPop: showExitPopup,
       child: Scaffold(
-        backgroundColor: const Color(0xFFFFC5E2),
+        backgroundColor: const Color.fromARGB(255, 253, 215, 234),
         body: SafeArea(
           child: Column(
             children: [
@@ -162,7 +162,9 @@ class _WelcomeScreenState extends State<WelcomeScreen> {
       height: 6,
       width: 6,
       decoration: BoxDecoration(
-        color: currentPage == index ? pinkColor : const Color(0xFFD8D8D8),
+        color: currentPage == index
+            ? pinkColor
+            : const Color.fromARGB(255, 240, 240, 240),
         borderRadius: BorderRadius.circular(3),
       ),
     );
@@ -175,9 +177,8 @@ class _WelcomeScreenState extends State<WelcomeScreen> {
         const Spacer(flex: 2),
         Text(welcome, style: const TextStyle(fontSize: 16)),
         const SizedBox(height: 20),
-        Container(
+        SizedBox(
           height: MediaQuery.of(context).size.height * 0.45,
-          decoration: const BoxDecoration(color: Color(0xFFFFC5E2)),
           child: Image.asset(
             image,
             fit: BoxFit.cover,

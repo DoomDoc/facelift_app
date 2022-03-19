@@ -64,7 +64,10 @@ class GetLaborerCard extends StatelessWidget {
         showAnimatedDialogBox(
             context,
             "A ${labor.name} will be apointed at $premiumName",
-            () => Navigator.of(context).pop());
+            () => Navigator.of(context).pop(),
+            true,
+            3,
+            "1.png");
       },
       child: SizedBox(
         height: 70,

@@ -70,6 +70,7 @@ flutter:
   # To add assets to your application, add an assets section, like this:
   assets:
     - assets/images/
+    - assets/modals/
     - assets/sample_plans/
     - assets/sample_labor/
     - assets/sample_bills/

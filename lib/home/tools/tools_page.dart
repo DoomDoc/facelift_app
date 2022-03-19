@@ -59,8 +59,13 @@ class ToolsSceen extends StatelessWidget {
                   DatabaseService().updateUserRequestTools(
                       time, true, tool.name.replaceAll(' ', ''));
 
-                  showAnimatedDialogBoxHome(
-                      context, "A ${tool.name} will be apointed");
+                  showAnimatedDialogBox(
+                      context,
+                      "A ${tool.name} will be apointed",
+                      () => Navigator.of(context).pop(),
+                      true,
+                      3,
+                      "4.png");
                 },
                 child: Container(
                   height: 45,

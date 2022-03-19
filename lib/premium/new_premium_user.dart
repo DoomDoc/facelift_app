@@ -1,3 +1,4 @@
+import 'package:facelift_constructions/dialogs.dart';
 import 'package:facelift_constructions/main.dart';
 import 'package:facelift_constructions/services/databases.dart';
 import 'package:flutter/material.dart';
@@ -76,10 +77,20 @@ class _NewPrimiumUserScreenState extends State<NewPrimiumUserScreen> {
         premiumCity,
         stateChose,
       );
-      Navigator.pushAndRemoveUntil(
+      showAnimatedDialogBox(
         context,
-        MaterialPageRoute(builder: ((context) => const MyApp())),
-        (route) => false,
+        "Congractulation",
+        () {
+          Navigator.pop(context);
+          Navigator.pushAndRemoveUntil(
+            context,
+            MaterialPageRoute(builder: ((context) => const MyApp())),
+            (route) => false,
+          );
+        },
+        false,
+        3,
+        "2.png"
       );
     }
   }

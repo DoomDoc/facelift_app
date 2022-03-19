@@ -48,9 +48,9 @@ void showImageDialogBox(BuildContext context, String image) =>
       },
     );
 
-Future<void> showAnimatedDialogBox(
-    BuildContext context, String name, VoidCallback press) async {
-  Timer _timer = Timer(const Duration(seconds: 3), press);
+Future<void> showAnimatedDialogBox(BuildContext context, String name,
+    VoidCallback press, bool barier, int duration, String image) async {
+  Timer _timer = Timer(Duration(seconds: duration), press);
   showAnimatedDialog(
     context: context,
     builder: (BuildContext context) {
@@ -69,9 +69,7 @@ Future<void> showAnimatedDialogBox(
                   mainAxisAlignment: MainAxisAlignment.end,
                   children: [
                     InkWell(
-                      onTap: () {
-                        Navigator.pop(context);
-                      },
+                      onTap: press,
                       child: const Icon(
                         Icons.close,
                         size: 24,
@@ -88,7 +86,7 @@ Future<void> showAnimatedDialogBox(
                   child: ClipRRect(
                       borderRadius: BorderRadius.circular(16),
                       child: Image.asset(
-                        "assets/images/modal1.png",
+                        "assets/modals/$image",
                       )),
                 ),
               ),
@@ -109,80 +107,9 @@ Future<void> showAnimatedDialogBox(
         ),
       );
     },
-    barrierDismissible: true,
+    barrierDismissible: barier ? true : false,
     animationType: DialogTransitionType.slideFromBottom,
-    curve: Curves.easeInOut,
-    duration: const Duration(seconds: 1),
-  ).then((value) {
-    if (_timer.isActive) {
-      _timer.cancel();
-    }
-  });
-}
-
-Future<void> showAnimatedDialogBoxHome(
-    BuildContext context, String name) async {
-  Timer _timer = Timer(const Duration(seconds: 3), () {
-    Navigator.of(context).pop();
-  });
-  showAnimatedDialog(
-    context: context,
-    builder: (BuildContext context) {
-      return Dialog(
-        insetPadding: const EdgeInsets.symmetric(horizontal: 30),
-        shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(16)),
-        child: SingleChildScrollView(
-          child: Column(
-            mainAxisAlignment: MainAxisAlignment.center,
-            mainAxisSize: MainAxisSize.min,
-            children: [
-              const SizedBox(height: 10),
-              Padding(
-                padding: const EdgeInsets.only(right: 12),
-                child: Row(
-                  mainAxisAlignment: MainAxisAlignment.end,
-                  children: [
-                    InkWell(
-                      onTap: () {
-                        Navigator.pop(context);
-                      },
-                      child: const Icon(
-                        Icons.close,
-                        size: 24,
-                        color: Colors.black54,
-                      ),
-                    ),
-                  ],
-                ),
-              ),
-              Padding(
-                padding: const EdgeInsets.symmetric(horizontal: 16),
-                child: SizedBox(
-                  height: 200,
-                  child: ClipRRect(
-                      borderRadius: BorderRadius.circular(16),
-                      child: Image.asset(
-                        "assets/images/modal1.png",
-                      )),
-                ),
-              ),
-              const SizedBox(height: 0),
-              Padding(
-                padding: const EdgeInsets.all(16),
-                child: Text(
-                  name,
-                  textAlign: TextAlign.center,
-                  style: const TextStyle(fontSize: 14),
-                ),
-              ),
-            ],
-          ),
-        ),
-      );
-    },
-    barrierDismissible: true,
-    animationType: DialogTransitionType.slideFromBottom,
-    // curve: Curves.fastOutSlowIn,
+    curve: Curves.linear,
     duration: const Duration(seconds: 1),
   ).then((value) {
     if (_timer.isActive) {

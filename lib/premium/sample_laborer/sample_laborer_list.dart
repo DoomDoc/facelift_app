@@ -108,7 +108,10 @@ class SampleLaborerList extends StatelessWidget {
                                         context,
                                         MaterialPageRoute(
                                             builder: (context) =>
-                                                GetLaborerScreen())))
+                                                GetLaborerScreen())),
+                                    true,
+                                    3,
+                                    "8.png")
                             : () {};
                       },
                       child: Material(

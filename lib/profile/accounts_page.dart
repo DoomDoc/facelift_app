@@ -1,6 +1,7 @@
 // ignore_for_file: use_key_in_widget_constructors
 
 import 'package:facelift_constructions/constants.dart';
+import 'package:facelift_constructions/dialogs.dart';
 import 'package:facelift_constructions/services/databases.dart';
 import 'package:flutter/material.dart';
 
@@ -123,8 +124,18 @@ class _AccountsScreenState extends State<AccountsScreen> {
                           if (_currentName == "") {
                             _currentName = snapshot.data!.name;
                           }
-                          await DatabaseService().updateUserName(_currentName);
-                          Navigator.pop(context);
+                          await DatabaseService()
+                              .updateUserName(_currentName)
+                              .whenComplete(() {
+                            showAnimatedDialogBox(
+                                context,
+                                "Updated Successfully",
+                                () => Navigator.pop(context),
+                                true,
+                                3,
+                                "6.png");
+                            Navigator.pop(context);
+                          });
                         },
                         child: Container(
                             height: 50,
