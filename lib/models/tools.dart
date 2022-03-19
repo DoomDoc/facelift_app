@@ -138,4 +138,9 @@ Exclusively imported by Facelift.
 """,
     image: "assets/tools/Distance_Measurer.jpg",
   ),
+  Tools(
+    name: "",
+    description: "",
+    image: "assets/images/more.png",
+  ),
 ];

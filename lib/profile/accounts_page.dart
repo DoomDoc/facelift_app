@@ -104,7 +104,7 @@ class _AccountsScreenState extends State<AccountsScreen> {
                             Navigator.pushAndRemoveUntil(
                                 context,
                                 MaterialPageRoute(
-                                    builder: (context) => MyApp()),
+                                    builder: (context) => const MyApp()),
                                 (route) => false);
                           }, true, 3, "6.png", false);
                         });

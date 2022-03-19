@@ -9,12 +9,17 @@ import '../../dialogs.dart';
 
 class RoomScreen extends StatelessWidget {
   final name;
+
   final List<RoomPhotos> photos;
   const RoomScreen({Key? key, required this.photos, required this.name})
       : super(key: key);
 
   @override
   Widget build(BuildContext context) {
+    bool _net = false;
+    if (name == "House front") {
+      _net = true;
+    }
     Size size = MediaQuery.of(context).size;
     return SafeArea(
       child: Scaffold(
@@ -41,6 +46,7 @@ class RoomScreen extends StatelessWidget {
                   photo: photos[index],
                   size: size,
                   photos: photos,
+                  net: _net,
                 ),
               ),
               SizedBox(height: 10),
@@ -90,11 +96,13 @@ class RoomScreen extends StatelessWidget {
 
 class PhotoBox extends StatelessWidget {
   final RoomPhotos photo;
+  final bool net;
   const PhotoBox({
     Key? key,
     required this.photo,
     required this.size,
     required this.photos,
+    required this.net,
   }) : super(key: key);
 
   final List<RoomPhotos> photos;
@@ -106,12 +114,19 @@ class PhotoBox extends StatelessWidget {
       padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 8),
       child: ClipRRect(
         borderRadius: BorderRadius.circular(16),
-        child: Image.asset(
-          photo.image,
-          fit: BoxFit.cover,
-          height: size.height * 0.5,
-          width: size.width,
-        ),
+        child: net
+            ? Image.network(
+                photo.image,
+                fit: BoxFit.cover,
+                height: size.height * 0.5,
+                width: size.width,
+              )
+            : Image.asset(
+                photo.image,
+                fit: BoxFit.cover,
+                height: size.height * 0.5,
+                width: size.width,
+              ),
       ),
     );
   }

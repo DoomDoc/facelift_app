@@ -35,4 +35,9 @@ List<SampleLabor> sampleLaborList = [
     skill: "Thekedaar",
     image: "assets/sample_labor/5.jpg",
   ),
+  SampleLabor(
+    name: "",
+    skill: "",
+    image: "assets/images/more.png",
+  ),
 ];

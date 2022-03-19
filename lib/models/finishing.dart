@@ -156,6 +156,7 @@ List<FinishingMaterial> flooringBrand = [
       name: "", image: "assets/finishing/Flooring/tile_brand/6.jpg"),
   FinishingMaterial(
       name: "", image: "assets/finishing/Flooring/tile_brand/7.png"),
+  FinishingMaterial(name: "", image: "assets/images/more.png")
 ];
 
 List<FinishingMaterial> flooringSize = [
@@ -191,6 +192,7 @@ List<FinishingMaterial> paintBrand = [
   FinishingMaterial(name: "", image: "assets/finishing/Paints/bands/3.jpg"),
   FinishingMaterial(name: "", image: "assets/finishing/Paints/bands/4.png"),
   FinishingMaterial(name: "", image: "assets/finishing/Paints/bands/5.png"),
+  FinishingMaterial(name: "", image: "assets/images/more.png"),
 ];
 
 List<FinishingMaterial> paintDiv = [
@@ -382,6 +384,7 @@ List<FinishingMaterial> Lightbrand = [
   FinishingMaterial(name: "", image: "assets/finishing/Lighting/brands/7.png"),
   FinishingMaterial(name: "", image: "assets/finishing/Lighting/brands/8.png"),
   FinishingMaterial(name: "", image: "assets/finishing/Lighting/brands/9.jpg"),
+  FinishingMaterial(name: "", image: "assets/images/more.png"),
 ];
 
 List<FinishingMaterial> LightChandeliers = [
@@ -494,6 +497,7 @@ List<FinishingMaterial> kitchenBrands = [
   FinishingMaterial(name: "", image: "assets/finishing/Kitchen/brands/7.png"),
   FinishingMaterial(name: "", image: "assets/finishing/Kitchen/brands/8.png"),
   FinishingMaterial(name: "", image: "assets/finishing/Kitchen/brands/9.png"),
+  FinishingMaterial(name: "", image: "assets/images/more.png"),
 ];
 
 List<FinishingMaterial> kitchenLatest = [
@@ -545,6 +549,7 @@ List<FinishingMaterial> bathBrands = [
   FinishingMaterial(name: "", image: "assets/finishing/bathroom/brands/5.jpg"),
   FinishingMaterial(name: "", image: "assets/finishing/bathroom/brands/6.png"),
   FinishingMaterial(name: "", image: "assets/finishing/bathroom/brands/7.jpg"),
+  FinishingMaterial(name: "", image: "assets/images/more.png"),
 ];
 
 List<FinishingMaterial> bathColor = [

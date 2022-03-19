@@ -30,6 +30,7 @@ class ToolsList extends StatelessWidget {
           ToolsCard(size: size, tool: latestTools_list[10]),
           ToolsCard(size: size, tool: latestTools_list[11]),
           ToolsCard(size: size, tool: latestTools_list[12]),
+          ToolsCard(size: size, tool: latestTools_list[13]),
         ],
       ),
     );
@@ -49,10 +50,12 @@ class ToolsCard extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
-      onTap: () => Navigator.push(
-        context,
-        MaterialPageRoute(builder: (context) => ToolsSceen(tool: tool)),
-      ),
+      onTap: tool.name != ""
+          ? () => Navigator.push(
+                context,
+                MaterialPageRoute(builder: (context) => ToolsSceen(tool: tool)),
+              )
+          : () {},
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: <Widget>[
