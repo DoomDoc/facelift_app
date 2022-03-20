@@ -3,6 +3,9 @@ import 'dart:async';
 import 'package:flutter/material.dart';
 import 'package:flutter_animated_dialog/flutter_animated_dialog.dart';
 
+import 'main.dart';
+import 'premium/sample_laborer/get_labor.dart';
+
 void showImageDialogBox(BuildContext context, String image) =>
     showAnimatedDialog(
       barrierDismissible: true,
@@ -117,13 +120,24 @@ Future<void> showSimpleAnimatedDialogBox(
 }
 
 Future<void> showAnimatedDialogBox(BuildContext context, String name,
-    final press, bool barier, int duration, String image, bool cross) async {
+    bool barier, int duration, String image, bool cross, int n) async {
   showAnimatedDialog(
     context: context,
     builder: (BuildContext context) {
       Future.delayed(Duration(seconds: duration), () {
         Navigator.of(context).pop(true);
-        press;
+        n != 1
+            ? Navigator.pushAndRemoveUntil(
+                context,
+                MaterialPageRoute(
+                    builder: ((context) => const GetLaborerScreen())),
+                (route) => false,
+              )
+            : Navigator.pushAndRemoveUntil(
+                context,
+                MaterialPageRoute(builder: ((context) => const MyApp())),
+                (route) => false,
+              );
       });
       return Dialog(
         insetPadding: const EdgeInsets.symmetric(horizontal: 30),
@@ -143,7 +157,21 @@ Future<void> showAnimatedDialogBox(BuildContext context, String name,
                           InkWell(
                             onTap: () {
                               Navigator.of(context).pop(true);
-                              press;
+                              n != 1
+                                  ? Navigator.pushAndRemoveUntil(
+                                      context,
+                                      MaterialPageRoute(
+                                          builder: ((context) =>
+                                              const GetLaborerScreen())),
+                                      (route) => false,
+                                    )
+                                  : Navigator.pushAndRemoveUntil(
+                                      context,
+                                      MaterialPageRoute(
+                                          builder: ((context) =>
+                                              const MyApp())),
+                                      (route) => false,
+                                    );
                             },
                             child: const Icon(
                               Icons.close,

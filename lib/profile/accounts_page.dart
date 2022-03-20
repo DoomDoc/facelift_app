@@ -99,13 +99,7 @@ class _AccountsScreenState extends State<AccountsScreen> {
                                 _currentCity, _currentState)
                             .whenComplete(() async {
                           showAnimatedDialogBox(context, "Updated Successfully",
-                              () {
-                            Navigator.pushAndRemoveUntil(
-                                context,
-                                MaterialPageRoute(
-                                    builder: (context) => const MyApp()),
-                                (route) => false);
-                          }, true, 3, "6.png", true);
+                              true, 3, "6.png", true, 1);
                         });
                       },
                       child: Container(
