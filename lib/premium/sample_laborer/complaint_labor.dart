@@ -93,14 +93,8 @@ class ComplaintsScreen extends StatelessWidget {
                   DatabaseService()
                       .updateUserComplaint(time, true, name, skill, reason)
                       .whenComplete(() {
-                    showAnimatedDialogBox(
-                        context,
-                        "Complaint Registerd",
-                        () => Navigator.of(context).pop(),
-                        true,
-                        3,
-                        "3.png",
-                        true);
+                    showSimpleAnimatedDialogBox(
+                        context, "Complaint Registerd", 3, "3.png");
                   });
                   Navigator.pop(context);
                 },

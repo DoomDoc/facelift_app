@@ -107,14 +107,8 @@ class RawSceen extends StatelessWidget {
                 DatabaseService().updateUserRequestRawMaterial(
                     time, true, material.name.replaceAll(' ', ''));
 
-                showAnimatedDialogBox(
-                    context,
-                    "A ${material.name} will be apointed",
-                    () => Navigator.pop(context),
-                    true,
-                    3,
-                    "7.png",
-                    true);
+                showSimpleAnimatedDialogBox(context,
+                    "Best in quality ${material.name} will be povided", 3, "7.png");
               },
               child: Container(
                 height: 45,

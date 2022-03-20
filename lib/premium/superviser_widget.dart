@@ -37,14 +37,11 @@ class Superviser extends StatelessWidget {
                   ),
                   TextButton(
                     onPressed: () {
-                      showAnimatedDialogBox(
+                      showSimpleAnimatedDialogBox(
                           context,
                           "A site Superviser will be appointed within 24 hours",
-                          () => Navigator.of(context).pop(),
-                          true,
                           5,
-                          "5.png",
-                          true);
+                          "5.png");
                       final time = DateTime.now().millisecondsSinceEpoch;
                       DatabaseService().updateUserRequestSuper(
                           time, true, snapshot.hasData ? true : false);

@@ -79,9 +79,8 @@ class _NewPrimiumUserScreenState extends State<NewPrimiumUserScreen> {
       );
       showAnimatedDialogBox(
         context,
-        "Congractulation",
+        "Congractulations",
         () {
-          Navigator.pop(context);
           Navigator.pushAndRemoveUntil(
             context,
             MaterialPageRoute(builder: ((context) => const MyApp())),
@@ -89,9 +88,9 @@ class _NewPrimiumUserScreenState extends State<NewPrimiumUserScreen> {
           );
         },
         false,
-        3,
+        5,
         "2.png",
-        false,
+        true,
       );
     }
   }

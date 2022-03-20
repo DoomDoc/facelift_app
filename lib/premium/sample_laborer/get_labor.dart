@@ -61,14 +61,8 @@ class GetLaborerCard extends StatelessWidget {
         } else {
           DatabaseService().updateUserRequestLabor(time, true, labor.name);
         }
-        showAnimatedDialogBox(
-            context,
-            "A ${labor.name} will be apointed at $premiumName",
-            () => Navigator.of(context).pop(),
-            true,
-            3,
-            "1.png",
-            true);
+        showSimpleAnimatedDialogBox(context,
+            "A ${labor.name} will be apointed at $premiumName", 3, "1.png");
       },
       child: SizedBox(
         height: 70,
