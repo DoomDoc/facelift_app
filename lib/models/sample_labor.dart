@@ -36,6 +36,46 @@ List<SampleLabor> sampleLaborList = [
     image: "assets/sample_labor/5.jpg",
   ),
   SampleLabor(
+    name: "Sharmila Kumari",
+    skill: "Majdoor",
+    image: "assets/sample_labor/6.jpg",
+  ),
+  SampleLabor(
+    name: "Aslam",
+    skill: "Carpenter",
+    image: "assets/sample_labor/7.jpg",
+  ),
+  SampleLabor(
+    name: "Babu Lal",
+    skill: "Electrician",
+    image: "assets/sample_labor/8.jpg",
+  ),
+  SampleLabor(
+    name: "Kareem",
+    skill: "Sariya Thekedaar",
+    image: "assets/sample_labor/9.jpg",
+  ),
+  SampleLabor(
+    name: "Sat prakash",
+    skill: "Plumber",
+    image: "assets/sample_labor/10.jpg",
+  ),
+  SampleLabor(
+    name: "Kushesar",
+    skill: "Majdoor",
+    image: "assets/sample_labor/11.jpg",
+  ),
+  SampleLabor(
+    name: "Kallua",
+    skill: "Mistri",
+    image: "assets/sample_labor/12.jpg",
+  ),
+  SampleLabor(
+    name: "Kaka Singh",
+    skill: "Thekedaar",
+    image: "assets/sample_labor/13.jpg",
+  ),
+  SampleLabor(
     name: "",
     skill: "",
     image: "assets/images/more.png",
