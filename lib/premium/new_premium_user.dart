@@ -1,5 +1,4 @@
 import 'package:facelift_constructions/dialogs.dart';
-import 'package:facelift_constructions/main.dart';
 import 'package:facelift_constructions/services/databases.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
@@ -65,8 +64,10 @@ class _NewPrimiumUserScreenState extends State<NewPrimiumUserScreen> {
     if (_formKey.currentState!.validate()) {
       setState(() {
         iindex = 2;
-        premiumUser = true;
       });
+      // showSimpleAnimatedDialogBox(context, "name", 3, "2.png");
+      showAnimatedDialogBox(
+          context, "Congratulations", false, 5, "2.png", true, 1);
       await DatabaseService().updateUserPremium(true);
       await DatabaseService().updateUserPremiumData(
         capitalize(premiumName),
@@ -74,11 +75,9 @@ class _NewPrimiumUserScreenState extends State<NewPrimiumUserScreen> {
         houseWidth,
         houseSize,
         valueChose,
-        premiumCity,
+        capitalize(premiumCity),
         stateChose,
       );
-      showAnimatedDialogBox(
-          context, "Congractulations", false, 5, "2.png", true, 1);
     }
   }
 
@@ -102,7 +101,7 @@ class _NewPrimiumUserScreenState extends State<NewPrimiumUserScreen> {
                 const Padding(
                   padding: EdgeInsets.only(top: 16, left: 16, bottom: 16),
                   child: Text(
-                    "Give a Name to Your New Home",
+                    "Give a Name to Your Home",
                     style: TextStyle(fontSize: 18, fontWeight: FontWeight.w500),
                   ),
                 ),
@@ -400,7 +399,7 @@ class _NewPrimiumUserScreenState extends State<NewPrimiumUserScreen> {
                 const Padding(
                   padding: EdgeInsets.only(top: 32, left: 16, bottom: 16),
                   child: Text(
-                    "Your Location",
+                    "Location",
                     style: TextStyle(fontSize: 16, fontWeight: FontWeight.w500),
                   ),
                 ),

@@ -162,7 +162,7 @@ class SampleBillsList extends StatelessWidget {
                             _amount = currentDoc["amount"] ?? 0;
                             _warrenty = currentDoc["warranty"] ?? 0;
                             _image = currentDoc["image"] ??
-                                "https://cdn.searchenginejournal.com/wp-content/uploads/2019/08/c573bf41-6a7c-4927-845c-4ca0260aad6b-760x400.jpeg";
+                                "https://lh6.googleusercontent.com/zLLFPlZBB4bmXZ1ecccyP8yoyUjJ6reVVxvAVxxhDnOAwtcA8NMPoRXKB7ypO_fOqgIGClXRg1Y32b-5D704=w1360-h657";
                             _date = currentDoc["user_date"] != 0
                                 ? currentDoc["user_date"]
                                 : currentDoc["current_date"] ?? 0;

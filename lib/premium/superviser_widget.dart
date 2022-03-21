@@ -29,7 +29,7 @@ class Superviser extends StatelessWidget {
                     child: Text(
                       snapshot.hasData
                           ? "$premiumName's Site Supervisor"
-                          : "Sample Site Supervisor",
+                          : "Site Supervisor",
                       maxLines: 2,
                       style:
                           TextStyle(fontSize: 16, fontWeight: FontWeight.w400),

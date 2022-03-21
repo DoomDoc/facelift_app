@@ -7,10 +7,13 @@ import 'upload_pic_page.dart';
 class ProfileMenu extends StatelessWidget {
   final String name;
   final VoidCallback press;
+  final bool isTrue;
+
   const ProfileMenu({
     Key? key,
     required this.name,
     required this.press,
+    required this.isTrue,
   }) : super(key: key);
 
   @override
@@ -23,17 +26,22 @@ class ProfileMenu extends StatelessWidget {
           primary: const Color(0xffff72b9),
           padding: const EdgeInsets.all(20),
           shape:
-              RoundedRectangleBorder(borderRadius: BorderRadius.circular(15)),
-          backgroundColor: const Color(0xFFF5F6F9),
+              RoundedRectangleBorder(borderRadius: BorderRadius.circular(32)),
+          backgroundColor: const Color(0xFFFFFFFF),
         ),
         onPressed: press,
         child: Row(
           children: [
-            const Icon(
-              Icons.camera_alt_outlined,
-              // color: kPrimaryColor,
-              color: Color(0xffff72b9),
-            ),
+            isTrue
+                ? Image.asset(
+                    name == "Call Us"
+                        ? "assets/images/phone.png"
+                        : name == "Email Us"
+                            ? "assets/images/email.png"
+                            : "assets/images/web.png",
+                    width: 22,
+                  )
+                : const SizedBox(),
             const SizedBox(width: 20),
             Expanded(child: Text(name)),
             const Icon(Icons.arrow_forward_ios),

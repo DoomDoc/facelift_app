@@ -17,6 +17,7 @@ class ContactScreen extends StatelessWidget {
     }
 
     return Scaffold(
+      backgroundColor: const Color(0xffebebeb),
       appBar: AppBar(
         toolbarHeight: 75,
         elevation: 0,
@@ -38,18 +39,21 @@ class ContactScreen extends StatelessWidget {
             press: () {
               _launchUrl('tel:7207225725');
             },
+            isTrue: true,
           ),
           ProfileMenu(
             name: "Email Us",
             press: () {
               _launchUrl('mailto:contact@facelift.com');
             },
+            isTrue: true,
           ),
           ProfileMenu(
             name: "Go to Our Website",
             press: () {
               _launchUrl('https://www.facelift.construction');
             },
+            isTrue: true,
           ),
         ],
       ),

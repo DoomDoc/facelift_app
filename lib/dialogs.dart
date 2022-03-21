@@ -113,9 +113,9 @@ Future<void> showSimpleAnimatedDialogBox(
       );
     },
     barrierDismissible: true,
-    animationType: DialogTransitionType.slideFromBottom,
+    animationType: DialogTransitionType.fadeScale,
     curve: Curves.linear,
-    duration: const Duration(seconds: 1),
+    duration: const Duration(milliseconds: 400),
   );
 }
 
@@ -127,12 +127,10 @@ Future<void> showAnimatedDialogBox(BuildContext context, String name,
       Future.delayed(Duration(seconds: duration), () {
         Navigator.of(context).pop(true);
         n != 1
-            ? Navigator.pushAndRemoveUntil(
+            ? Navigator.push(
                 context,
                 MaterialPageRoute(
-                    builder: ((context) => const GetLaborerScreen())),
-                (route) => false,
-              )
+                    builder: ((context) => const GetLaborerScreen())))
             : Navigator.pushAndRemoveUntil(
                 context,
                 MaterialPageRoute(builder: ((context) => const MyApp())),
@@ -158,13 +156,11 @@ Future<void> showAnimatedDialogBox(BuildContext context, String name,
                             onTap: () {
                               Navigator.of(context).pop(true);
                               n != 1
-                                  ? Navigator.pushAndRemoveUntil(
+                                  ? Navigator.push(
                                       context,
                                       MaterialPageRoute(
                                           builder: ((context) =>
-                                              const GetLaborerScreen())),
-                                      (route) => false,
-                                    )
+                                              const GetLaborerScreen())))
                                   : Navigator.pushAndRemoveUntil(
                                       context,
                                       MaterialPageRoute(

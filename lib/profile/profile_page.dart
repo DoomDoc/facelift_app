@@ -167,6 +167,7 @@ class _PofileScreenState extends State<PofileScreen> {
             return WillPopScope(
               onWillPop: showExitPopup,
               child: Scaffold(
+                backgroundColor: const Color(0xffebebeb),
                 body: SingleChildScrollView(
                   child: SafeArea(
                     child: Column(
@@ -183,8 +184,10 @@ class _PofileScreenState extends State<PofileScreen> {
                             Navigator.push(
                                 context,
                                 MaterialPageRoute(
-                                    builder: (context) => const AccountsScreen()));
+                                    builder: (context) =>
+                                        const AccountsScreen()));
                           },
+                          isTrue: false,
                         ),
                         ProfileMenu(
                           name: "Contact Us",
@@ -195,6 +198,7 @@ class _PofileScreenState extends State<PofileScreen> {
                                     builder: (context) =>
                                         const ContactScreen()));
                           },
+                          isTrue: false,
                         ),
                         ProfileMenu(
                           name: "FAQs",
@@ -202,12 +206,15 @@ class _PofileScreenState extends State<PofileScreen> {
                             _launchUrl(
                                 'https://www.facelift.construction/faqs');
                           },
+                          isTrue: false,
                         ),
                         ProfileMenu(
-                            name: "Log Out",
-                            press: () {
-                              showLogoutPopup();
-                            }),
+                          name: "Log Out",
+                          press: () {
+                            showLogoutPopup();
+                          },
+                          isTrue: false,
+                        ),
                       ],
                     ),
                   ),

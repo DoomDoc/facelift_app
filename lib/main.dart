@@ -58,46 +58,7 @@ class _MyAppState extends State<MyApp> {
             return MaterialApp(
               debugShowCheckedModeBanner: false,
               title: 'Facelift Constructions',
-              home: Scaffold(
-                body: screens[iindex],
-                extendBody: true,
-                bottomNavigationBar: Visibility(
-                  visible: navBarVisibility,
-                  child: Padding(
-                    padding: const EdgeInsets.symmetric(
-                        vertical: 16, horizontal: 72),
-                    child: ClipRRect(
-                      borderRadius: BorderRadius.circular(30),
-                      child: BottomNavigationBar(
-                        type: BottomNavigationBarType.fixed,
-                        unselectedItemColor: Colors.white,
-                        selectedItemColor: Colors.black,
-                        showSelectedLabels: false,
-                        showUnselectedLabels: false,
-                        backgroundColor: pinkColor,
-                        currentIndex: iindex,
-                        onTap: (val) {
-                          setState(() => iindex = val);
-                        },
-                        items: [
-                          BottomNavigationBarItem(
-                            icon: Icon(Icons.account_circle_outlined),
-                            label: "",
-                          ),
-                          BottomNavigationBarItem(
-                            icon: Icon(Icons.home),
-                            label: "",
-                          ),
-                          BottomNavigationBarItem(
-                            icon: Icon(Icons.fireplace),
-                            label: "",
-                          ),
-                        ],
-                      ),
-                    ),
-                  ),
-                ),
-              ),
+              home: HomePage(),
             );
           } else {
             return MaterialApp(
@@ -110,5 +71,59 @@ class _MyAppState extends State<MyApp> {
         },
       );
     }
+  }
+}
+
+class HomePage extends StatefulWidget {
+  const HomePage({Key? key}) : super(key: key);
+
+  @override
+  State<HomePage> createState() => _HomePageState();
+}
+
+class _HomePageState extends State<HomePage> {
+  @override
+  Widget build(BuildContext context) {
+    Size size = MediaQuery.of(context).size;
+    return Scaffold(
+      body: screens[iindex],
+      extendBody: true,
+      bottomNavigationBar: Visibility(
+        visible: navBarVisibility,
+        child: Padding(
+          padding: EdgeInsets.symmetric(
+              vertical: 16, horizontal: size.width * 0.225),
+          child: ClipRRect(
+            borderRadius: BorderRadius.circular(30),
+            child: BottomNavigationBar(
+              type: BottomNavigationBarType.fixed,
+              unselectedItemColor: Colors.white,
+              selectedItemColor: Colors.black,
+              showSelectedLabels: false,
+              showUnselectedLabels: false,
+              backgroundColor: pinkColor,
+              currentIndex: iindex,
+              onTap: (val) {
+                setState(() => iindex = val);
+              },
+              items: [
+                BottomNavigationBarItem(
+                  icon: Icon(Icons.account_circle),
+                  label: "",
+                ),
+                BottomNavigationBarItem(
+                  icon: Icon(Icons.home),
+                  label: "",
+                ),
+                BottomNavigationBarItem(
+                  icon: Icon(Icons.whatshot),
+                  label: "",
+                ),
+              ],
+            ),
+          ),
+        ),
+      ),
+    );
   }
 }
