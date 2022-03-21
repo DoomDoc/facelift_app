@@ -42,74 +42,94 @@ class _AccountsScreenState extends State<AccountsScreen> {
               child: SizedBox(
                 height: size.height,
                 width: size.width,
-                child: Column(
-                  // mainAxisAlignment: MainAxisAlignment.center,
-                  crossAxisAlignment: CrossAxisAlignment.center,
-                  children: [
-                    const SizedBox(height: 50),
-                    textField(size, snapshot.data!.name, "Name", 1),
-                    const SizedBox(height: 20),
-                    Column(
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      children: [
-                        const Padding(
-                          padding: EdgeInsets.only(left: 12, bottom: 4),
-                          child: Text("Phone Number"),
-                        ),
-                        Container(
-                          height: 50,
-                          width: size.width * 0.9,
-                          decoration: BoxDecoration(
-                            color: Colors.grey.shade300,
-                            border: Border.all(color: Colors.black38),
-                            borderRadius: BorderRadius.circular(24),
+                child: SingleChildScrollView(
+                  child: Column(
+                    // mainAxisAlignment: MainAxisAlignment.center,
+                    crossAxisAlignment: CrossAxisAlignment.center,
+                    children: [
+                      const SizedBox(height: 50),
+                      textField(size, snapshot.data!.name, "Name", 1),
+                      const SizedBox(height: 20),
+                      Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: [
+                          const Padding(
+                            padding: EdgeInsets.only(left: 12, bottom: 4),
+                            child: Text("Phone Number"),
                           ),
-                          alignment: Alignment.centerLeft,
-                          child: Padding(
-                            padding: const EdgeInsets.only(left: 12),
-                            child: Text("$number"),
+                          Container(
+                            height: 50,
+                            width: size.width * 0.9,
+                            decoration: BoxDecoration(
+                              color: Colors.grey.shade300,
+                              border: Border.all(color: Colors.black38),
+                              borderRadius: BorderRadius.circular(24),
+                            ),
+                            alignment: Alignment.centerLeft,
+                            child: Padding(
+                              padding: const EdgeInsets.only(left: 12),
+                              child: Text("$number"),
+                            ),
                           ),
-                        ),
-                      ],
-                    ),
-                    const SizedBox(height: 20),
-                    textField(size, snapshot.data!.email, "Email", 2),
-                    const SizedBox(height: 20),
-                    textField(size, snapshot.data!.city, "City", 3),
-                    const SizedBox(height: 20),
-                    textField(size, snapshot.data!.state, "State", 4),
-                    const SizedBox(height: 20),
-                    InkWell(
-                      onTap: () async {
-                        if (_currentName == "") {
-                          _currentName = snapshot.data!.name;
-                        }
-                        if (_currentEmail == "") {
-                          _currentEmail = snapshot.data!.email;
-                        }
-                        if (_currentCity == "") {
-                          _currentCity = snapshot.data!.city;
-                        }
-                        if (_currentState == "") {
-                          _currentState = snapshot.data!.state;
-                        }
-                        await DatabaseService()
-                            .updateUserProfil(_currentName, _currentEmail,
-                                _currentCity, _currentState)
-                            .whenComplete(() async {
-                          showAnimatedDialogBox(context, "Updated Successfully",
-                              true, 3, "6.png", true, 1);
-                        });
-                      },
-                      child: Container(
-                          height: 50,
-                          width: 200,
-                          decoration: BoxDecoration(
-                              color: pinkColor,
-                              borderRadius: BorderRadius.circular(32)),
-                          child: const Center(child: Text("Update"))),
-                    )
-                  ],
+                        ],
+                      ),
+                      const SizedBox(height: 20),
+                      textField(size, snapshot.data!.email, "Email", 2),
+                      const SizedBox(height: 20),
+                      textField(size, snapshot.data!.city, "City", 3),
+                      const SizedBox(height: 20),
+                      textField(size, snapshot.data!.state, "State", 4),
+                      const SizedBox(height: 20),
+                      InkWell(
+                        onTap: () async {
+                          if (_currentName == "") {
+                            _currentName = snapshot.data!.name;
+                          } else {
+                            _currentName = capitalize(_currentName);
+                          }
+                          if (_currentEmail == "") {
+                            _currentEmail = snapshot.data!.email;
+                          } else {
+                            _currentEmail = capitalize(_currentEmail);
+                          }
+                          if (_currentCity == "") {
+                            _currentCity = snapshot.data!.city;
+                          } else {
+                            _currentCity = capitalize(_currentCity);
+                          }
+                          if (_currentState == "") {
+                            _currentState = snapshot.data!.state;
+                          } else {
+                            _currentState = capitalize(_currentState);
+                          }
+                          await DatabaseService()
+                              .updateUserProfil(
+                            _currentName,
+                            _currentEmail,
+                            _currentCity,
+                            _currentState,
+                          )
+                              .whenComplete(() async {
+                            showAnimatedDialogBox(
+                                context,
+                                "Updated Successfully",
+                                true,
+                                3,
+                                "6.png",
+                                true,
+                                1);
+                          });
+                        },
+                        child: Container(
+                            height: 50,
+                            width: 200,
+                            decoration: BoxDecoration(
+                                color: pinkColor,
+                                borderRadius: BorderRadius.circular(32)),
+                            child: const Center(child: Text("Update"))),
+                      )
+                    ],
+                  ),
                 ),
               ),
             ),

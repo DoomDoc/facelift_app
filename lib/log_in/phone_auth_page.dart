@@ -3,6 +3,7 @@
 import 'dart:async';
 
 import 'package:facelift_constructions/constants.dart';
+import 'package:facelift_constructions/services/databases.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:otp_text_field/style.dart';
@@ -25,6 +26,7 @@ class _PhoneAuthScreenState extends State<PhoneAuthScreen> {
   TextEditingController phoneController = TextEditingController();
   AuthClass authClass = AuthClass();
   String verificationIdFinal = "";
+  String newName = "newUser";
 
   @override
   Widget build(BuildContext context) {
@@ -41,6 +43,27 @@ class _PhoneAuthScreenState extends State<PhoneAuthScreen> {
                 Text(
                   "Sign Up with phone",
                   style: TextStyle(fontSize: 16, fontWeight: FontWeight.w300),
+                ),
+                SizedBox(height: 20),
+                SizedBox(
+                  height: 50,
+                  width: size.width * 0.8,
+                  child: TextFormField(
+                    cursorColor: Colors.black,
+                    onChanged: (val) => newName = val,
+                    decoration: InputDecoration(
+                      hintText: "Enter Your Name",
+                      hintStyle: TextStyle(
+                        fontSize: 14,
+                        color: Colors.grey.shade500,
+                      ),
+                      contentPadding: const EdgeInsets.only(left: 12),
+                      border: OutlineInputBorder(
+                        borderSide: const BorderSide(color: Colors.black12),
+                        borderRadius: BorderRadius.circular(24),
+                      ),
+                    ),
+                  ),
                 ),
                 SizedBox(height: 20),
                 textField(size),
@@ -94,8 +117,14 @@ class _PhoneAuthScreenState extends State<PhoneAuthScreen> {
                 SizedBox(height: 40),
                 InkWell(
                   onTap: () {
-                    authClass.signInwithPhoneNumber(
-                        verificationIdFinal, smsCode, context);
+                    authClass
+                        .signInwithPhoneNumber(
+                            verificationIdFinal, smsCode, context)
+                        .whenComplete(() => DatabaseService().updateUserProfil(
+                            newName == "" ? "New User" : capitalize(newName),
+                            "",
+                            "",
+                            ""));
                   },
                   child: Container(
                     height: 50,
@@ -203,7 +232,7 @@ class _PhoneAuthScreenState extends State<PhoneAuthScreen> {
           ),
           suffixIcon: InkWell(
             onTap: wait
-                ? null
+                ? () => showSnackBar(context, "Wait for timer to finish")
                 : () async {
                     startTimer();
                     setState(() {
