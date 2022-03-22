@@ -1,8 +1,7 @@
-// ignore_for_file: prefer_const_constructors, prefer_const_literals_to_create_immutables
-
 import 'package:facelift_constructions/log_in/welcome.dart';
 import 'package:flutter/material.dart';
 import 'package:firebase_core/firebase_core.dart';
+import 'package:firebase_analytics/firebase_analytics.dart';
 
 import 'models/models.dart';
 import 'services/auth_service.dart';
@@ -44,7 +43,7 @@ class _MyAppState extends State<MyApp> {
   @override
   Widget build(BuildContext context) {
     if (userLogedIn != true) {
-      return MaterialApp(
+      return const MaterialApp(
         debugShowCheckedModeBanner: false,
         title: 'Facelift Constructions',
         home: WelcomeScreen(),
@@ -55,13 +54,13 @@ class _MyAppState extends State<MyApp> {
         builder: (context, snapshot) {
           if (snapshot.hasData && userLogedIn == true) {
             premiumUser = snapshot.data!.premium;
-            return MaterialApp(
+            return const MaterialApp(
               debugShowCheckedModeBanner: false,
               title: 'Facelift Constructions',
               home: HomePage(),
             );
           } else {
-            return MaterialApp(
+            return const MaterialApp(
               debugShowCheckedModeBanner: false,
               home: Scaffold(
                 body: Center(child: CircularProgressIndicator()),
@@ -104,9 +103,19 @@ class _HomePageState extends State<HomePage> {
               backgroundColor: pinkColor,
               currentIndex: iindex,
               onTap: (val) {
-                setState(() => iindex = val);
+                setState(() {
+                  iindex = val;
+                  FirebaseAnalytics.instance.setCurrentScreen(
+                      screenName: iindex == 0
+                          ? "Profile Page"
+                          : iindex == 1
+                              ? "Home Page"
+                              : iindex == 2
+                                  ? "Premium Page"
+                                  : "");
+                });
               },
-              items: [
+              items: const [
                 BottomNavigationBarItem(
                   icon: Icon(Icons.account_circle),
                   label: "",

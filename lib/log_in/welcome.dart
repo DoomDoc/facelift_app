@@ -104,7 +104,7 @@ class _WelcomeScreenState extends State<WelcomeScreen> {
       width: 6,
       decoration: BoxDecoration(
         color:
-            currentPage == index ? pinkColor : Color.fromRGBO(240, 240, 240, 1),
+            currentPage == index ? pinkColor : const Color.fromRGBO(240, 240, 240, 1),
         borderRadius: BorderRadius.circular(3),
       ),
     );

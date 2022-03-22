@@ -46,6 +46,7 @@ dependencies:
   flutter_animated_dialog: ^2.0.1
   flutter_launcher_icons: ^0.9.2
   url_launcher: ^6.0.20
+  firebase_analytics: ^9.1.2
 
 dev_dependencies:
   flutter_test:
