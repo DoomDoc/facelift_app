@@ -86,17 +86,17 @@ class _ProgressScreenState extends State<ProgressScreen> {
       finnished = false;
       constr = false;
       next = true;
-      pending = true;
+      pending = false;
     } else if (level == 3) {
       finnished = false;
       constr = true;
-      next = true;
-      pending = true;
+      next = false;
+      pending = false;
     } else if (level == 4) {
       finnished = true;
-      constr = true;
-      next = true;
-      pending = true;
+      constr = false;
+      next = false;
+      pending = false;
     } else {
       finnished = false;
       constr = false;

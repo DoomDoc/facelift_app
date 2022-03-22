@@ -50,11 +50,11 @@ class PremiumWidget extends StatelessWidget {
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
                       PremiumText(
-                        text: """Unlimited Labor complaints""",
+                        text: """Record daily expenses""",
                         s: s,
                       ),
                       PremiumText(
-                        text: """Free Architecture plans""",
+                        text: """Completion progress""",
                         s: s,
                       ),
                       PremiumText(
@@ -74,19 +74,19 @@ class PremiumWidget extends StatelessWidget {
                         s: s,
                       ),
                       PremiumText(
+                        text: """Unlimited Labor complaints""",
+                        s: s,
+                      ),
+                      PremiumText(
+                        text: """Free Architecture plans""",
+                        s: s,
+                      ),
+                      PremiumText(
                         text: """Free materials delivery""",
                         s: s,
                       ),
                       PremiumText(
-                        text: """Record daily expenses""",
-                        s: s,
-                      ),
-                      PremiumText(
-                        text: """Completion progress""",
-                        s: s,
-                      ),
-                      PremiumText(
-                        text: """No direct payments to Labor""",
+                        text: """Pay digitally through app""",
                         s: s,
                       ),
                       PremiumText(

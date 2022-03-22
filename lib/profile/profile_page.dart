@@ -7,6 +7,7 @@ import 'package:flutter/material.dart';
 import 'package:url_launcher/url_launcher.dart';
 
 import '../constants.dart';
+import '../dialogs.dart';
 import '../models/models.dart';
 import '../services/auth_service.dart';
 import '../services/databases.dart';
@@ -35,65 +36,6 @@ class _PofileScreenState extends State<PofileScreen> {
 
     AuthClass authClass = AuthClass();
 
-    Future<bool> showExitPopup() async {
-      return await showDialog(
-            context: context,
-            builder: (context) => AlertDialog(
-              shape: RoundedRectangleBorder(
-                  borderRadius: BorderRadius.circular(16)),
-              title: const Text('Exit App'),
-              content: const Text('Do you want to exit an App?'),
-              actions: [
-                Row(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  children: [
-                    InkWell(
-                      onTap: () => Navigator.of(context).pop(false),
-                      child: Material(
-                        elevation: 5,
-                        borderRadius: BorderRadius.circular(16),
-                        child: Container(
-                          width: size.width * 0.3,
-                          height: 40,
-                          decoration: BoxDecoration(
-                              color: Colors.grey,
-                              borderRadius: BorderRadius.circular(11)),
-                          child: const Center(
-                              child: Text('No',
-                                  style: TextStyle(
-                                      fontWeight: FontWeight.w600,
-                                      color: Colors.white))),
-                        ),
-                      ),
-                    ),
-                    const SizedBox(width: 10),
-                    InkWell(
-                      onTap: () => Navigator.of(context).pop(true),
-                      child: Material(
-                        elevation: 5,
-                        borderRadius: BorderRadius.circular(16),
-                        child: Container(
-                          height: 40,
-                          width: size.width * 0.3,
-                          decoration: BoxDecoration(
-                              color: pinkColor,
-                              borderRadius: BorderRadius.circular(11)),
-                          child: const Center(
-                              child: Text('Yes',
-                                  style: TextStyle(
-                                      fontWeight: FontWeight.w600,
-                                      color: Colors.white))),
-                        ),
-                      ),
-                    ),
-                  ],
-                ),
-              ],
-            ),
-          ) ??
-          false;
-    }
-
     Future<void> showLogoutPopup() async {
       return await showDialog(
         context: context,
@@ -101,7 +43,7 @@ class _PofileScreenState extends State<PofileScreen> {
           shape:
               RoundedRectangleBorder(borderRadius: BorderRadius.circular(16)),
           title: const Text('Log out'),
-          content: const Text('Do you want to Logout of your exiting account?'),
+          content: const Text('Do you want really to Logout?'),
           actions: [
             Row(
               mainAxisAlignment: MainAxisAlignment.center,
@@ -165,7 +107,7 @@ class _PofileScreenState extends State<PofileScreen> {
         builder: (context, snapshot) {
           if (snapshot.hasData) {
             return WillPopScope(
-              onWillPop: showExitPopup,
+              onWillPop: () => showExitPopup(context),
               child: Scaffold(
                 backgroundColor: const Color(0xffebebeb),
                 body: SingleChildScrollView(

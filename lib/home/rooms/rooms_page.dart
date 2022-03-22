@@ -52,23 +52,23 @@ class RoomScreen extends StatelessWidget {
               SizedBox(height: 10),
               Padding(
                 padding:
-                    const EdgeInsets.symmetric(horizontal: 48, vertical: 16),
+                    const EdgeInsets.symmetric(horizontal: 16, vertical: 16),
                 child: Text(
                   name == "Living"
-                      ? "Design a luxurious living room with facelift"
+                      ? "Design a luxurious living room with Facelift"
                       : name == "Bathroom"
-                          ? "Design a contemporary bathroom with facelift"
+                          ? "Design a contemporary bathroom with Facelift"
                           : name == "Bedroom"
-                              ? "Design a cozy bedroom with facelift"
+                              ? "Design a cozy bedroom with Facelift"
                               : name == "Kitchen"
-                                  ? "Build a modular kitchen with facelift"
+                                  ? "Build a modular kitchen with Facelift"
                                   : name == "Dressing"
-                                      ? "Design spacious dressing room with facelift"
+                                      ? "Design spacious dressing room with Facelift"
                                       : name == "House front"
-                                          ? "Design a unique house front with facelift"
+                                          ? "Design a unique house front with Facelift"
                                           : "",
                   textAlign: TextAlign.center,
-                  style: TextStyle(fontSize: 16, fontWeight: FontWeight.w300),
+                  style: TextStyle(fontSize: 16, fontWeight: FontWeight.w400),
                 ),
               ),
               InkWell(

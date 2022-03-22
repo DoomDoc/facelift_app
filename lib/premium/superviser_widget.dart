@@ -70,7 +70,7 @@ class Superviser extends StatelessWidget {
                       backgroundImage: NetworkImage(
                         snapshot.hasData
                             ? snapshot.data!.image
-                            : "https://www.colorhexa.com/ffa5d2.png",
+                            : "https://www.pngitem.com/pimgs/m/150-1503945_transparent-user-png-default-user-image-png-png.png",
                       ),
                     ),
                   ),

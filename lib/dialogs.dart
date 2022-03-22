@@ -3,8 +3,69 @@ import 'dart:async';
 import 'package:flutter/material.dart';
 import 'package:flutter_animated_dialog/flutter_animated_dialog.dart';
 
+import 'constants.dart';
 import 'main.dart';
 import 'premium/sample_laborer/get_labor.dart';
+
+Future<bool> showExitPopup(BuildContext context) async {
+  Size size = MediaQuery.of(context).size;
+  return await showDialog(
+        context: context,
+        builder: (context) => AlertDialog(
+          shape:
+              RoundedRectangleBorder(borderRadius: BorderRadius.circular(16)),
+          title: const Text('Exit App'),
+          content: const Text('Do you really want to exit?'),
+          actions: [
+            Row(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                InkWell(
+                  onTap: () => Navigator.of(context).pop(false),
+                  child: Material(
+                    elevation: 5,
+                    borderRadius: BorderRadius.circular(16),
+                    child: Container(
+                      width: size.width * 0.3,
+                      height: 40,
+                      decoration: BoxDecoration(
+                          color: Colors.grey,
+                          borderRadius: BorderRadius.circular(11)),
+                      child: const Center(
+                          child: Text('No',
+                              style: TextStyle(
+                                  fontWeight: FontWeight.w600,
+                                  color: Colors.white))),
+                    ),
+                  ),
+                ),
+                const SizedBox(width: 10),
+                InkWell(
+                  onTap: () => Navigator.of(context).pop(true),
+                  child: Material(
+                    elevation: 5,
+                    borderRadius: BorderRadius.circular(16),
+                    child: Container(
+                      height: 40,
+                      width: size.width * 0.3,
+                      decoration: BoxDecoration(
+                          color: pinkColor,
+                          borderRadius: BorderRadius.circular(11)),
+                      child: const Center(
+                          child: Text('Yes',
+                              style: TextStyle(
+                                  fontWeight: FontWeight.w600,
+                                  color: Colors.white))),
+                    ),
+                  ),
+                ),
+              ],
+            ),
+          ],
+        ),
+      ) ??
+      false;
+}
 
 void showImageDialogBox(BuildContext context, String image) =>
     showAnimatedDialog(
@@ -208,8 +269,8 @@ Future<void> showAnimatedDialogBox(BuildContext context, String name,
       );
     },
     barrierDismissible: barier ? true : false,
-    animationType: DialogTransitionType.slideFromBottom,
+    animationType: DialogTransitionType.fadeScale,
     curve: Curves.linear,
-    duration: const Duration(seconds: 1),
+    duration: const Duration(milliseconds: 400),
   );
 }

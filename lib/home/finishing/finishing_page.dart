@@ -201,7 +201,7 @@ class FinishingList extends StatelessWidget {
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           Padding(
-            padding: const EdgeInsets.only(left: 16, bottom: 8),
+            padding: const EdgeInsets.only(left: 16, bottom: 16),
             child: Text(
               name,
               style: TextStyle(fontSize: 16),

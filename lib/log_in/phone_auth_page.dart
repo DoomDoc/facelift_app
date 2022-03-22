@@ -41,7 +41,7 @@ class _PhoneAuthScreenState extends State<PhoneAuthScreen> {
               children: [
                 SizedBox(height: size.height * 0.2),
                 Text(
-                  "Sign Up with phone",
+                  "Sign Up",
                   style: TextStyle(fontSize: 16, fontWeight: FontWeight.w300),
                 ),
                 SizedBox(height: 20),
@@ -234,6 +234,7 @@ class _PhoneAuthScreenState extends State<PhoneAuthScreen> {
             onTap: wait
                 ? () => showSnackBar(context, "Wait for timer to finish")
                 : () async {
+                    showSnackBar(context, "Redirecting...");
                     startTimer();
                     setState(() {
                       start = 30;

@@ -428,7 +428,7 @@ class _NewPrimiumUserScreenState extends State<NewPrimiumUserScreen> {
                               hintStyle: TextStyle(
                                   fontSize: 14, color: Colors.grey.shade500),
                               filled: true,
-                              hintText: "city or area",
+                              hintText: "City or Area",
                               contentPadding: const EdgeInsets.only(left: 12),
                               focusedBorder: OutlineInputBorder(
                                 borderSide:

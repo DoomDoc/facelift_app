@@ -135,10 +135,10 @@ List<RoomPhotos> dressing_photos = [
     id: "4",
     image: "assets/room/dressing_photos/4.jpg",
   ),
-  RoomPhotos(
-    id: "5",
-    image: "assets/room/dressing_photos/5.jpg",
-  ),
+  // RoomPhotos(
+  //   id: "5",
+  //   image: "assets/room/dressing_photos/5.jpg",
+  // ),
   RoomPhotos(
     id: "6",
     image: "assets/room/dressing_photos/6.jpg",
@@ -239,10 +239,10 @@ List<RoomPhotos> dressing_photos = [
     id: "30",
     image: "assets/room/dressing_photos/30.jpg",
   ),
-  RoomPhotos(
-    id: "31",
-    image: "assets/room/dressing_photos/31.jpg",
-  ),
+  // RoomPhotos(
+  //   id: "31",
+  //   image: "assets/room/dressing_photos/31.jpg",
+  // ),
 ];
 
 List<RoomPhotos> bedroom_photos = [
@@ -794,102 +794,3 @@ List<RoomPhotos> front_photos = [
         "https://uploads-ssl.webflow.com/61acfcf656a924c51c98f6ee/6233532714eba6aa6315c462_New%20Designs%20of%20House%20Front%20Elevation.jpg",
   ),
 ];
-
-// List<RoomPhotos> front_photos = [
-//   RoomPhotos(
-//     id: "1",
-//     image: "assets/room/front_photos/1.jpg",
-//   ),
-//   RoomPhotos(
-//     id: "2",
-//     image: "assets/room/front_photos/2.jpg",
-//   ),
-//   RoomPhotos(
-//     id: "3",
-//     image: "assets/room/front_photos/3.jpg",
-//   ),
-//   RoomPhotos(
-//     id: "4",
-//     image: "assets/room/front_photos/4.jpg",
-//   ),
-//   RoomPhotos(
-//     id: "5",
-//     image: "assets/room/front_photos/5.jpg",
-//   ),
-//   RoomPhotos(
-//     id: "6",
-//     image: "assets/room/front_photos/6.jpg",
-//   ),
-//   RoomPhotos(
-//     id: "7",
-//     image: "assets/room/front_photos/7.jpg",
-//   ),
-//   RoomPhotos(
-//     id: "8",
-//     image: "assets/room/front_photos/8.jpg",
-//   ),
-//   RoomPhotos(
-//     id: "9",
-//     image: "assets/room/front_photos/9.jpg",
-//   ),
-//   RoomPhotos(
-//     id: "10",
-//     image: "assets/room/front_photos/10.jpg",
-//   ),
-//   RoomPhotos(
-//     id: "11",
-//     image: "assets/room/front_photos/11.jpg",
-//   ),
-//   RoomPhotos(
-//     id: "12",
-//     image: "assets/room/front_photos/12.jpg",
-//   ),
-//   RoomPhotos(
-//     id: "13",
-//     image: "assets/room/front_photos/13.jpg",
-//   ),
-//   RoomPhotos(
-//     id: "14",
-//     image: "assets/room/front_photos/14.jpg",
-//   ),
-//   RoomPhotos(
-//     id: "15",
-//     image: "assets/room/front_photos/15.jpg",
-//   ),
-//   RoomPhotos(
-//     id: "16",
-//     image: "assets/room/front_photos/16.jpg",
-//   ),
-//   RoomPhotos(
-//     id: "17",
-//     image: "assets/room/front_photos/17.jpg",
-//   ),
-//   RoomPhotos(
-//     id: "18",
-//     image: "assets/room/front_photos/18.jpg",
-//   ),
-//   RoomPhotos(
-//     id: "19",
-//     image: "assets/room/front_photos/19.jpg",
-//   ),
-//   RoomPhotos(
-//     id: "20",
-//     image: "assets/room/front_photos/20.jpg",
-//   ),
-//   RoomPhotos(
-//     id: "21",
-//     image: "assets/room/front_photos/21.jpg",
-//   ),
-//   RoomPhotos(
-//     id: "22",
-//     image: "assets/room/front_photos/22.jpg",
-//   ),
-//   RoomPhotos(
-//     id: "23",
-//     image: "assets/room/front_photos/23.jpg",
-//   ),
-//   RoomPhotos(
-//     id: "24",
-//     image: "assets/room/front_photos/24.jpg",
-//   ),
-// ];
