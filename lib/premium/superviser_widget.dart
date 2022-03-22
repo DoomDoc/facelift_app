@@ -39,7 +39,7 @@ class Superviser extends StatelessWidget {
                     onPressed: () {
                       showSimpleAnimatedDialogBox(
                           context,
-                          "A site Superviser will be appointed within 24 hours",
+                          "A Site Superviser will be appointed within 24 hours",
                           5,
                           "5.png");
                       final time = DateTime.now().millisecondsSinceEpoch;

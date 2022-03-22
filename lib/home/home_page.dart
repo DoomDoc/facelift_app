@@ -81,7 +81,7 @@ class HomeScreen extends StatelessWidget {
                   ),
                 ),
                 FinishingList(size: size),
-                premiumUser
+                premiumUser == false
                     ? PremiumWidget(size: size, s: size.width > 330)
                     : const SizedBox(),
                 const Padding(

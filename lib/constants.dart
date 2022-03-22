@@ -40,3 +40,9 @@ void showSnackBar(BuildContext context, String text) {
   final snackBar = SnackBar(content: Text(text));
   ScaffoldMessenger.of(context).showSnackBar(snackBar);
 }
+
+void showSnackBarDuration(BuildContext context, String text, int dur) {
+  final snackBar =
+      SnackBar(content: Text(text), duration: Duration(seconds: dur));
+  ScaffoldMessenger.of(context).showSnackBar(snackBar);
+}

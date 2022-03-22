@@ -131,7 +131,7 @@ class _PhoneAuthScreenState extends State<PhoneAuthScreen> {
                     width: 200,
                     decoration: BoxDecoration(
                         color: pinkColor,
-                        borderRadius: BorderRadius.circular(15)),
+                        borderRadius: BorderRadius.circular(32)),
                     child: Center(
                       child: Text(
                         "Lets Go",
@@ -234,7 +234,7 @@ class _PhoneAuthScreenState extends State<PhoneAuthScreen> {
             onTap: wait
                 ? () => showSnackBar(context, "Wait for timer to finish")
                 : () async {
-                    showSnackBar(context, "Redirecting...");
+                    showSnackBarDuration(context, "Redirecting...", 5);
                     startTimer();
                     setState(() {
                       start = 30;

@@ -22,7 +22,7 @@ class _WelcomeScreenState extends State<WelcomeScreen> {
         "Manage your house construction",
         "Upload bills, get ideas, track progress, store plans, make payments, and so much more right from your smartphone…",
         "assets/images/1.png",
-        "Welcome",
+        "Welcome,",
       ),
       welcomeContent(
         context,
@@ -43,7 +43,7 @@ class _WelcomeScreenState extends State<WelcomeScreen> {
     return WillPopScope(
       onWillPop: () => showExitPopup(context),
       child: Scaffold(
-        backgroundColor: const Color.fromARGB(255, 253, 215, 234),
+        backgroundColor: const Color(0xffebebeb),
         body: SafeArea(
           child: Column(
             children: [
@@ -55,7 +55,7 @@ class _WelcomeScreenState extends State<WelcomeScreen> {
                       itemCount: 3,
                       itemBuilder: (context, index) => contentList[index])),
               Expanded(
-                flex: 3,
+                flex: 4,
                 child: Column(
                   children: [
                     Row(
@@ -85,7 +85,7 @@ class _WelcomeScreenState extends State<WelcomeScreen> {
                         ),
                       ),
                     ),
-                    const SizedBox(height: 24),
+                    const SizedBox(height: 45),
                   ],
                 ),
               ),
@@ -103,9 +103,8 @@ class _WelcomeScreenState extends State<WelcomeScreen> {
       height: 6,
       width: 6,
       decoration: BoxDecoration(
-        color: currentPage == index
-            ? pinkColor
-            : const Color.fromARGB(255, 240, 240, 240),
+        color:
+            currentPage == index ? pinkColor : Color.fromRGBO(240, 240, 240, 1),
         borderRadius: BorderRadius.circular(3),
       ),
     );
@@ -135,7 +134,7 @@ class _WelcomeScreenState extends State<WelcomeScreen> {
           child: Text(
             heading,
             textAlign: TextAlign.center,
-            style: const TextStyle(fontSize: 16),
+            style: const TextStyle(fontSize: 16, fontWeight: FontWeight.w600),
           ),
         ),
         const SizedBox(height: 10),
