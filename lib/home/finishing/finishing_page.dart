@@ -18,7 +18,22 @@ class FinishingScreen extends StatelessWidget {
           onPressed: () => Navigator.pop(context),
           icon: Icon(Icons.arrow_back_ios_new),
         ),
-        title: Text("Materials", style: TextStyle(color: Colors.black)),
+        title: Text(
+          id == 0
+              ? "Flooring"
+              : id == 1
+                  ? "Paints and Polishes"
+                  : id == 2
+                      ? "Doors and Accessories"
+                      : id == 3
+                          ? "Lighting"
+                          : id == 4
+                              ? "Kitchen"
+                              : id == 5
+                                  ? "Bathroom"
+                                  : "Materials",
+          style: TextStyle(color: Colors.black),
+        ),
         centerTitle: true,
         backgroundColor: Colors.transparent,
         iconTheme: const IconThemeData(color: Colors.black54),
@@ -175,7 +190,7 @@ class FinishingList extends StatelessWidget {
   Widget build(BuildContext context) {
     Size size = MediaQuery.of(context).size;
     bool _phoneWidth;
-    if (size.width > 320 && size.width < 280) {
+    if (size.width < 330 && size.width > 270) {
       _phoneWidth = false;
     } else {
       _phoneWidth = true;
@@ -194,7 +209,13 @@ class FinishingList extends StatelessWidget {
           ),
           Container(
             padding: EdgeInsets.only(top: 8, left: 4),
-            height: _phoneWidth ? 190 : 165,
+            height: _phoneWidth
+                ? name == "Doors"
+                    ? 240
+                    : 190
+                : name == "Doors"
+                    ? 230
+                    : 180,
             // height: double.maxFinite,
             child: ListView.builder(
               shrinkWrap: true,
@@ -202,6 +223,7 @@ class FinishingList extends StatelessWidget {
               itemCount: materialList.length,
               itemBuilder: (context, index) => FinishingPageCard(
                 material: materialList[index],
+                door: name == "Doors",
               ),
             ),
           ),
@@ -213,16 +235,18 @@ class FinishingList extends StatelessWidget {
 
 class FinishingPageCard extends StatelessWidget {
   final FinishingMaterial material;
+  final bool door;
   const FinishingPageCard({
     Key? key,
     required this.material,
+    required this.door,
   }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
     Size size = MediaQuery.of(context).size;
     bool phoneWidth;
-    if (size.width > 320 && size.width < 280) {
+    if (size.width < 330 && size.width > 270) {
       phoneWidth = false;
     } else {
       phoneWidth = true;
@@ -237,8 +261,14 @@ class FinishingPageCard extends StatelessWidget {
             borderRadius: BorderRadius.circular(24),
             shadowColor: Colors.white,
             child: SizedBox(
-              height: phoneWidth ? 150 : 125,
-              width: phoneWidth ? 150 : 125,
+              height: phoneWidth
+                  ? door
+                      ? 200
+                      : 150
+                  : door
+                      ? 190
+                      : 140,
+              width: phoneWidth ? 150 : 140,
               // color: Colors.black12,
               child: ClipRRect(
                 borderRadius: BorderRadius.circular(24),
@@ -249,17 +279,20 @@ class FinishingPageCard extends StatelessWidget {
               ),
             ),
           ),
-          Padding(
-            padding: const EdgeInsets.symmetric(horizontal: 8, vertical: 8),
-            child: SizedBox(
-              width: phoneWidth ? 140 : 105,
-              child: Text(
-                material.name,
-                maxLines: 2,
-                style: TextStyle(fontSize: 12),
-              ),
-            ),
-          )
+          material.name != ""
+              ? Padding(
+                  padding:
+                      const EdgeInsets.symmetric(horizontal: 8, vertical: 8),
+                  child: SizedBox(
+                    width: phoneWidth ? 140 : 130,
+                    child: Text(
+                      material.name,
+                      maxLines: 2,
+                      style: TextStyle(fontSize: 12),
+                    ),
+                  ),
+                )
+              : SizedBox()
         ],
       ),
     );

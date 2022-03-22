@@ -1,5 +1,3 @@
-// ignore_for_file: non_constant_identifier_names
-
 class Tools {
   final String name;
   final String description;
@@ -8,7 +6,7 @@ class Tools {
   Tools({required this.name, required this.description, required this.image});
 }
 
-List<Tools> latestTools_list = [
+List<Tools> latestToolsList = [
   Tools(
     name: "Wall Cutter",
     description: """
@@ -21,11 +19,22 @@ Saves time and manpower.
     image: "assets/tools/wall_Chaser.jpg",
   ),
   Tools(
+    name: "Plaster Smoother",
+    description: """
+Handy tool for a high finish.
+
+Fills even the smallest gaps.
+
+Used by the in-house trained mistris.
+""",
+    image: "assets/tools/smoother.jpg",
+  ),
+  Tools(
     name: "Dust Collector",
     description: """
 Makes construction Noiseless.
 
-Keeps your new home dust-free.
+Keeps your new house dust-free.
 
 Heavy imported machinery.
 """,
@@ -43,31 +52,31 @@ Sprays paint evenly.
     image: "assets/tools/paint_sprayer.jpg",
   ),
   Tools(
+    name: "Concrete Pourer Machine",
+    description: """
+Specially designed machine to pour concrete continuously.
+
+Mostly used in constructing roofs, lintels, slabs, e.t.c.
+""",
+    image: "assets/tools/Concrete_Pourer.jpg",
+  ),
+  Tools(
     name: "Plastering Machine",
     description: """
 Professional wall plastering machine.
 
 Both automatic & manual variants.
 
-Specially imported by Facelift.
+Exclusively imported by Facelift.
 """,
     image: "assets/tools/plastering.jpg",
-  ),
-  Tools(
-    name: "Plaster Smoother",
-    description: """
-Handy tool for a high finish.
-
-Fills even the smallest gaps.
-""",
-    image: "assets/tools/smoother.jpg",
   ),
   Tools(
     name: "Plaster Washers",
     description: """
 Wipes the stains like no other.
 
-High-pressure machine for after construction finishing.
+High-pressure machine used for finishing.
 """,
     image: "assets/tools/plaster_washer.jpg",
   ),
@@ -83,9 +92,9 @@ Exclusively imported from European construction manufacturers.
   Tools(
     name: "Steel bars Cutter-Bender",
     description: """
-Steel bars used in RCC bending machine.
+Bending machine for steel bars used in RCC .
 
-Bends every thickness of steel quickly.
+Works with every thickness of steel quickly.
 """,
     image: "assets/tools/Cutter.jpg",
   ),
@@ -94,47 +103,38 @@ Bends every thickness of steel quickly.
     description: """
 A handy tool used for precision.
 
-Saves time while fitting.
+Saves time for furniture fitting.
 
 Used by Carpenters, Electricians, and plumbers.
 """,
     image: "assets/tools/Screw_Driving.jpg",
   ),
   Tools(
-    name: "Concrete Pourer Machine",
-    description: """
-Specially designed machine to pour concrete continuously.
-
-Mostly used while roofing, lintels, slabs, e.t.c.
-""",
-    image: "assets/tools/Concrete_Pourer.jpg",
-  ),
-  Tools(
     name: "Construction Site Wifi",
     description: """
 First of its kind for a house construction site.
 
-Provides 24hr internet access to all the CCTVs monitored at Facelift headquarters.
+Provides 24hr internet access.
+
+Used for CCTV monitoring of site.
 """,
     image: "assets/tools/wifi.jpg",
   ),
   Tools(
     name: "Fiberglass Ladders",
     description: """
-Best in class imported ladders made from fiberglass.
+Imported ladders made from fiberglass.
 
-Efficient in reaching double heights.
+Efficient in reaching up to 25ft.
 """,
     image: "assets/tools/Fiberglass_Ladders.jpg",
   ),
   Tools(
-    name: "Laser Distance Measurer",
+    name: "Laser Distance",
     description: """
-Advanced technology is used in measuring distances.
+Advanced technology used for measuring distances.
 
 Makes the construction more accurate.
-
-Exclusively imported by Facelift.
 """,
     image: "assets/tools/Distance_Measurer.jpg",
   ),

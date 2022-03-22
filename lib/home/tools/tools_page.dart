@@ -18,7 +18,7 @@ class ToolsSceen extends StatelessWidget {
         toolbarHeight: 65,
         leading: IconButton(
           onPressed: () => Navigator.pop(context),
-          icon: Icon(Icons.arrow_back_ios_new),
+          icon: const Icon(Icons.arrow_back_ios_new),
         ),
         centerTitle: true,
         backgroundColor: Colors.transparent,
@@ -26,63 +26,71 @@ class ToolsSceen extends StatelessWidget {
       ),
       body: SingleChildScrollView(
         child: Padding(
-          padding: const EdgeInsets.all(32),
-          child: Column(
-            children: [
-              Padding(
-                padding: const EdgeInsets.only(bottom: 24),
-                child: Hero(
-                  tag: tool.image,
-                  child: ClipRRect(
-                      borderRadius: BorderRadius.circular(16),
-                      child: Image.asset(
-                        tool.image,
-                        width: size.width * 0.95,
-                        fit: BoxFit.fill,
-                      )),
+          padding: const EdgeInsets.symmetric(horizontal: 32, vertical: 12),
+          child: SizedBox(
+            width: size.width,
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.center,
+              children: [
+                Padding(
+                  padding: const EdgeInsets.only(bottom: 24),
+                  child: Hero(
+                    tag: tool.image,
+                    child: ClipRRect(
+                        borderRadius: BorderRadius.circular(16),
+                        child: Image.asset(
+                          tool.image,
+                          width: size.width * 0.95,
+                          fit: BoxFit.fill,
+                        )),
+                  ),
                 ),
-              ),
-              Text(
-                tool.name,
-                style: const TextStyle(
-                  fontSize: 22,
-                  fontWeight: FontWeight.bold,
-                ),
-              ),
-              Padding(
-                padding: const EdgeInsets.only(top: 24),
-                child: Text(
-                  tool.description,
+                Text(
+                  tool.name,
                   style: const TextStyle(
-                    fontSize: 16,
-                    fontWeight: FontWeight.w300,
+                    fontSize: 22,
+                    fontWeight: FontWeight.bold,
                   ),
                 ),
-              ),
-              InkWell(
-                onTap: () {
-                  final time = DateTime.now().millisecondsSinceEpoch;
-                  DatabaseService().updateUserRequestTools(
-                      time, true, tool.name.replaceAll(' ', ''));
+                SizedBox(
+                  width: size.width,
+                  child: Padding(
+                    padding: const EdgeInsets.only(top: 24, left: 8),
+                    child: Text(
+                      tool.description,
+                      style: const TextStyle(
+                        fontSize: 16,
+                        fontWeight: FontWeight.w300,
+                      ),
+                    ),
+                  ),
+                ),
+                const SizedBox(height: 30),
+                InkWell(
+                  onTap: () {
+                    final time = DateTime.now().millisecondsSinceEpoch;
+                    DatabaseService().updateUserRequestTools(
+                        time, true, tool.name.replaceAll(' ', ''));
 
-                  showSimpleAnimatedDialogBox(
-                      context, "Request Placed Succesfully", 3, "4.png");
-                },
-                child: Container(
-                  height: 45,
-                  width: 220,
-                  decoration: BoxDecoration(
-                    borderRadius: BorderRadius.circular(32),
-                    color: pinkColor,
+                    showSimpleAnimatedDialogBox(
+                        context, "Request Placed Succesfully", 3, "4.png");
+                  },
+                  child: Container(
+                    height: 45,
+                    width: 220,
+                    decoration: BoxDecoration(
+                      borderRadius: BorderRadius.circular(32),
+                      color: pinkColor,
+                    ),
+                    child: Center(child: Text("Get ${tool.name}")),
                   ),
-                  child: Center(child: Text("Get ${tool.name}")),
                 ),
-              ),
-              // Padding(
-              //   padding: EdgeInsets.all(32),
-              //   child: GetPremiumButton(),
-              // )
-            ],
+                // Padding(
+                //   padding: EdgeInsets.all(32),
+                //   child: GetPremiumButton(),
+                // )
+              ],
+            ),
           ),
         ),
       ),

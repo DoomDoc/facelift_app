@@ -17,7 +17,7 @@ class LaborScreen extends StatelessWidget {
         toolbarHeight: 65,
         leading: IconButton(
           onPressed: () => Navigator.pop(context),
-          icon: Icon(Icons.arrow_back_ios_new),
+          icon: const Icon(Icons.arrow_back_ios_new),
         ),
         centerTitle: true,
         backgroundColor: Colors.transparent,

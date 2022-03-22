@@ -177,11 +177,15 @@ class _WelcomeScreenState extends State<WelcomeScreen> {
         const Spacer(flex: 2),
         Text(welcome, style: const TextStyle(fontSize: 16)),
         const SizedBox(height: 20),
-        SizedBox(
-          height: MediaQuery.of(context).size.height * 0.45,
-          child: Image.asset(
-            image,
-            fit: BoxFit.cover,
+        Padding(
+          padding: const EdgeInsets.symmetric(horizontal: 24),
+          child: SizedBox(
+            height: MediaQuery.of(context).size.height * 0.4,
+            child: Image.asset(
+              image,
+              // scale: 0,
+              fit: BoxFit.cover,
+            ),
           ),
         ),
         const Spacer(flex: 3),

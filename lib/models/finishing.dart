@@ -110,11 +110,9 @@ List<FinishingMaterial> flooringItalian = [
 
 List<FinishingMaterial> flooringOnyx = [
   FinishingMaterial(
-      name: "", image: "assets/finishing/Flooring/marble_onyx/1.jpg"),
-  FinishingMaterial(
       name: "Blue", image: "assets/finishing/Flooring/marble_onyx/2.jpg"),
   FinishingMaterial(
-      name: "", image: "assets/finishing/Flooring/marble_onyx/3.jpg"),
+      name: "", image: "assets/finishing/Flooring/marble_onyx/1.jpg"),
   FinishingMaterial(
       name: "Green", image: "assets/finishing/Flooring/marble_onyx/4.jpg"),
   FinishingMaterial(
@@ -122,26 +120,27 @@ List<FinishingMaterial> flooringOnyx = [
   FinishingMaterial(
       name: "Cloudy", image: "assets/finishing/Flooring/marble_onyx/6.jpg"),
   FinishingMaterial(
-      name: "", image: "assets/finishing/Flooring/marble_onyx/7.jpg"),
+      name: "", image: "assets/finishing/Flooring/marble_onyx/3.jpg"),
   FinishingMaterial(
       name: "Salt Pink", image: "assets/finishing/Flooring/marble_onyx/8.jpg"),
   FinishingMaterial(
-      name: "", image: "assets/finishing/Flooring/marble_onyx/9.jpg"),
+      name: "", image: "assets/finishing/Flooring/marble_onyx/7.jpg"),
   FinishingMaterial(
       name: "Turkish", image: "assets/finishing/Flooring/marble_onyx/10.jpg"),
   FinishingMaterial(
-      name: "", image: "assets/finishing/Flooring/marble_onyx/11.jpg"),
+      name: "", image: "assets/finishing/Flooring/marble_onyx/9.jpg"),
   FinishingMaterial(
       name: "Unique Onyx",
       image: "assets/finishing/Flooring/marble_onyx/12.jpg"),
   FinishingMaterial(
-      name: "", image: "assets/finishing/Flooring/marble_granite/13.jpg"),
-  FinishingMaterial(
-      name: "White Tiger",
-      image: "assets/finishing/Flooring/marble_granite/14.jpg"),
+      name: "", image: "assets/finishing/Flooring/marble_onyx/11.jpg"),
 ];
 
 List<FinishingMaterial> flooringBrand = [
+  FinishingMaterial(
+      name: "", image: "assets/finishing/Flooring/tile_brand/4.jpg"),
+  FinishingMaterial(
+      name: "", image: "assets/finishing/Flooring/tile_brand/7.png"),
   FinishingMaterial(
       name: "", image: "assets/finishing/Flooring/tile_brand/1.jpg"),
   FinishingMaterial(
@@ -149,13 +148,9 @@ List<FinishingMaterial> flooringBrand = [
   FinishingMaterial(
       name: "", image: "assets/finishing/Flooring/tile_brand/3.png"),
   FinishingMaterial(
-      name: "", image: "assets/finishing/Flooring/tile_brand/4.jpg"),
-  FinishingMaterial(
       name: "", image: "assets/finishing/Flooring/tile_brand/5.jpg"),
   FinishingMaterial(
       name: "", image: "assets/finishing/Flooring/tile_brand/6.jpg"),
-  FinishingMaterial(
-      name: "", image: "assets/finishing/Flooring/tile_brand/7.png"),
   FinishingMaterial(name: "", image: "assets/images/more.png")
 ];
 
@@ -389,15 +384,15 @@ List<FinishingMaterial> Lightbrand = [
 
 List<FinishingMaterial> LightChandeliers = [
   FinishingMaterial(
-      name: "", image: "assets/finishing/Lighting/chandeliers/1.jpg"),
+      name: "", image: "assets/finishing/Lighting/chandeliers/4.png"),
   FinishingMaterial(
       name: "", image: "assets/finishing/Lighting/chandeliers/2.jpg"),
   FinishingMaterial(
       name: "", image: "assets/finishing/Lighting/chandeliers/3.jpg"),
   FinishingMaterial(
-      name: "", image: "assets/finishing/Lighting/chandeliers/4.png"),
-  FinishingMaterial(
       name: "", image: "assets/finishing/Lighting/chandeliers/5.jpg"),
+  FinishingMaterial(
+      name: "", image: "assets/finishing/Lighting/chandeliers/1.jpg"),
   FinishingMaterial(
       name: "", image: "assets/finishing/Lighting/chandeliers/6.jpg"),
   FinishingMaterial(
@@ -453,6 +448,12 @@ List<FinishingMaterial> LightPandent_lamp = [
 
 List<FinishingMaterial> LightTechnologies = [
   FinishingMaterial(
+      name: "Wireless Lights",
+      image: "assets/finishing/Lighting/technologies/12.jpg"),
+  FinishingMaterial(
+      name: "Smart Wardrobe",
+      image: "assets/finishing/Lighting/technologies/11.JPG"),
+  FinishingMaterial(
       name: "Designer Piece",
       image: "assets/finishing/Lighting/technologies/1.jpg"),
   FinishingMaterial(
@@ -479,16 +480,9 @@ List<FinishingMaterial> LightTechnologies = [
       image: "assets/finishing/Lighting/technologies/9.JPG"),
   FinishingMaterial(
       name: "Trimless", image: "assets/finishing/Lighting/technologies/10.JPG"),
-  FinishingMaterial(
-      name: "Smart Wardrobe",
-      image: "assets/finishing/Lighting/technologies/11.JPG"),
-  FinishingMaterial(
-      name: "Wireless Lights",
-      image: "assets/finishing/Lighting/technologies/12.jpg"),
 ];
 
 List<FinishingMaterial> kitchenBrands = [
-  FinishingMaterial(name: "", image: "assets/finishing/Kitchen/brands/1.jpg"),
   FinishingMaterial(name: "", image: "assets/finishing/Kitchen/brands/2.png"),
   FinishingMaterial(name: "", image: "assets/finishing/Kitchen/brands/3.jpg"),
   FinishingMaterial(name: "", image: "assets/finishing/Kitchen/brands/4.png"),
@@ -497,15 +491,13 @@ List<FinishingMaterial> kitchenBrands = [
   FinishingMaterial(name: "", image: "assets/finishing/Kitchen/brands/7.png"),
   FinishingMaterial(name: "", image: "assets/finishing/Kitchen/brands/8.png"),
   FinishingMaterial(name: "", image: "assets/finishing/Kitchen/brands/9.png"),
+  FinishingMaterial(name: "", image: "assets/finishing/Kitchen/brands/1.jpg"),
   FinishingMaterial(name: "", image: "assets/images/more.png"),
 ];
 
 List<FinishingMaterial> kitchenLatest = [
   FinishingMaterial(
       name: "Bottle Pullout", image: "assets/finishing/Kitchen/latest/1.jpg"),
-  FinishingMaterial(
-      name: "Built-in Appliances",
-      image: "assets/finishing/Kitchen/latest/2.jpg"),
   FinishingMaterial(
       name: "Designer Hinges", image: "assets/finishing/Kitchen/latest/3.jpg"),
   FinishingMaterial(
@@ -524,6 +516,9 @@ List<FinishingMaterial> kitchenLatest = [
       name: "Tandem Box", image: "assets/finishing/Kitchen/latest/10.jpg"),
   FinishingMaterial(
       name: "Vertical Split", image: "assets/finishing/Kitchen/latest/11.png"),
+  FinishingMaterial(
+      name: "Built-in Appliances",
+      image: "assets/finishing/Kitchen/latest/2.jpg"),
 ];
 
 List<FinishingMaterial> kitchenType = [
@@ -574,20 +569,12 @@ List<FinishingMaterial> bathColor = [
 
 List<FinishingMaterial> bathSpecial = [
   FinishingMaterial(
-    name: "Closed Shower Units",
-    image: "assets/finishing/bathroom/special/2.jpeg",
-  ),
-  FinishingMaterial(
     name: "Customized Faucets",
     image: "assets/finishing/bathroom/special/3.jpg",
   ),
   FinishingMaterial(
     name: "Luxury Bathtubs",
     image: "assets/finishing/bathroom/special/4.jpg",
-  ),
-  FinishingMaterial(
-    name: "RainDrops Shower",
-    image: "assets/finishing/bathroom/special/5.jpg",
   ),
   FinishingMaterial(
     name: "Sauna",
@@ -613,507 +600,12 @@ List<FinishingMaterial> bathSpecial = [
     name: "Handpicked Basins",
     image: "assets/finishing/bathroom/special/11.png",
   ),
+  FinishingMaterial(
+    name: "RainDrops Shower",
+    image: "assets/finishing/bathroom/special/5.jpg",
+  ),
+  FinishingMaterial(
+    name: "Closed Shower Units",
+    image: "assets/finishing/bathroom/special/2.jpeg",
+  ),
 ];
-
-
-// List<FinishingMaterial> flooringGranite = [
-//   FinishingMaterial(
-//       name: "Black", image: "assets/finishing/Flooring/marble_granite/1.jpg"),
-//   FinishingMaterial(
-//       name: "", image: "assets/finishing/Flooring/marble_granite/2.png"),
-//   FinishingMaterial(
-//       name: "", image: "assets/finishing/Flooring/marble_granite/3.jpg"),
-//   FinishingMaterial(
-//       name: "", image: "assets/finishing/Flooring/marble_granite/4.jpg"),
-//   FinishingMaterial(
-//       name: "", image: "assets/finishing/Flooring/marble_granite/5.jpg"),
-//   FinishingMaterial(
-//       name: "", image: "assets/finishing/Flooring/marble_granite/6.jpg"),
-//   FinishingMaterial(
-//       name: "", image: "assets/finishing/Flooring/marble_granite/7.jpg"),
-//   FinishingMaterial(
-//       name: "", image: "assets/finishing/Flooring/marble_granite/8.jpg"),
-//   FinishingMaterial(
-//       name: "", image: "assets/finishing/Flooring/marble_granite/9.jpg"),
-//   FinishingMaterial(
-//       name: "", image: "assets/finishing/Flooring/marble_granite/10.jpg"),
-//   FinishingMaterial(
-//       name: "", image: "assets/finishing/Flooring/marble_granite/11.jpg"),
-//   FinishingMaterial(
-//       name: "", image: "assets/finishing/Flooring/marble_granite/12.jpg"),
-//   FinishingMaterial(
-//       name: "", image: "assets/finishing/Flooring/marble_granite/13.jpg"),
-// ];
-
-// List<FinishingMaterial> flooringItalian = [
-//   FinishingMaterial(
-//       name: "", image: "assets/finishing/Flooring/marble_italian/1.jpg"),
-//   FinishingMaterial(
-//       name: "", image: "assets/finishing/Flooring/marble_italian/2.jpg"),
-//   FinishingMaterial(
-//       name: "", image: "assets/finishing/Flooring/marble_italian/3.jpg"),
-//   FinishingMaterial(
-//       name: "", image: "assets/finishing/Flooring/marble_italian/4.jpg"),
-//   FinishingMaterial(
-//       name: "", image: "assets/finishing/Flooring/marble_italian/5.jpg"),
-//   FinishingMaterial(
-//       name: "", image: "assets/finishing/Flooring/marble_italian/6.jpg"),
-//   FinishingMaterial(
-//       name: "", image: "assets/finishing/Flooring/marble_italian/7.jpg"),
-//   FinishingMaterial(
-//       name: "", image: "assets/finishing/Flooring/marble_italian/8.jpg"),
-//   FinishingMaterial(
-//       name: "", image: "assets/finishing/Flooring/marble_italian/9.jpg"),
-//   FinishingMaterial(
-//       name: "", image: "assets/finishing/Flooring/marble_italian/10.jpg"),
-//   FinishingMaterial(
-//       name: "", image: "assets/finishing/Flooring/marble_italian/11.jpg"),
-//   FinishingMaterial(
-//       name: "", image: "assets/finishing/Flooring/marble_italian/12.jpg"),
-//   FinishingMaterial(
-//       name: "", image: "assets/finishing/Flooring/marble_italian/13.jpg"),
-//   FinishingMaterial(
-//       name: "", image: "assets/finishing/Flooring/marble_italian/14.jpg"),
-//   FinishingMaterial(
-//       name: "", image: "assets/finishing/Flooring/marble_italian/15.jpeg"),
-//   FinishingMaterial(
-//       name: "", image: "assets/finishing/Flooring/marble_italian/16.jpg"),
-//   FinishingMaterial(
-//       name: "", image: "assets/finishing/Flooring/marble_italian/17.jpg"),
-//   FinishingMaterial(
-//       name: "", image: "assets/finishing/Flooring/marble_italian/18.jpg"),
-// ];
-
-// List<FinishingMaterial> flooringOnyx = [
-//   FinishingMaterial(
-//       name: "", image: "assets/finishing/Flooring/marble_onyx/1.jpg"),
-//   FinishingMaterial(
-//       name: "", image: "assets/finishing/Flooring/marble_onyx/2.jpg"),
-//   FinishingMaterial(
-//       name: "", image: "assets/finishing/Flooring/marble_onyx/3.jpg"),
-//   FinishingMaterial(
-//       name: "", image: "assets/finishing/Flooring/marble_onyx/4.jpg"),
-//   FinishingMaterial(
-//       name: "", image: "assets/finishing/Flooring/marble_onyx/5.jpg"),
-//   FinishingMaterial(
-//       name: "", image: "assets/finishing/Flooring/marble_onyx/6.jpg"),
-//   FinishingMaterial(
-//       name: "", image: "assets/finishing/Flooring/marble_onyx/7.jpg"),
-//   FinishingMaterial(
-//       name: "", image: "assets/finishing/Flooring/marble_onyx/8.jpg"),
-//   FinishingMaterial(
-//       name: "", image: "assets/finishing/Flooring/marble_onyx/9.jpg"),
-//   FinishingMaterial(
-//       name: "", image: "assets/finishing/Flooring/marble_onyx/10.jpg"),
-//   FinishingMaterial(
-//       name: "", image: "assets/finishing/Flooring/marble_onyx/11.jpg"),
-//   FinishingMaterial(
-//       name: "", image: "assets/finishing/Flooring/marble_onyx/12.jpg"),
-//   FinishingMaterial(
-//       name: "", image: "assets/finishing/Flooring/marble_granite/13.jpg"),
-//   FinishingMaterial(
-//       name: "", image: "assets/finishing/Flooring/marble_granite/14.jpg"),
-// ];
-
-// List<FinishingMaterial> flooringBrand = [
-//   FinishingMaterial(
-//       name: "", image: "assets/finishing/Flooring/tile_brand/1.jpg"),
-//   FinishingMaterial(
-//       name: "", image: "assets/finishing/Flooring/tile_brand/2.png"),
-//   FinishingMaterial(
-//       name: "", image: "assets/finishing/Flooring/tile_brand/3.png"),
-//   FinishingMaterial(
-//       name: "", image: "assets/finishing/Flooring/tile_brand/4.jpg"),
-//   FinishingMaterial(
-//       name: "", image: "assets/finishing/Flooring/tile_brand/5.jpg"),
-//   FinishingMaterial(
-//       name: "", image: "assets/finishing/Flooring/tile_brand/6.jpg"),
-//   FinishingMaterial(
-//       name: "", image: "assets/finishing/Flooring/tile_brand/7.png"),
-// ];
-
-// List<FinishingMaterial> flooringSize = [
-//   FinishingMaterial(
-//       name: "", image: "assets/finishing/Flooring/tiles_size/1.jpg"),
-//   FinishingMaterial(
-//       name: "", image: "assets/finishing/Flooring/tiles_size/2.png"),
-//   FinishingMaterial(
-//       name: "", image: "assets/finishing/Flooring/tiles_size/3.jpg"),
-//   FinishingMaterial(
-//       name: "", image: "assets/finishing/Flooring/tiles_size/4.jpg"),
-//   FinishingMaterial(
-//       name: "", image: "assets/finishing/Flooring/tiles_size/5.jpg"),
-//   FinishingMaterial(
-//       name: "", image: "assets/finishing/Flooring/tiles_size/6.jpg"),
-//   FinishingMaterial(
-//       name: "", image: "assets/finishing/Flooring/tiles_size/7.jpg"),
-//   FinishingMaterial(
-//       name: "", image: "assets/finishing/Flooring/tiles_size/8.jpg"),
-//   FinishingMaterial(
-//       name: "", image: "assets/finishing/Flooring/tiles_size/9.jpg"),
-//   FinishingMaterial(
-//       name: "", image: "assets/finishing/Flooring/tiles_size/10.jpg"),
-//   FinishingMaterial(
-//       name: "", image: "assets/finishing/Flooring/tiles_size/11.jpg"),
-//   FinishingMaterial(
-//       name: "", image: "assets/finishing/Flooring/tiles_size/12.png"),
-//   FinishingMaterial(
-//       name: "", image: "assets/finishing/Flooring/tiles_size/13.jpg"),
-// ];
-
-// List<FinishingMaterial> paintBrand = [
-//   FinishingMaterial(name: "", image: "assets/finishing/Paints/bands/1.png"),
-//   FinishingMaterial(name: "", image: "assets/finishing/Paints/bands/2.jpg"),
-//   FinishingMaterial(name: "", image: "assets/finishing/Paints/bands/3.jpg"),
-//   FinishingMaterial(name: "", image: "assets/finishing/Paints/bands/4.png"),
-//   FinishingMaterial(name: "", image: "assets/finishing/Paints/bands/5.png"),
-// ];
-
-// List<FinishingMaterial> paintDiv = [
-//   FinishingMaterial(name: "", image: "assets/finishing/Paints/div/1.jpg"),
-//   FinishingMaterial(name: "", image: "assets/finishing/Paints/div/2.png"),
-//   FinishingMaterial(name: "", image: "assets/finishing/Paints/div/3.png"),
-//   FinishingMaterial(name: "", image: "assets/finishing/Paints/div/4.jpg"),
-//   FinishingMaterial(name: "", image: "assets/finishing/Paints/div/5.jpg"),
-//   FinishingMaterial(name: "", image: "assets/finishing/Paints/div/6.jpg"),
-//   FinishingMaterial(name: "", image: "assets/finishing/Paints/div/7.jpg"),
-//   FinishingMaterial(name: "", image: "assets/finishing/Paints/div/8.jpg"),
-//   FinishingMaterial(name: "", image: "assets/finishing/Paints/div/9.jpg"),
-//   FinishingMaterial(name: "", image: "assets/finishing/Paints/div/10.jpg"),
-//   FinishingMaterial(name: "", image: "assets/finishing/Paints/div/11.jpg"),
-//   FinishingMaterial(name: "", image: "assets/finishing/Paints/div/12.jpg"),
-//   FinishingMaterial(name: "", image: "assets/finishing/Paints/div/13.jpg"),
-//   FinishingMaterial(name: "", image: "assets/finishing/Paints/div/14.jpg"),
-//   FinishingMaterial(name: "", image: "assets/finishing/Paints/div/15.jpg"),
-//   FinishingMaterial(name: "", image: "assets/finishing/Paints/div/16.jpg"),
-//   FinishingMaterial(name: "", image: "assets/finishing/Paints/div/17.jpg"),
-//   FinishingMaterial(name: "", image: "assets/finishing/Paints/div/18.jpg"),
-//   FinishingMaterial(name: "", image: "assets/finishing/Paints/div/19.jpg"),
-// ];
-
-// List<FinishingMaterial> doorsCube = [
-//   FinishingMaterial(
-//       name: "", image: "assets/finishing/Accessories/cube_shelvings/1.jpg"),
-//   FinishingMaterial(
-//       name: "", image: "assets/finishing/Accessories/cube_shelvings/2.jpg"),
-//   FinishingMaterial(
-//       name: "", image: "assets/finishing/Accessories/cube_shelvings/3.jpg"),
-//   FinishingMaterial(
-//       name: "", image: "assets/finishing/Accessories/cube_shelvings/4.jpg"),
-//   FinishingMaterial(
-//       name: "", image: "assets/finishing/Accessories/cube_shelvings/5.jpg"),
-//   FinishingMaterial(
-//       name: "", image: "assets/finishing/Accessories/cube_shelvings/6.jpg"),
-//   FinishingMaterial(
-//       name: "", image: "assets/finishing/Accessories/cube_shelvings/7.jpg"),
-//   FinishingMaterial(
-//       name: "", image: "assets/finishing/Accessories/cube_shelvings/8.jpg"),
-//   FinishingMaterial(
-//       name: "", image: "assets/finishing/Accessories/cube_shelvings/9.jpg"),
-//   FinishingMaterial(
-//       name: "", image: "assets/finishing/Accessories/cube_shelvings/10.jpg"),
-// ];
-
-// List<FinishingMaterial> doorFrames = [
-//   FinishingMaterial(
-//       name: "", image: "assets/finishing/Accessories/door_frames/1.webp"),
-//   FinishingMaterial(
-//       name: "", image: "assets/finishing/Accessories/door_frames/2.jpg"),
-//   FinishingMaterial(
-//       name: "", image: "assets/finishing/Accessories/door_frames/3.jpg"),
-//   FinishingMaterial(
-//       name: "", image: "assets/finishing/Accessories/door_frames/4.jpg"),
-//   FinishingMaterial(
-//       name: "", image: "assets/finishing/Accessories/door_frames/5.jpg"),
-//   FinishingMaterial(
-//       name: "", image: "assets/finishing/Accessories/door_frames/6.jpg"),
-//   FinishingMaterial(
-//       name: "", image: "assets/finishing/Accessories/door_frames/7.jpg"),
-// ];
-
-// List<FinishingMaterial> doors = [
-//   FinishingMaterial(
-//       name: "", image: "assets/finishing/Accessories/doors/1.jpg"),
-//   FinishingMaterial(
-//       name: "", image: "assets/finishing/Accessories/doors/2.jpg"),
-//   FinishingMaterial(
-//       name: "", image: "assets/finishing/Accessories/doors/3.png"),
-//   FinishingMaterial(
-//       name: "", image: "assets/finishing/Accessories/doors/4.jpg"),
-//   FinishingMaterial(
-//       name: "", image: "assets/finishing/Accessories/doors/5.jpg"),
-//   FinishingMaterial(
-//       name: "", image: "assets/finishing/Accessories/doors/6.jpg"),
-//   FinishingMaterial(
-//       name: "", image: "assets/finishing/Accessories/doors/7.jpg"),
-//   FinishingMaterial(
-//       name: "", image: "assets/finishing/Accessories/doors/8.jpg"),
-//   FinishingMaterial(
-//       name: "", image: "assets/finishing/Accessories/doors/9.jpg"),
-//   FinishingMaterial(
-//       name: "", image: "assets/finishing/Accessories/doors/10.jpg"),
-//   FinishingMaterial(
-//       name: "", image: "assets/finishing/Accessories/doors/11.png"),
-//   FinishingMaterial(
-//       name: "", image: "assets/finishing/Accessories/doors/12.jpg"),
-//   FinishingMaterial(
-//       name: "", image: "assets/finishing/Accessories/doors/13.png"),
-//   FinishingMaterial(
-//       name: "", image: "assets/finishing/Accessories/doors/14.png"),
-//   FinishingMaterial(
-//       name: "", image: "assets/finishing/Accessories/doors/15.jpg"),
-//   FinishingMaterial(
-//       name: "", image: "assets/finishing/Accessories/doors/16.webp"),
-//   FinishingMaterial(
-//       name: "", image: "assets/finishing/Accessories/doors/17.jpg"),
-//   FinishingMaterial(
-//       name: "", image: "assets/finishing/Accessories/doors/18.jpg"),
-//   FinishingMaterial(
-//       name: "", image: "assets/finishing/Accessories/doors/19.jpg"),
-// ];
-
-// List<FinishingMaterial> doorsLatest = [
-//   FinishingMaterial(
-//       name: "", image: "assets/finishing/Accessories/latest/1.JPG"),
-//   FinishingMaterial(
-//       name: "", image: "assets/finishing/Accessories/latest/2.JPG"),
-//   FinishingMaterial(
-//       name: "", image: "assets/finishing/Accessories/latest/3.JPG"),
-//   FinishingMaterial(
-//       name: "", image: "assets/finishing/Accessories/latest/4.JPG"),
-//   FinishingMaterial(
-//       name: "", image: "assets/finishing/Accessories/latest/5.JPG"),
-//   FinishingMaterial(
-//       name: "", image: "assets/finishing/Accessories/latest/6.JPG"),
-//   FinishingMaterial(
-//       name: "", image: "assets/finishing/Accessories/latest/7.JPG"),
-//   FinishingMaterial(
-//       name: "", image: "assets/finishing/Accessories/latest/8.JPG"),
-//   FinishingMaterial(
-//       name: "", image: "assets/finishing/Accessories/latest/9.JPG"),
-//   FinishingMaterial(
-//       name: "", image: "assets/finishing/Accessories/latest/10.JPG"),
-//   FinishingMaterial(
-//       name: "", image: "assets/finishing/Accessories/latest/11.JPG"),
-//   FinishingMaterial(
-//       name: "", image: "assets/finishing/Accessories/latest/12.JPG"),
-// ];
-
-// List<FinishingMaterial> doorsLight = [
-//   FinishingMaterial(
-//       name: "", image: "assets/finishing/Accessories/lights/1.jpg"),
-//   FinishingMaterial(
-//       name: "", image: "assets/finishing/Accessories/lights/2.jpg"),
-//   FinishingMaterial(
-//       name: "", image: "assets/finishing/Accessories/lights/3.jpg"),
-//   FinishingMaterial(
-//       name: "", image: "assets/finishing/Accessories/lights/4.jpg"),
-//   FinishingMaterial(
-//       name: "", image: "assets/finishing/Accessories/lights/5.jpg"),
-// ];
-
-// List<FinishingMaterial> Lightbrand = [
-//   FinishingMaterial(name: "", image: "assets/finishing/Lighting/brands/1.png"),
-//   FinishingMaterial(name: "", image: "assets/finishing/Lighting/brands/2.jpg"),
-//   FinishingMaterial(name: "", image: "assets/finishing/Lighting/brands/3.jpeg"),
-//   FinishingMaterial(name: "", image: "assets/finishing/Lighting/brands/4.jpg"),
-//   FinishingMaterial(name: "", image: "assets/finishing/Lighting/brands/5.jpg"),
-//   FinishingMaterial(name: "", image: "assets/finishing/Lighting/brands/6.jpg"),
-//   FinishingMaterial(name: "", image: "assets/finishing/Lighting/brands/7.png"),
-//   FinishingMaterial(name: "", image: "assets/finishing/Lighting/brands/8.png"),
-//   FinishingMaterial(name: "", image: "assets/finishing/Lighting/brands/9.jpg"),
-// ];
-
-// List<FinishingMaterial> LightChandeliers = [
-//   FinishingMaterial(
-//       name: "", image: "assets/finishing/Lighting/chandeliers/1.jpg"),
-//   FinishingMaterial(
-//       name: "", image: "assets/finishing/Lighting/chandeliers/2.jpg"),
-//   FinishingMaterial(
-//       name: "", image: "assets/finishing/Lighting/chandeliers/3.jpg"),
-//   FinishingMaterial(
-//       name: "", image: "assets/finishing/Lighting/chandeliers/4.png"),
-//   FinishingMaterial(
-//       name: "", image: "assets/finishing/Lighting/chandeliers/5.jpg"),
-//   FinishingMaterial(
-//       name: "", image: "assets/finishing/Lighting/chandeliers/6.jpg"),
-//   FinishingMaterial(
-//       name: "", image: "assets/finishing/Lighting/chandeliers/7.jpg"),
-//   FinishingMaterial(
-//       name: "", image: "assets/finishing/Lighting/chandeliers/8.jpg"),
-//   FinishingMaterial(
-//       name: "", image: "assets/finishing/Lighting/chandeliers/9.jpg"),
-//   FinishingMaterial(
-//       name: "", image: "assets/finishing/Lighting/chandeliers/10.jpg"),
-//   FinishingMaterial(
-//       name: "", image: "assets/finishing/Lighting/chandeliers/11.JPG"),
-//   FinishingMaterial(
-//       name: "", image: "assets/finishing/Lighting/chandeliers/12.jpg"),
-//   FinishingMaterial(
-//       name: "", image: "assets/finishing/Lighting/chandeliers/13.JPG"),
-//   FinishingMaterial(
-//       name: "", image: "assets/finishing/Lighting/chandeliers/14.JPG"),
-//   FinishingMaterial(
-//       name: "", image: "assets/finishing/Lighting/chandeliers/15.jpg"),
-//   FinishingMaterial(
-//       name: "", image: "assets/finishing/Lighting/chandeliers/16.jpg"),
-//   FinishingMaterial(
-//       name: "", image: "assets/finishing/Lighting/chandeliers/17.jpg"),
-//   FinishingMaterial(
-//       name: "", image: "assets/finishing/Lighting/chandeliers/18.jpg"),
-// ];
-
-// List<FinishingMaterial> LightPandent_lamp = [
-//   FinishingMaterial(
-//       name: "", image: "assets/finishing/Lighting/pandent_lamp/1.jpg"),
-//   FinishingMaterial(
-//       name: "", image: "assets/finishing/Lighting/pandent_lamp/2.jpg"),
-//   FinishingMaterial(
-//       name: "", image: "assets/finishing/Lighting/pandent_lamp/3.jpg"),
-//   FinishingMaterial(
-//       name: "", image: "assets/finishing/Lighting/pandent_lamp/4.jpg"),
-//   FinishingMaterial(
-//       name: "", image: "assets/finishing/Lighting/pandent_lamp/5.jpg"),
-//   FinishingMaterial(
-//       name: "", image: "assets/finishing/Lighting/pandent_lamp/6.jpg"),
-//   FinishingMaterial(
-//       name: "", image: "assets/finishing/Lighting/pandent_lamp/7.jpg"),
-//   FinishingMaterial(
-//       name: "", image: "assets/finishing/Lighting/pandent_lamp/8.jpg"),
-//   FinishingMaterial(
-//       name: "", image: "assets/finishing/Lighting/pandent_lamp/9.jpg"),
-//   FinishingMaterial(
-//       name: "", image: "assets/finishing/Lighting/pandent_lamp/10.jpg"),
-//   FinishingMaterial(
-//       name: "", image: "assets/finishing/Lighting/pandent_lamp/11.png"),
-// ];
-
-// List<FinishingMaterial> LightTechnologies = [
-//   FinishingMaterial(
-//       name: "", image: "assets/finishing/Lighting/technologies/1.jpg"),
-//   FinishingMaterial(
-//       name: "", image: "assets/finishing/Lighting/technologies/2.png"),
-//   FinishingMaterial(
-//       name: "", image: "assets/finishing/Lighting/technologies/3.png"),
-//   FinishingMaterial(
-//       name: "", image: "assets/finishing/Lighting/technologies/4.jpg"),
-//   FinishingMaterial(
-//       name: "", image: "assets/finishing/Lighting/technologies/5.jpeg"),
-//   FinishingMaterial(
-//       name: "", image: "assets/finishing/Lighting/technologies/6.jpg"),
-//   FinishingMaterial(
-//       name: "", image: "assets/finishing/Lighting/technologies/7.jpg"),
-//   FinishingMaterial(
-//       name: "", image: "assets/finishing/Lighting/technologies/8.jpg"),
-//   FinishingMaterial(
-//       name: "", image: "assets/finishing/Lighting/technologies/9.JPG"),
-//   FinishingMaterial(
-//       name: "", image: "assets/finishing/Lighting/technologies/10.JPG"),
-//   FinishingMaterial(
-//       name: "", image: "assets/finishing/Lighting/technologies/11.JPG"),
-//   FinishingMaterial(
-//       name: "", image: "assets/finishing/Lighting/technologies/12.jpg"),
-// ];
-
-// List<FinishingMaterial> kitchenBrands = [
-//   FinishingMaterial(name: "", image: "assets/finishing/Kitchen/brands/1.jpg"),
-//   FinishingMaterial(name: "", image: "assets/finishing/Kitchen/brands/2.png"),
-//   FinishingMaterial(name: "", image: "assets/finishing/Kitchen/brands/3.jpg"),
-//   FinishingMaterial(name: "", image: "assets/finishing/Kitchen/brands/4.png"),
-//   FinishingMaterial(name: "", image: "assets/finishing/Kitchen/brands/5.png"),
-//   FinishingMaterial(name: "", image: "assets/finishing/Kitchen/brands/6.png"),
-//   FinishingMaterial(name: "", image: "assets/finishing/Kitchen/brands/7.png"),
-//   FinishingMaterial(name: "", image: "assets/finishing/Kitchen/brands/8.png"),
-//   FinishingMaterial(name: "", image: "assets/finishing/Kitchen/brands/9.png"),
-// ];
-
-// List<FinishingMaterial> kitchenLatest = [
-//   FinishingMaterial(name: "", image: "assets/finishing/Kitchen/latest/1.jpg"),
-//   FinishingMaterial(name: "", image: "assets/finishing/Kitchen/latest/2.jpg"),
-//   FinishingMaterial(name: "", image: "assets/finishing/Kitchen/latest/3.jpg"),
-//   FinishingMaterial(name: "", image: "assets/finishing/Kitchen/latest/4.jpg"),
-//   FinishingMaterial(name: "", image: "assets/finishing/Kitchen/latest/5.jpg"),
-//   FinishingMaterial(name: "", image: "assets/finishing/Kitchen/latest/6.jpg"),
-//   FinishingMaterial(name: "", image: "assets/finishing/Kitchen/latest/7.jpg"),
-//   FinishingMaterial(name: "", image: "assets/finishing/Kitchen/latest/8.jpg"),
-//   FinishingMaterial(name: "", image: "assets/finishing/Kitchen/latest/9.png"),
-//   FinishingMaterial(name: "", image: "assets/finishing/Kitchen/latest/10.jpg"),
-//   FinishingMaterial(name: "", image: "assets/finishing/Kitchen/latest/11.png"),
-// ];
-
-// List<FinishingMaterial> kitchenType = [
-//   FinishingMaterial(name: "", image: "assets/finishing/Kitchen/types/1.jpg"),
-//   FinishingMaterial(name: "", image: "assets/finishing/Kitchen/types/2.jpg"),
-//   FinishingMaterial(name: "", image: "assets/finishing/Kitchen/types/3.jpg"),
-//   FinishingMaterial(name: "", image: "assets/finishing/Kitchen/types/4.jpg"),
-//   FinishingMaterial(name: "", image: "assets/finishing/Kitchen/types/5.jpg"),
-//   FinishingMaterial(name: "", image: "assets/finishing/Kitchen/types/6.jpg"),
-// ];
-
-// List<FinishingMaterial> bathBrands = [
-//   FinishingMaterial(name: "", image: "assets/finishing/bathroom/brands/1.png"),
-//   FinishingMaterial(name: "", image: "assets/finishing/bathroom/brands/2.png"),
-//   FinishingMaterial(name: "", image: "assets/finishing/bathroom/brands/3.png"),
-//   FinishingMaterial(name: "", image: "assets/finishing/bathroom/brands/4.png"),
-//   FinishingMaterial(name: "", image: "assets/finishing/bathroom/brands/5.jpg"),
-//   FinishingMaterial(name: "", image: "assets/finishing/bathroom/brands/6.png"),
-//   FinishingMaterial(name: "", image: "assets/finishing/bathroom/brands/7.jpg"),
-// ];
-
-// List<FinishingMaterial> bathColor = [
-//   FinishingMaterial(name: "", image: "assets/finishing/bathroom/color/1.png"),
-//   FinishingMaterial(name: "", image: "assets/finishing/bathroom/color/2.jpg"),
-//   FinishingMaterial(name: "", image: "assets/finishing/bathroom/color/3.png"),
-//   FinishingMaterial(name: "", image: "assets/finishing/bathroom/color/4.png"),
-//   FinishingMaterial(name: "", image: "assets/finishing/bathroom/color/5.jpg"),
-//   FinishingMaterial(name: "", image: "assets/finishing/bathroom/color/6.png"),
-//   FinishingMaterial(name: "", image: "assets/finishing/bathroom/color/7.jpg"),
-//   FinishingMaterial(name: "", image: "assets/finishing/bathroom/color/8.png"),
-// ];
-
-// List<FinishingMaterial> bathSpecial = [
-//   FinishingMaterial(
-//     name: "",
-//     image: "assets/finishing/bathroom/special/1.JPG",
-//   ),
-//   FinishingMaterial(
-//     name: "",
-//     image: "assets/finishing/bathroom/special/2.jpeg",
-//   ),
-//   FinishingMaterial(
-//     name: "",
-//     image: "assets/finishing/bathroom/special/3.jpg",
-//   ),
-//   FinishingMaterial(
-//     name: "",
-//     image: "assets/finishing/bathroom/special/4.jpg",
-//   ),
-//   FinishingMaterial(
-//     name: "",
-//     image: "assets/finishing/bathroom/special/5.jpg",
-//   ),
-//   FinishingMaterial(
-//     name: "",
-//     image: "assets/finishing/bathroom/special/6.jpg",
-//   ),
-//   FinishingMaterial(
-//     name: "",
-//     image: "assets/finishing/bathroom/special/7.jpg",
-//   ),
-//   FinishingMaterial(
-//     name: "",
-//     image: "assets/finishing/bathroom/special/8.jpg",
-//   ),
-//   FinishingMaterial(
-//     name: "",
-//     image: "assets/finishing/bathroom/special/9.jpg",
-//   ),
-//   FinishingMaterial(
-//     name: "",
-//     image: "assets/finishing/bathroom/special/10.jpg",
-//   ),
-//   FinishingMaterial(
-//     name: "",
-//     image: "assets/finishing/bathroom/special/11.png",
-//   ),
-// ];
