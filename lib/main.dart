@@ -1,4 +1,5 @@
 import 'package:facelift_constructions/log_in/welcome.dart';
+import 'package:facelift_constructions/premium/new_premium_user.dart';
 import 'package:flutter/material.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:firebase_analytics/firebase_analytics.dart';
@@ -87,49 +88,55 @@ class _HomePageState extends State<HomePage> {
     return Scaffold(
       body: screens[iindex],
       extendBody: true,
-      bottomNavigationBar: Visibility(
-        visible: navBarVisibility,
-        child: Padding(
-          padding: EdgeInsets.symmetric(
-              vertical: 16, horizontal: size.width * 0.225),
-          child: ClipRRect(
-            borderRadius: BorderRadius.circular(30),
-            child: BottomNavigationBar(
-              type: BottomNavigationBarType.fixed,
-              unselectedItemColor: Colors.white,
-              selectedItemColor: Colors.black,
-              showSelectedLabels: false,
-              showUnselectedLabels: false,
-              backgroundColor: pinkColor,
-              currentIndex: iindex,
-              onTap: (val) {
-                setState(() {
-                  iindex = val;
-                  FirebaseAnalytics.instance.setCurrentScreen(
-                      screenName: iindex == 0
-                          ? "Profile Page"
-                          : iindex == 1
-                              ? "Home Page"
-                              : iindex == 2
-                                  ? "Premium Page"
-                                  : "");
-                });
-              },
-              items: const [
-                BottomNavigationBarItem(
-                  icon: Icon(Icons.account_circle),
-                  label: "",
-                ),
-                BottomNavigationBarItem(
-                  icon: Icon(Icons.home),
-                  label: "",
-                ),
-                BottomNavigationBarItem(
-                  icon: Icon(Icons.whatshot),
-                  label: "",
-                ),
-              ],
-            ),
+      bottomNavigationBar: Padding(
+        padding:
+            EdgeInsets.symmetric(vertical: 16, horizontal: size.width * 0.225),
+        child: ClipRRect(
+          borderRadius: BorderRadius.circular(30),
+          child: BottomNavigationBar(
+            type: BottomNavigationBarType.fixed,
+            unselectedItemColor: Colors.white,
+            selectedItemColor: Colors.black,
+            showSelectedLabels: false,
+            showUnselectedLabels: false,
+            backgroundColor: pinkColor,
+            currentIndex: iindex,
+            onTap: (val) {
+              setState(() {
+                val == 2
+                    ? premiumUser
+                        ? iindex = val
+                        : Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                                builder: (context) =>
+                                    const NewPrimiumUserScreen()))
+                    : iindex = val;
+                FirebaseAnalytics.instance.setCurrentScreen(
+                  screenName: iindex == 0
+                      ? "Profile Page"
+                      : iindex == 1
+                          ? "Home Page"
+                          : iindex == 2
+                              ? "Premium Page"
+                              : "",
+                );
+              });
+            },
+            items: const [
+              BottomNavigationBarItem(
+                icon: Icon(Icons.account_circle),
+                label: "",
+              ),
+              BottomNavigationBarItem(
+                icon: Icon(Icons.home),
+                label: "",
+              ),
+              BottomNavigationBarItem(
+                icon: Icon(Icons.whatshot),
+                label: "",
+              ),
+            ],
           ),
         ),
       ),

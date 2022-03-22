@@ -25,7 +25,6 @@ var userName = "";
 var userMobile = 0;
 String? number = "0";
 String userrName = "";
-bool navBarVisibility = true;
 var screens = [const PofileScreen(), const HomeScreen(), const PremiumScreen()];
 bool crossClick = false;
 

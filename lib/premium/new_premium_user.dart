@@ -543,7 +543,7 @@ class _NewPrimiumUserScreenState extends State<NewPrimiumUserScreen> {
                       ),
                     ],
                   ),
-                )
+                ),
               ],
             ),
           ),

@@ -103,6 +103,7 @@ class _WelcomeScreenState extends State<WelcomeScreen> {
       height: 6,
       width: 6,
       decoration: BoxDecoration(
+        border: Border.all(color: pinkColor),
         color:
             currentPage == index ? pinkColor : const Color.fromRGBO(240, 240, 240, 1),
         borderRadius: BorderRadius.circular(3),
