@@ -30,7 +30,6 @@ class ToolsList extends StatelessWidget {
           ToolsCard(size: size, tool: latestTools_list[10]),
           ToolsCard(size: size, tool: latestTools_list[11]),
           ToolsCard(size: size, tool: latestTools_list[12]),
-          ToolsCard(size: size, tool: latestTools_list[13]),
         ],
       ),
     );

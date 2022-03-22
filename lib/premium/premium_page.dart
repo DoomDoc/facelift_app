@@ -165,7 +165,29 @@ class PremiumScreen extends StatelessWidget {
                                 ],
                               );
                             }),
-                        const SampleBillsList()
+                        const SampleBillsList(),
+                        Padding(
+                          padding: const EdgeInsets.symmetric(
+                              horizontal: 16, vertical: 8),
+                          child: Row(
+                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                            children: [
+                              const Text(
+                                "Live CCTV",
+                                style: TextStyle(
+                                    fontSize: 16, fontWeight: FontWeight.w400),
+                              ),
+                              Text(
+                                "Coming Soon",
+                                style: TextStyle(
+                                  fontSize: 16,
+                                  color: pinkColor,
+                                  fontWeight: FontWeight.w400,
+                                ),
+                              ),
+                            ],
+                          ),
+                        ),
                       ],
                     ),
                   ),

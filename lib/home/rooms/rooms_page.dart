@@ -54,7 +54,19 @@ class RoomScreen extends StatelessWidget {
                 padding:
                     const EdgeInsets.symmetric(horizontal: 48, vertical: 16),
                 child: Text(
-                  "Design a Completmentry Bathroom For Your home with facelift",
+                  name == "Living"
+                      ? "Design a luxurious living room with facelift"
+                      : name == "Bathroom"
+                          ? "Design a contemporary bathroom with facelift"
+                          : name == "Bedroom"
+                              ? "Design a cozy bedroom with facelift"
+                              : name == "Kitchen"
+                                  ? "Build a modular kitchen with facelift"
+                                  : name == "Dressing"
+                                      ? "Design spacious dressing room with facelift"
+                                      : name == "House front"
+                                          ? "Design a unique house front with facelift"
+                                          : "",
                   textAlign: TextAlign.center,
                   style: TextStyle(fontSize: 16, fontWeight: FontWeight.w300),
                 ),
@@ -79,7 +91,7 @@ class RoomScreen extends StatelessWidget {
                   child: Center(child: Text("See More Photos")),
                 ),
               ),
-              SizedBox(height: 10),
+              SizedBox(height: 30),
             ],
           ),
         ),

@@ -28,7 +28,7 @@ class HomeScreen extends StatelessWidget {
               shape: RoundedRectangleBorder(
                   borderRadius: BorderRadius.circular(16)),
               title: const Text('Exit App'),
-              content: const Text('Do you want to exit an App?'),
+              content: const Text('Do you really want to exit?'),
               actions: <Widget>[
                 InkWell(
                   onTap: () => Navigator.of(context).pop(false),
@@ -146,15 +146,15 @@ class HomeScreen extends StatelessWidget {
                 ),
                 const GreenSpaces(),
                 const SizedBox(height: 10),
-                Container(
+                SizedBox(
                   width: size.width,
-                  height: 100,
-                  decoration: const BoxDecoration(color: Colors.black),
+                  height: 50,
+                  // decoration: const BoxDecoration(color: Colors.black),
                   child: const Center(
                     child: Text(
-                      "That's all here... click on the nav bar to see premium or profile section",
+                      "That's all in this section",
                       textAlign: TextAlign.center,
-                      style: TextStyle(color: Colors.white),
+                      style: TextStyle(color: Colors.grey),
                     ),
                   ),
                 ),

@@ -31,31 +31,33 @@ class ContactScreen extends StatelessWidget {
         backgroundColor: Colors.transparent,
         iconTheme: const IconThemeData(color: Colors.black54),
       ),
-      body: Column(
-        children: [
-          const SizedBox(height: 50),
-          ProfileMenu(
-            name: "Call Us",
-            press: () {
-              _launchUrl('tel:7207225725');
-            },
-            isTrue: true,
-          ),
-          ProfileMenu(
-            name: "Email Us",
-            press: () {
-              _launchUrl('mailto:contact@facelift.com');
-            },
-            isTrue: true,
-          ),
-          ProfileMenu(
-            name: "Go to Our Website",
-            press: () {
-              _launchUrl('https://www.facelift.construction');
-            },
-            isTrue: true,
-          ),
-        ],
+      body: SingleChildScrollView(
+        child: Column(
+          children: [
+            const SizedBox(height: 50),
+            ProfileMenu(
+              name: "Phone Number",
+              press: () {
+                _launchUrl('tel:7207225725');
+              },
+              isTrue: true,
+            ),
+            ProfileMenu(
+              name: "Email",
+              press: () {
+                _launchUrl('mailto:contact@facelift.com');
+              },
+              isTrue: true,
+            ),
+            ProfileMenu(
+              name: "Website",
+              press: () {
+                _launchUrl('https://www.facelift.construction');
+              },
+              isTrue: true,
+            ),
+          ],
+        ),
       ),
     );
   }

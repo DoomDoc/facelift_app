@@ -103,11 +103,11 @@ class SampleLaborerList extends StatelessWidget {
                                   }))
                                 : showAnimatedDialogBox(
                                     context,
-                                    "You don't have any Labor appointed at your site",
+                                    "No Facelift Laborer is working at $premiumName",
                                     true,
                                     3,
-                                    "8.png",
-                                    false,
+                                    "3.png",
+                                    true,
                                     2)
                             : () {};
                       },

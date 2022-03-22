@@ -32,7 +32,7 @@ class _AccountsScreenState extends State<AccountsScreen> {
                 onPressed: () => Navigator.pop(context),
                 icon: const Icon(Icons.arrow_back_ios_new),
               ),
-              title: const Text("Update Profile",
+              title: const Text("My Account",
                   style: TextStyle(color: Colors.black)),
               centerTitle: true,
               backgroundColor: Colors.transparent,
@@ -50,28 +50,29 @@ class _AccountsScreenState extends State<AccountsScreen> {
                       const SizedBox(height: 50),
                       textField(size, snapshot.data!.name, "Name", 1),
                       const SizedBox(height: 20),
-                      Column(
-                        crossAxisAlignment: CrossAxisAlignment.start,
-                        children: [
-                          const Padding(
-                            padding: EdgeInsets.only(left: 12, bottom: 4),
-                            child: Text("Phone Number"),
-                          ),
-                          Container(
-                            height: 50,
-                            width: size.width * 0.9,
-                            decoration: BoxDecoration(
-                              color: Colors.grey.shade300,
-                              border: Border.all(color: Colors.black38),
-                              borderRadius: BorderRadius.circular(24),
+                      Padding(
+                        padding: const EdgeInsets.symmetric(horizontal: 12),
+                        child: Row(
+                          crossAxisAlignment: CrossAxisAlignment.center,
+                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                          children: [
+                            const Text("Phone Number"),
+                            Container(
+                              height: 50,
+                              width: size.width * 0.65,
+                              decoration: BoxDecoration(
+                                color: Colors.grey.shade300,
+                                border: Border.all(color: Colors.black38),
+                                borderRadius: BorderRadius.circular(24),
+                              ),
+                              alignment: Alignment.centerLeft,
+                              child: Padding(
+                                padding: const EdgeInsets.only(left: 12),
+                                child: Text("$number"),
+                              ),
                             ),
-                            alignment: Alignment.centerLeft,
-                            child: Padding(
-                              padding: const EdgeInsets.only(left: 12),
-                              child: Text("$number"),
-                            ),
-                          ),
-                        ],
+                          ],
+                        ),
                       ),
                       const SizedBox(height: 20),
                       textField(size, snapshot.data!.email, "Email", 2),
@@ -79,7 +80,7 @@ class _AccountsScreenState extends State<AccountsScreen> {
                       textField(size, snapshot.data!.city, "City", 3),
                       const SizedBox(height: 20),
                       textField(size, snapshot.data!.state, "State", 4),
-                      const SizedBox(height: 20),
+                      const SizedBox(height: 50),
                       InkWell(
                         onTap: () async {
                           if (_currentName == "") {
@@ -89,8 +90,6 @@ class _AccountsScreenState extends State<AccountsScreen> {
                           }
                           if (_currentEmail == "") {
                             _currentEmail = snapshot.data!.email;
-                          } else {
-                            _currentEmail = capitalize(_currentEmail);
                           }
                           if (_currentCity == "") {
                             _currentCity = snapshot.data!.city;
@@ -120,13 +119,19 @@ class _AccountsScreenState extends State<AccountsScreen> {
                                 1);
                           });
                         },
-                        child: Container(
+                        child: Material(
+                          elevation: 5,
+                          borderRadius: BorderRadius.circular(32),
+                          child: Container(
                             height: 50,
                             width: 200,
                             decoration: BoxDecoration(
-                                color: pinkColor,
-                                borderRadius: BorderRadius.circular(32)),
-                            child: const Center(child: Text("Update"))),
+                              color: pinkColor,
+                              borderRadius: BorderRadius.circular(32),
+                            ),
+                            child: const Center(child: Text("Update Account")),
+                          ),
+                        ),
                       )
                     ],
                   ),
@@ -142,45 +147,47 @@ class _AccountsScreenState extends State<AccountsScreen> {
   }
 
   Widget textField(Size size, String ini, String text, int current) {
-    return Column(
-      crossAxisAlignment: CrossAxisAlignment.start,
-      children: [
-        Padding(
-          padding: const EdgeInsets.only(left: 12, bottom: 4),
-          child: Text(text),
-        ),
-        SizedBox(
-          height: 50,
-          width: size.width * 0.9,
-          child: TextFormField(
-            initialValue: ini,
-            decoration: InputDecoration(
-              hintText: "Enter $text",
-              hintStyle: TextStyle(
-                fontSize: 14,
-                color: Colors.grey.shade500,
+    return Padding(
+      padding: const EdgeInsets.symmetric(horizontal: 12),
+      child: Row(
+        crossAxisAlignment: CrossAxisAlignment.center,
+        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+        children: [
+          Text(text),
+          SizedBox(
+            height: 50,
+            width: size.width * 0.65,
+            // width: size.width * 0.65,
+            child: TextFormField(
+              initialValue: ini,
+              decoration: InputDecoration(
+                hintText: "Enter $text",
+                hintStyle: TextStyle(
+                  fontSize: 14,
+                  color: Colors.grey.shade500,
+                ),
+                contentPadding: const EdgeInsets.only(left: 12),
+                // enabledBorder: UnderlineInputBorder,
+                border: OutlineInputBorder(
+                  borderSide: const BorderSide(color: Colors.black12),
+                  borderRadius: BorderRadius.circular(24),
+                ),
               ),
-              contentPadding: const EdgeInsets.only(left: 12),
-              // enabledBorder: UnderlineInputBorder,
-              border: OutlineInputBorder(
-                borderSide: const BorderSide(color: Colors.black12),
-                borderRadius: BorderRadius.circular(24),
-              ),
+              onChanged: (val) {
+                setState(() {
+                  current == 1
+                      ? _currentName = val
+                      : current == 2
+                          ? _currentEmail = val
+                          : current == 3
+                              ? _currentCity = val
+                              : _currentState = val;
+                });
+              },
             ),
-            onChanged: (val) {
-              setState(() {
-                current == 1
-                    ? _currentName = val
-                    : current == 2
-                        ? _currentEmail = val
-                        : current == 3
-                            ? _currentCity = val
-                            : _currentState = val;
-              });
-            },
           ),
-        ),
-      ],
+        ],
+      ),
     );
   }
 }

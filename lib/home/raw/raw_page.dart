@@ -23,8 +23,14 @@ class RawSceen extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(
         elevation: 0,
+        toolbarHeight: 65,
+        leading: IconButton(
+          onPressed: () => Navigator.pop(context),
+          icon: Icon(Icons.arrow_back_ios_new),
+        ),
+        centerTitle: true,
         backgroundColor: Colors.transparent,
-        iconTheme: const IconThemeData(color: Colors.black),
+        iconTheme: const IconThemeData(color: Colors.black54),
       ),
       body: SingleChildScrollView(
         child: Column(
@@ -32,9 +38,13 @@ class RawSceen extends StatelessWidget {
           children: [
             Padding(
               padding: const EdgeInsets.all(16),
-              child: ClipRRect(
-                borderRadius: BorderRadius.circular(24),
-                child: Image.asset(material.image),
+              child: SizedBox(
+                height: 250,
+                width: size.width,
+                child: ClipRRect(
+                  borderRadius: BorderRadius.circular(24),
+                  child: Image.asset(material.image, fit: BoxFit.cover),
+                ),
               ),
             ),
             Text(
@@ -107,8 +117,11 @@ class RawSceen extends StatelessWidget {
                 DatabaseService().updateUserRequestRawMaterial(
                     time, true, material.name.replaceAll(' ', ''));
 
-                showSimpleAnimatedDialogBox(context,
-                    "Best in quality ${material.name} will be povided", 3, "7.png");
+                showSimpleAnimatedDialogBox(
+                    context,
+                    "Best in quality ${material.name} will be povided",
+                    3,
+                    "7.png");
               },
               child: Container(
                 height: 45,

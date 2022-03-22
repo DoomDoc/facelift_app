@@ -176,10 +176,9 @@ class _PofileScreenState extends State<PofileScreen> {
                         const ProfilePic(),
                         const SizedBox(height: 20),
                         Text(snapshot.data!.name),
-                        Text(snapshot.data!.phone),
                         const SizedBox(height: 20),
                         ProfileMenu(
-                          name: "Edit Account",
+                          name: "My Account",
                           press: () {
                             Navigator.push(
                                 context,
@@ -190,7 +189,7 @@ class _PofileScreenState extends State<PofileScreen> {
                           isTrue: false,
                         ),
                         ProfileMenu(
-                          name: "Contact Us",
+                          name: "Contact",
                           press: () {
                             Navigator.push(
                                 context,
@@ -201,7 +200,7 @@ class _PofileScreenState extends State<PofileScreen> {
                           isTrue: false,
                         ),
                         ProfileMenu(
-                          name: "FAQs",
+                          name: "FAQs & How to use",
                           press: () {
                             _launchUrl(
                                 'https://www.facelift.construction/faqs');

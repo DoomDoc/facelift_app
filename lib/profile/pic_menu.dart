@@ -34,9 +34,9 @@ class ProfileMenu extends StatelessWidget {
           children: [
             isTrue
                 ? Image.asset(
-                    name == "Call Us"
+                    name == "Phone Number"
                         ? "assets/images/phone.png"
-                        : name == "Email Us"
+                        : name == "Email"
                             ? "assets/images/email.png"
                             : "assets/images/web.png",
                     width: 22,

@@ -26,6 +26,7 @@ class LaborList extends StatelessWidget {
           LaborCard(size: size, labor: labor_list[6]),
           LaborCard(size: size, labor: labor_list[7]),
           LaborCard(size: size, labor: labor_list[8]),
+          LaborCard(size: size, labor: labor_list[9]),
         ],
       ),
     );
