@@ -117,7 +117,7 @@ class _PofileScreenState extends State<PofileScreen> {
                         const SizedBox(height: 50),
                         const ProfilePic(),
                         const SizedBox(height: 20),
-                        Text(snapshot.data!.name),
+                        Text("Hi ${snapshot.data!.name},"),
                         const SizedBox(height: 20),
                         ProfileMenu(
                           name: "My Account",

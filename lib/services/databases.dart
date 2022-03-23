@@ -55,7 +55,7 @@ class DatabaseService {
       .collection('userData')
       .doc(number)
       .collection('Usr')
-      .doc('superviser');
+      .doc('supervisor');
 
   final DocumentReference userSiteProgressDoc = FirebaseFirestore.instance
       .collection('userData')
@@ -67,7 +67,7 @@ class DatabaseService {
       FirebaseFirestore.instance.collection('RequestsLabor').doc(number);
 
   final DocumentReference userRequestForSuperDoc =
-      FirebaseFirestore.instance.collection('RequestsSuperviser').doc(number);
+      FirebaseFirestore.instance.collection('RequestsSupervisor').doc(number);
 
   final DocumentReference userRequestForRoomDoc =
       FirebaseFirestore.instance.collection('RequestsRooms').doc(number);

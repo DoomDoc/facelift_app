@@ -64,15 +64,18 @@ class Superviser extends StatelessWidget {
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
                   Expanded(
-                    child: CircleAvatar(
-                      backgroundColor: pinkColor,
-                      radius: 100,
-                      backgroundImage: NetworkImage(
-                        snapshot.hasData
-                            ? snapshot.data!.image
-                            : "https://www.pngitem.com/pimgs/m/150-1503945_transparent-user-png-default-user-image-png-png.png",
-                      ),
-                    ),
+                    child: snapshot.hasData
+                        ? CircleAvatar(
+                            backgroundColor: pinkColor,
+                            radius: 100,
+                            backgroundImage: NetworkImage(snapshot.data!.image),
+                          )
+                        : CircleAvatar(
+                            backgroundColor: pinkColor,
+                            radius: 100,
+                            backgroundImage:
+                                AssetImage("assets/images/avatar.png"),
+                          ),
                   ),
                   Expanded(
                     child: Column(

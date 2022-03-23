@@ -67,7 +67,7 @@ Future<bool> showExitPopup(BuildContext context) async {
       false;
 }
 
-void showImageDialogBox(BuildContext context, String image) =>
+void showImageDialogBox(BuildContext context, String image, bool net) =>
     showAnimatedDialog(
       barrierDismissible: true,
       animationType: DialogTransitionType.slideFromBottom,
@@ -103,7 +103,7 @@ void showImageDialogBox(BuildContext context, String image) =>
                 ),
                 Padding(
                   padding: const EdgeInsets.all(16),
-                  child: Image.network(image),
+                  child: net ? Image.network(image) : Image.asset(image),
                 )
               ],
             ),

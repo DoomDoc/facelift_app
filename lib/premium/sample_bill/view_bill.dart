@@ -46,7 +46,7 @@ class ViewBillScreen extends StatelessWidget {
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 InkWell(
-                  onTap: () => showImageDialogBox(context, image),
+                  onTap: () => showImageDialogBox(context, image, true),
                   child: SizedBox(
                     height: 250,
                     width: size.width * 0.9,

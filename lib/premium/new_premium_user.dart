@@ -88,9 +88,17 @@ class _NewPrimiumUserScreenState extends State<NewPrimiumUserScreen> {
       return Scaffold(
         backgroundColor: Colors.white,
         appBar: AppBar(
+          toolbarHeight: 75,
           elevation: 0,
+          leading: IconButton(
+            onPressed: () => Navigator.pop(context),
+            icon: const Icon(Icons.arrow_back_ios_new),
+          ),
+          title: const Text("Fill the form",
+              style: TextStyle(color: Colors.black)),
+          centerTitle: true,
           backgroundColor: Colors.transparent,
-          iconTheme: const IconThemeData(color: Colors.black),
+          iconTheme: const IconThemeData(color: Colors.black54),
         ),
         body: SingleChildScrollView(
           child: Form(

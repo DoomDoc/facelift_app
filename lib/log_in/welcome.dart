@@ -23,6 +23,7 @@ class _WelcomeScreenState extends State<WelcomeScreen> {
         "Upload bills, get ideas, track progress, store plans, make payments, and so much more right from your smartphone…",
         "assets/images/1.png",
         "Welcome,",
+        true,
       ),
       welcomeContent(
         context,
@@ -30,6 +31,7 @@ class _WelcomeScreenState extends State<WelcomeScreen> {
         "Appoint, overlook, replace, raise an issue with the on-site laborers in one click from the app.",
         "assets/images/2.png",
         "",
+        true,
       ),
       welcomeContent(
         context,
@@ -37,6 +39,7 @@ class _WelcomeScreenState extends State<WelcomeScreen> {
         "Over 750 highest quality materials & products to choose from 170+ National & International brands directly at your site…",
         "assets/images/3.png",
         "",
+        false,
       ),
     ];
 
@@ -104,15 +107,16 @@ class _WelcomeScreenState extends State<WelcomeScreen> {
       width: 6,
       decoration: BoxDecoration(
         border: Border.all(color: pinkColor),
-        color:
-            currentPage == index ? pinkColor : const Color.fromRGBO(240, 240, 240, 1),
+        color: currentPage == index
+            ? pinkColor
+            : const Color.fromRGBO(240, 240, 240, 1),
         borderRadius: BorderRadius.circular(3),
       ),
     );
   }
 
   Widget welcomeContent(BuildContext context, String heading, String text,
-      String image, String welcome) {
+      String image, String welcome, bool arrow) {
     return Column(
       children: [
         const Spacer(flex: 2),
@@ -129,6 +133,24 @@ class _WelcomeScreenState extends State<WelcomeScreen> {
             ),
           ),
         ),
+        arrow
+            ? Padding(
+                padding: const EdgeInsets.only(right: 16),
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.end,
+                  children: [
+                    ClipOval(
+                      child: Container(
+                        height: 35,
+                        width: 35,
+                        decoration: BoxDecoration(color: Colors.grey.shade400),
+                        child: const Icon(Icons.arrow_forward),
+                      ),
+                    )
+                  ],
+                ),
+              )
+            : const SizedBox(height: 35),
         const Spacer(flex: 3),
         Padding(
           padding: const EdgeInsets.symmetric(horizontal: 12),

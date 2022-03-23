@@ -2,6 +2,7 @@
 
 import 'package:flutter/material.dart';
 
+import '../../dialogs.dart';
 import '../../models/finishing.dart';
 
 class FinishingScreen extends StatelessWidget {
@@ -189,14 +190,8 @@ class FinishingList extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     Size size = MediaQuery.of(context).size;
-    bool _phoneWidth;
-    if (size.width < 330 && size.width > 270) {
-      _phoneWidth = false;
-    } else {
-      _phoneWidth = true;
-    }
     return Padding(
-      padding: const EdgeInsets.only(bottom: 16),
+      padding: const EdgeInsets.only(bottom: 0),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
@@ -209,13 +204,7 @@ class FinishingList extends StatelessWidget {
           ),
           Container(
             padding: EdgeInsets.only(top: 8, left: 4),
-            height: _phoneWidth
-                ? name == "Doors"
-                    ? 240
-                    : 190
-                : name == "Doors"
-                    ? 230
-                    : 180,
+            height: name == "Doors" ? size.width * 0.6 : size.width * 0.5,
             // height: double.maxFinite,
             child: ListView.builder(
               shrinkWrap: true,
@@ -245,36 +234,28 @@ class FinishingPageCard extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     Size size = MediaQuery.of(context).size;
-    bool phoneWidth;
-    if (size.width < 330 && size.width > 270) {
-      phoneWidth = false;
-    } else {
-      phoneWidth = true;
-    }
+
     return Padding(
       padding: const EdgeInsets.symmetric(horizontal: 8),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          Material(
-            elevation: 10,
-            borderRadius: BorderRadius.circular(24),
-            shadowColor: Colors.white,
-            child: SizedBox(
-              height: phoneWidth
-                  ? door
-                      ? 200
-                      : 150
-                  : door
-                      ? 190
-                      : 140,
-              width: phoneWidth ? 150 : 140,
-              // color: Colors.black12,
-              child: ClipRRect(
-                borderRadius: BorderRadius.circular(24),
-                child: Image.asset(
-                  material.image,
-                  fit: BoxFit.cover,
+          InkWell(
+            onTap: () => showImageDialogBox(context, material.image, false),
+            child: Material(
+              elevation: 10,
+              borderRadius: BorderRadius.circular(24),
+              shadowColor: Colors.white,
+              child: SizedBox(
+                height: door ? size.width * 0.5 : size.width * 0.35,
+                width: size.width * 0.35,
+                // color: Colors.black12,
+                child: ClipRRect(
+                  borderRadius: BorderRadius.circular(24),
+                  child: Image.asset(
+                    material.image,
+                    fit: BoxFit.cover,
+                  ),
                 ),
               ),
             ),
@@ -284,7 +265,7 @@ class FinishingPageCard extends StatelessWidget {
                   padding:
                       const EdgeInsets.symmetric(horizontal: 8, vertical: 8),
                   child: SizedBox(
-                    width: phoneWidth ? 140 : 130,
+                    width: size.width * 0.31,
                     child: Text(
                       material.name,
                       maxLines: 2,

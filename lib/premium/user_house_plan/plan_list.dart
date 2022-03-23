@@ -114,7 +114,7 @@ class UserHousePlanCard extends StatelessWidget {
                   context,
                   MaterialPageRoute(
                       builder: (context) => const UserHousePlanScreen()))
-              : showImageDialogBox(context, image);
+              : showImageDialogBox(context, image, true);
         },
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
