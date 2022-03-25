@@ -58,7 +58,7 @@ class PremiumWidget extends StatelessWidget {
                         s: s,
                       ),
                       PremiumText(
-                        text: """350+ Material catalogues""",
+                        text: """750+ Material catalogues""",
                         s: s,
                       ),
                       PremiumText(
